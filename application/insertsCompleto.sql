@@ -1,0 +1,55 @@
+INSERT INTO `projeto_produto`.`categoria` (`nome`) VALUES ('Informática');
+INSERT INTO `projeto_produto`.`categoria` (`nome`) VALUES ('Telefonia');
+INSERT INTO `projeto_produto`.`categoria` (`nome`) VALUES ('Móveis');
+INSERT INTO `projeto_produto`.`categoria` (`nome`) VALUES ('Eletro-Eletrônicos');
+
+INSERT INTO `projeto_produto`.`tipo` (`nome`) VALUES ('Smartphone');
+INSERT INTO `projeto_produto`.`tipo` (`nome`) VALUES ('Celular');
+INSERT INTO `projeto_produto`.`tipo` (`nome`) VALUES ('Notebook');
+INSERT INTO `projeto_produto`.`tipo` (`nome`) VALUES ('Desktops');
+INSERT INTO `projeto_produto`.`tipo` (`nome`) VALUES ('TV');
+INSERT INTO `projeto_produto`.`tipo` (`nome`) VALUES ('Máquina de Lavar');
+INSERT INTO `projeto_produto`.`tipo` (`nome`) VALUES ('Sala');
+INSERT INTO `projeto_produto`.`tipo` (`nome`) VALUES ('Geladeira');
+INSERT INTO `projeto_produto`.`tipo` (`nome`) VALUES ('Microondas');
+INSERT INTO `projeto_produto`.`tipo` (`nome`) VALUES ('Cozinha');
+INSERT INTO `projeto_produto`.`tipo` (`nome`) VALUES ('Banheiro');
+
+INSERT INTO `projeto_produto`.`tipo_categoria` (`id_tipo`, `id_categoria`) VALUES ('1', '1');
+INSERT INTO `projeto_produto`.`tipo_categoria` (`id_tipo`, `id_categoria`) VALUES ('1', '2');
+INSERT INTO `projeto_produto`.`tipo_categoria` (`id_tipo`, `id_categoria`) VALUES ('2', '1');
+INSERT INTO `projeto_produto`.`tipo_categoria` (`id_tipo`, `id_categoria`) VALUES ('1', '4');
+INSERT INTO `projeto_produto`.`tipo_categoria` (`id_tipo`, `id_categoria`) VALUES ('3', '1');
+INSERT INTO `projeto_produto`.`tipo_categoria` (`id_tipo`, `id_categoria`) VALUES ('3', '4');
+INSERT INTO `projeto_produto`.`tipo_categoria` (`id_tipo`, `id_categoria`) VALUES ('4', '1');
+INSERT INTO `projeto_produto`.`tipo_categoria` (`id_tipo`, `id_categoria`) VALUES ('5', '4');
+INSERT INTO `projeto_produto`.`tipo_categoria` (`id_tipo`, `id_categoria`) VALUES ('6', '4');
+INSERT INTO `projeto_produto`.`tipo_categoria` (`id_tipo`, `id_categoria`) VALUES ('7', '3');
+INSERT INTO `projeto_produto`.`tipo_categoria` (`id_tipo`, `id_categoria`) VALUES ('8', '4');
+INSERT INTO `projeto_produto`.`tipo_categoria` (`id_tipo`, `id_categoria`) VALUES ('9', '3');
+INSERT INTO `projeto_produto`.`tipo_categoria` (`id_tipo`, `id_categoria`) VALUES ('10', '3');
+INSERT INTO `projeto_produto`.`tipo_categoria` (`id_tipo`, `id_categoria`) VALUES ('11', '3');
+
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('Tamanho da tela', '1');
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('Quantidade Chips', '1');
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('Memória Interna', '1');
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('RAM', '1');
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('Sistema Operacional', '1');
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('Tecnologia', '1');
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('Rádio FM', '1');
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('MP3 player', '1');
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('Bluetooth', '1');
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('Wi-Fi', '1');
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('Processador', '1');
+
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('Processador', '3');
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('Sistema operacional', '3');
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('Cache', '3');
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('Tamanho da tela', '3');
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('Leitor biométrico', '3');
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('Webcam integrada', '3');
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('Cor', '3');
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('Tipo de memória', '3');
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('Disco rígido (HD)', '3');
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('Conexão s/ fio (wireless)', '3');
+INSERT INTO `projeto_produto`.`caracteristica` (`nome`, `id_tipo`) VALUES ('Bateria', '3');
