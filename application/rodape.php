@@ -13,8 +13,6 @@
 <script src="../vendors/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap -->
 <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<!--chosen -->
-<script src="../chosen/chosen.jquery.min.js"></script>
 <!-- FastClick -->
 <script src="../vendors/fastclick/lib/fastclick.js"></script>
 <!-- NProgress -->
@@ -50,11 +48,11 @@
 <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 
 <!-- Custom Theme Scripts -->
-<script src="../build/js/custom.min.js"></script>
+<!--<script src="../build/js/custom.min.js"></script>-->
 
 
 <!-- jQuery -->
-<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<!--<script src="../vendors/jquery/dist/jquery.min.js"></script>-->
 <!-- Bootstrap -->
 <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->
@@ -66,7 +64,7 @@
 <script src="../vendors/echarts/map/js/world.js"></script>
 
 <!-- Custom Theme Scripts -->
-<script src="../build/js/custom.min.js"></script>
+<!--<script src="../build/js/custom.min.js"></script>-->
 <!-- jQuery -->
 <script src="../vendors/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap -->
@@ -92,7 +90,9 @@
 <script src="../vendors/cropper/dist/cropper.min.js"></script>
 
 <!-- Custom Theme Scripts -->
-<script src="../build/js/custom.min.js"></script>
+<!--<script src="../build/js/custom.min.js"></script> -->
+<!--chosen -->
+<script src="../chosen/chosen.jquery.min.js"></script>
+<script src="../application/js/custom.js"></script>
 </body>
 </html>
-<?php include_once 'js/custom.js' ?>

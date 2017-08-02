@@ -133,10 +133,5 @@ $aModelo = $conexao-> recuperarTodos($sql);
         </div>
     </div>
 
-    <script>
-        jQuery(function($){
-            $(".select").chosen({disable_search_threshold: 10});
-        }
-    </script>
-    <?php include_once 'rodape.php' ?>
 
+    <?php include_once 'rodape.php' ?>
