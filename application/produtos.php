@@ -1,4 +1,14 @@
-<?php include_once 'cabecalho.php' ?>
+<?php include_once 'cabecalho.php';
+ include_once 'conexao.php';
+$conexao = new Conexao();
+
+$sql = "select * from marca";
+$sql = "select * from modelo";
+
+
+$aMarca = $conexao-> recuperarTodos($sql);
+$aModelo = $conexao-> recuperarTodos($sql);
+?>
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="">
@@ -63,17 +73,19 @@
                                 </label>
                                 <select class="col-md-6 col-sm-6 col-xs-12 chosen-select" multiple name="marca" id="marcar">
                                     <option value="#">Selecione</option>
-                                    <option value="nike">Nike</option>
-                                    <option value="adidas">Adidas</option>
-                                    <option value="puma">Puma</option>
+                                    <?php foreach($aMarca as $marca){
+                                    echo " <option value='{$marca['id_marca']}'>{{$marca['nome']}}</option>";
+                                    }?>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modelo">Modelo</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="modelo" required="required"
-                                           class="form-control col-md-7 col-xs-12">
-                                </div>
+                                <select class="col-md-6 col-sm-6 col-xs-12 chosen-select" multiple name="marca" id="marcar">
+                                    <option value="#">Selecione</option>
+                                    <?php foreach($aModelo as $modelo){
+                                        echo " <option value='{$modelo['id_marca']}'>{{$modelo['nome']}}</option>";
+                                    }?>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="codigo">Código <span
@@ -98,7 +110,6 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Styled</label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
                                     <div class="input-group demo2">
-                                        <input type="color" name="favcolor" value="#ff0000">
                                         <input type="text" value="#e01ab5" class="form-control"/>
                                         <span class="input-group-addon"><i></i></span>
                                     </div>
