@@ -5,7 +5,7 @@ class Conexao {
 	
 	public function conectar()
 	{
-		$this->conexao = new PDO('mysql:host=localhost;dbname=projeto_produto', 'root', '');
+		$this->conexao = new PDO('mysql:host=localhost;dbname=projeto_produto', 'root', 'iesb');
 	}
 	
 	public function desconectar()

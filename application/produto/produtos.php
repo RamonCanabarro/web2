@@ -1,5 +1,5 @@
-<?php include_once 'cabecalho.php';
-include_once 'conexao.php';
+<?php include_once '../cabecalho.php';
+include_once '../conexao.php';
 $conexao = new Conexao();
 
 $sql = "select * from marca";
@@ -134,4 +134,4 @@ $aModelo = $conexao-> recuperarTodos($sql);
     </div>
 
 
-    <?php include_once 'rodape.php' ?>
+    <?php include_once '../rodape.php' ?>

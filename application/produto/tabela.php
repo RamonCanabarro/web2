@@ -1,5 +1,5 @@
-<?php include_once 'cabecalho.php';
-include_once 'conexao.php';
+<?php include_once '../cabecalho.php';
+include_once '../conexao.php';
 $conexao = new Conexao();
 
 
@@ -16,7 +16,7 @@ $aModelo = $conexao->recuperarTodos($sqli);
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>MOMON QUE FEZ!!!</h3>
+                <h3>!!!</h3>
             </div>
 
             <div class="title_right">
@@ -68,7 +68,6 @@ $aModelo = $conexao->recuperarTodos($sqli);
                                 <tr>
                                     <th><input type="text" class="form-control" id="txtColuna1"/></th>
                                     <th><input type="text" class="form-control" id="txtColuna2"/></th>
-                                    <th><input type="text" class="form-control" id="txtColuna3"/></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -107,7 +106,7 @@ $aModelo = $conexao->recuperarTodos($sqli);
                                 </ul>
                                 <div class="clearfix"></div>
                             </div>
-                            <table class="table table-striped" id="tabela">
+                            <table class="table table-striped" id="">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
@@ -132,15 +131,12 @@ $aModelo = $conexao->recuperarTodos($sqli);
                                     <li><a onClick="history.go(0)">Avançar</a></li>
                                 </ul>
                             </table>
-                            <input type="button" value="Voltar" onClick="history.go(-1)">
-                            <input type="button" value="Avançar" onCLick="history.forward()">
-                            <input type="button" value="Atualizar" onClick="history.go(0)">
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        <?php include_once 'rodape.php'; ?>
+        <?php include_once '../rodape.php'; ?>
         <script>
             $(function () {
                 $("#tabela input").keyup(function () {
