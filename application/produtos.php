@@ -1,5 +1,5 @@
 <?php include_once 'cabecalho.php';
- include_once 'conexao.php';
+include_once 'conexao.php';
 $conexao = new Conexao();
 
 $sql = "select * from marca";
@@ -110,7 +110,7 @@ $aModelo = $conexao-> recuperarTodos($sql);
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Styled</label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
                                     <div class="input-group demo2">
-                                        <input type="text" value="#e01ab5" class="form-control"/>
+                                        <input type="text" value="#e01ab5" class="form-control" />
                                         <span class="input-group-addon"><i></i></span>
                                     </div>
                                 </div>
