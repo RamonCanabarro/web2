@@ -72,7 +72,7 @@ $aModelo = $conexao->recuperarTodos($sqli);
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <th scope="row">1</th>
+                                    <th scope="row"></th>
                                     <?php foreach ($aMarca as $marca) {
                                     ; ?>
                                 <tr class="blocos">
@@ -115,7 +115,7 @@ $aModelo = $conexao->recuperarTodos($sqli);
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <th scope="row">1</th>
+                                    <th scope="row"></th>
                                     <?php foreach ($aModelo as $modelo) {
                                     ; ?>
                                 <tr>

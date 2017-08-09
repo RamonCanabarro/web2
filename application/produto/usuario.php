@@ -1,8 +1,6 @@
 <?php
 
 
-
-
 include_once '../marca/Marca.php';
 include_once '../modelo/Modelo.php';
 
@@ -11,7 +9,7 @@ $oMarca = (new Marca())->recuperarTodos();
 $oModelo = (new Modelo())->recuperarTodos();
 
 
-include_once '../cabecalho.php';?>
+include_once '../cabecalho.php'; ?>
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="">
@@ -62,63 +60,63 @@ include_once '../cabecalho.php';?>
                         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nome<span
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cep">CEP<span
                                         class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="first-name" required="required"
+                                    <input type="text" id="cep" required="required"
                                            class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Marca <span
-                                        class="required">*</span>
-                                </label>
-                                <select class="col-md-6 col-sm-6 col-xs-12 chosen-select" multiple name="marca" id="marcar">
-                                    <option value="#">Selecione</option>
-                                    <?php foreach($aMarca as $marca){
-                                        echo " <option value='{$marca['id_marca']}'>{{$marca['nome']}}</option>";
-                                    }?>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modelo">Modelo</label>
-                                <select class="col-md-6 col-sm-6 col-xs-12 chosen-select" multiple name="marca" id="marcar">
-                                    <option value="#">Selecione</option>
-                                    <?php foreach($aModelo as $modelo){
-                                        echo " <option value='{$modelo['id_marca']}'>{{$modelo['nome']}}</option>";
-                                    }?>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="codigo">Código <span
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="logradouro">Logradouro
+                                    <span
                                         class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="codigo" name="codigo" class="date-picker form-control col-md-7 col-xs-12"
+                                    <input id="logradouro" name="logradouro"
+                                           class="date-picker form-control col-md-7 col-xs-12"
                                            required="required" type="text">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="preco">Preço <span
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="n'">Nº <span
                                         class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="preco" name="preco" class="date-picker form-control col-md-7 col-xs-12"
+                                    <input id="n" name="n" class="date-picker form-control col-md-7 col-xs-12"
                                            required="required" type="text">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Styled</label>
-                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <div class="input-group demo2">
-                                        <input type="text" value="#e01ab5" class="form-control" />
-                                        <span class="input-group-addon"><i></i></span>
-                                    </div>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Bairro">Bairro <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="Bairro" name="Bairro" class="date-picker form-control col-md-7 col-xs-12"
+                                           required="required" type="text">
                                 </div>
                             </div>
-
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="uf">UF<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="uf" name="uf" class="date-picker form-control col-md-7 col-xs-12"
+                                           required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="municipio">Município<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="municipio" name="municipio"
+                                           class="date-picker form-control col-md-7 col-xs-12"
+                                           required="required" type="text">
+                                </div>
+                            </div>
                     </div>
 
                     <div class="ln_solid"></div>
@@ -138,12 +136,15 @@ include_once '../cabecalho.php';?>
 
 
     <?php include_once '../rodape.php' ?>
-<script type="text/javascript">
-    $(function () {
-        $('#nome').change(function(){
-            $.ajax({
-                url:;
-            })
+    <script>
+        $(function () {
+            $('#cep').change(function () {
+                $.ajax({
+                    url:'https://viacep.com.br/ws/01001000/json/',
+                success:function(retorno){
+                $('#bairro').val(retorno.bairro);
+                }
+                });
+            });
         })
-    })
-</script>
+    </script>

@@ -9,7 +9,7 @@
 
     <title>Gentelella Alela! | </title>
 <!--css-->
-    <link href="css.css" rel="stylesheet">
+<!--    <link href="css.css" rel="stylesheet">-->
     <!-- Bootstrap -->
     <link href="../../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -49,7 +49,7 @@
                 <!-- menu profile quick info -->
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img src="images/semfoto.jpg" alt="..." class="img-circle profile_img">
+                        <img src="" alt="..." class="">
                     </div>
                     <div class="profile_info">
                         <span>Bem-vindo,</span>
@@ -115,7 +115,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="images/semfoto.jpg" alt="">Usuario
+                                <img src="" alt="">Usuario
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
