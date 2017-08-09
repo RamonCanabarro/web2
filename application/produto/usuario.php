@@ -136,6 +136,7 @@ include_once '../cabecalho.php'; ?>
 
 
     <?php include_once '../rodape.php' ?>
+
     <script>
         $(function () {
             $('#cep').change(function () {
@@ -143,6 +144,10 @@ include_once '../cabecalho.php'; ?>
                     url:'https://viacep.com.br/ws/01001000/json/',
                 success:function(retorno){
                 $('#bairro').val(retorno.bairro);
+                $('#uf').val(retorno.uf);
+                $('#municipio').val(retorno.municipio);
+                $('#logradouro').val(retorno.logradouro'');
+                $('#n').val(retorno.n);
                 }
                 });
             });
