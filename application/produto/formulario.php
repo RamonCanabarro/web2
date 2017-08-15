@@ -1,20 +1,23 @@
-<?php include_once 'cabecalho.php';
-include_once 'conexao.php';
-$conexao = new Conexao();
-
-$sql = "select * from marca";
-$sql = "select * from modelo";
+<?php
 
 
-$aMarca = $conexao-> recuperarTodos($sql);
-$aModelo = $conexao-> recuperarTodos($sql);
-?>
+
+
+include_once '../marca/Marca.php';
+include_once '../modelo/Modelo.php';
+
+
+$oMarca = (new Marca())->recuperarTodos();
+$oModelo = (new Modelo())->recuperarTodos();
+
+
+include_once '../cabecalho.php';?>
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>MOMON QUE FEZ!!!</h3>
+                <h3>!!!</h3>
             </div>
 
             <div class="title_right">
@@ -60,7 +63,7 @@ $aModelo = $conexao-> recuperarTodos($sql);
 
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nome<span
-                                            class="required">*</span>
+                                        class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="text" id="first-name" required="required"
@@ -69,12 +72,12 @@ $aModelo = $conexao-> recuperarTodos($sql);
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Marca <span
-                                            class="required">*</span>
+                                        class="required">*</span>
                                 </label>
                                 <select class="col-md-6 col-sm-6 col-xs-12 chosen-select" multiple name="marca" id="marcar">
                                     <option value="#">Selecione</option>
                                     <?php foreach($aMarca as $marca){
-                                    echo " <option value='{$marca['id_marca']}'>{{$marca['nome']}}</option>";
+                                        echo " <option value='{$marca['id_marca']}'>{{$marca['nome']}}</option>";
                                     }?>
                                 </select>
                             </div>
@@ -89,7 +92,7 @@ $aModelo = $conexao-> recuperarTodos($sql);
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="codigo">Código <span
-                                            class="required">*</span>
+                                        class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input id="codigo" name="codigo" class="date-picker form-control col-md-7 col-xs-12"
@@ -99,7 +102,7 @@ $aModelo = $conexao-> recuperarTodos($sql);
 
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="preco">Preço <span
-                                            class="required">*</span>
+                                        class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input id="preco" name="preco" class="date-picker form-control col-md-7 col-xs-12"
@@ -134,4 +137,13 @@ $aModelo = $conexao-> recuperarTodos($sql);
     </div>
 
 
-    <?php include_once 'rodape.php' ?>
+    <?php include_once '../rodape.php' ?>
+<script type="text/javascript">
+    $(function () {
+        $('#nome').change(function(){
+            $.ajax({
+                url:;
+            })
+        })
+    })
+</script>

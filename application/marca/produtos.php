@@ -1,4 +1,14 @@
-<?php include_once 'cabecalho.php' ?>
+<?php include_once '../cabecalho.php';
+include_once '../conexao.php';
+$conexao = new Conexao();
+
+$sql = "select * from marca";
+$sql = "select * from modelo";
+
+
+$aMarca = $conexao-> recuperarTodos($sql);
+$aModelo = $conexao-> recuperarTodos($sql);
+?>
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="">
@@ -58,26 +68,64 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id_marca">Marca <span
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Marca <span
                                             class="required">*</span>
                                 </label>
-                                <select class="col-md-6 col-sm-6 col-xs-12 chosen-select" multiple name="id_marca" id="id_marca">
+                                <select class="col-md-6 col-sm-6 col-xs-12 chosen-select" multiple name="marca" id="marcar">
                                     <option value="#">Selecione</option>
-                                    <option value="nike">Nike</option>
-                                    <option value="adidas">Adidas</option>
-                                    <option value="puma">Puma</option>
+                                    <?php foreach($aMarca as $marca){
+                                    echo " <option value='{$marca['id_marca']}'>{{$marca['nome']}}</option>";
+                                    }?>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id_tipo">Tipo <span
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modelo">Modelo</label>
+                                <select class="col-md-6 col-sm-6 col-xs-12 chosen-select" multiple name="marca" id="marcar">
+                                    <option value="#">Selecione</option>
+                                    <?php foreach($aModelo as $modelo){
+                                        echo " <option value='{$modelo['id_marca']}'>{{$modelo['nome']}}</option>";
+                                    }?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="codigo">Código <span
                                             class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="id_tipo" name="codigo" class="date-picker form-control col-md-7 col-xs-12"
+                                    <input id="codigo" name="codigo" class="date-picker form-control col-md-7 col-xs-12"
                                            required="required" type="text">
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="preco">Preço <span
+                                            class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="preco" name="preco" class="date-picker form-control col-md-7 col-xs-12"
+                                           required="required" type="text">
+                                </div>
                             </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Styled</label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <div class="input-group demo2">
+                                        <input type="text" value="#e01ab5" class="form-control" />
+                                        <span class="input-group-addon"><i></i></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div>
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                            <button class="btn btn-primary" type="button">Cancel</button>
+                            <button class="btn btn-primary" type="reset">Reset</button>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
 
                     </form>
                 </div>
@@ -85,10 +133,5 @@
         </div>
     </div>
 
-    <script>
-        jQuery(function($){
-            $(".select").chosen({disable_search_threshold: 10});
-        }
-    </script>
-    <?php include_once 'rodape.php' ?>
 
+    <?php include_once '../rodape.php' ?>
