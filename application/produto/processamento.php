@@ -1,0 +1,34 @@
+<?php 
+
+session_start();
+
+include_once 'Produto.php';
+
+$oProduto = new Produto();
+
+switch($_GET['acao']){
+    case 'verificar-codigo';
+    $oProduto->verificarCodigo($_GET['codigo']);    
+        die;
+	case 'salvar':
+		if(empty($_POST['id_Produto'])){
+			$resultado = $oProduto->inserir($_POST);
+		} else {
+			$resultado = $oProduto->alterar($_POST);
+		}
+		break;
+	case 'excluir':
+		$resultado = $oProduto->excluir($_GET['id_Produto']);
+		break;
+}
+
+$mensagem = $resultado ? 'Operação realizada com sucesso.' : 'Ocorreu um erro.'; 
+
+$_SESSION['mensagem'] = $mensagem;
+$_SESSION['resultado'] = $resultado;
+
+?>
+<script>
+	window.location.href= 'index.php';
+</script>	
+    

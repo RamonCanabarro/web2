@@ -81,20 +81,20 @@ include_once '../cabecalho.php'; ?>
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="n'">Nº <span
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="complemento'">Complemento <span
                                         class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="n" name="n" class="date-picker form-control col-md-7 col-xs-12"
+                                    <input id="complemento" name="complemento" class="date-picker form-control col-md-7 col-xs-12"
                                            required="required" type="text">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Bairro">Bairro <span
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="bairro">Bairro<span
                                         class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="Bairro" name="Bairro" class="date-picker form-control col-md-7 col-xs-12"
+                                    <input id="bairro" name="bairro" class="date-picker form-control col-md-7 col-xs-12"
                                            required="required" type="text">
                                 </div>
                             </div>
@@ -108,11 +108,11 @@ include_once '../cabecalho.php'; ?>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="municipio">Município<span
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="localidade">Localidade<span
                                         class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="municipio" name="municipio"
+                                    <input id="localidade" name="localidade"
                                            class="date-picker form-control col-md-7 col-xs-12"
                                            required="required" type="text">
                                 </div>
@@ -140,16 +140,27 @@ include_once '../cabecalho.php'; ?>
     <script>
         $(function () {
             $('#cep').change(function () {
+                var cep = $('#cep').val();
+
                 $.ajax({
-                    url:'https://viacep.com.br/ws/01001000/json/',
+                    url:'https://viacep.com.br/ws/' + cep + '/json/',
                 success:function(retorno){
                 $('#bairro').val(retorno.bairro);
                 $('#uf').val(retorno.uf);
-                $('#municipio').val(retorno.municipio);
-                $('#logradouro').val(retorno.logradouro'');
-                $('#n').val(retorno.n);
+                $('#localidade').val(retorno.localidade);
+                $('#logradouro').val(retorno.logradouro);
+                $('#complemento').val(retorno.complemento);
                 }
                 });
+//                "cep": "01001-000",
+//                    "logradouro": "Praça da Sé",
+//                    "complemento": "lado ímpar",
+//                    "bairro": "Sé",
+//                    "localidade": "São Paulo",
+//                    "uf": "SP",
+//                    "unidade": "",
+//                    "ibge": "3550308",
+//                    "gia": "1004
             });
         })
     </script>

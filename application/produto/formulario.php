@@ -138,12 +138,17 @@ include_once '../cabecalho.php';?>
 
 
     <?php include_once '../rodape.php' ?>
-<script type="text/javascript">
+
+    
+    <script>
     $(function () {
-        $('#nome').change(function(){
-            $.ajax({
-                url:;
-            })
-        })
-    })
+    $('#codigo').change(function (){
+       $.ajax({
+           url:'processamento.php?acao=verificar-codigo&codigo=' + $('#codigo').val(),
+           success:function (retorno){
+               alert(retorno);
+           }
+       });
+    });
+    });
 </script>
