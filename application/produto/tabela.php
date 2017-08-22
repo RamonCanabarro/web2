@@ -136,7 +136,7 @@ $aModelo = $conexao->recuperarTodos($sqli);
                 </div>
             </div>
         </div>
-        <?php include_once '../rodape.php'; ?>
+        <?php include_once '../rodape2.php'; ?>
         <script>
             $(function () {
                 $("#tabela input").keyup(function () {

@@ -3,11 +3,11 @@ include_once '../conexao.php';
 $conexao = new Conexao();
 
 $sql = "select * from marca";
-$sql = "select * from modelo";
+$sql1 = "select * from modelo";
 
 
 $aMarca = $conexao-> recuperarTodos($sql);
-$aModelo = $conexao-> recuperarTodos($sql);
+$aModelo = $conexao-> recuperarTodos($sql1);
 ?>
 <!-- page content -->
 <div class="right_col" role="main">
@@ -20,7 +20,7 @@ $aModelo = $conexao-> recuperarTodos($sql);
             <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
+                        <input type="text" class="form-control" placeholder="Search for../...">
                         <span class="input-group-btn">
                       <button class="btn btn-default" type="button">Go!</button>
                     </span>
@@ -111,7 +111,7 @@ $aModelo = $conexao-> recuperarTodos($sql);
                                 <div class="col-md-9 col-sm-9 col-xs-12">
                                     <div class="input-group demo2">
                                         <input type="text" value="#e01ab5" class="form-control" />
-                                        <span class="input-group-addon"><i></i></span>
+                                        <span class="input-group-addon"><i style="background-color: rgb(101,129,191);" ></i></span>
                                     </div>
                                 </div>
                             </div>
@@ -132,6 +132,8 @@ $aModelo = $conexao-> recuperarTodos($sql);
             </div>
         </div>
     </div>
+
+    <script src="../chosen/chosen.jquery.min.js"></script>
 
 
     <?php include_once '../rodape.php' ?>

@@ -72,4 +72,4 @@
                 </div>
             </div>
         </div>
-<?php include_once 'rodape.php' ?>
+<?php include_once 'rodape2.php' ?>

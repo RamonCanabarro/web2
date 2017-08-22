@@ -135,7 +135,7 @@ include_once '../cabecalho.php'; ?>
     </div>
 
 
-    <?php include_once '../rodape.php' ?>
+    <?php include_once '../rodape2.php' ?>
 
     <script>
         $(function () {
@@ -152,15 +152,9 @@ include_once '../cabecalho.php'; ?>
                 $('#complemento').val(retorno.complemento);
                 }
                 });
-//                "cep": "01001-000",
-//                    "logradouro": "Praça da Sé",
-//                    "complemento": "lado ímpar",
-//                    "bairro": "Sé",
-//                    "localidade": "São Paulo",
-//                    "uf": "SP",
-//                    "unidade": "",
-//                    "ibge": "3550308",
-//                    "gia": "1004
             });
         })
+        $("button").click(function(){
+            $("#div").load("demo_test.txt");
+        });
     </script>

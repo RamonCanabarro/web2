@@ -137,9 +137,8 @@ include_once '../cabecalho.php';?>
     </div>
 
 
-    <?php include_once '../rodape.php' ?>
+    <?php include_once '../rodape2.php' ?>
 
-    
     <script>
     $(function () {
     $('#codigo').change(function (){
@@ -150,5 +149,6 @@ include_once '../cabecalho.php';?>
            }
        });
     });
+        $(".chosen-select").chosen({rtl: true});
     });
 </script>

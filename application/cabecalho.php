@@ -8,28 +8,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Gentelella Alela! | </title>
-<!--css-->
-<!--    <link href="css.css" rel="stylesheet">-->
+
     <!-- Bootstrap -->
     <link href="../../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="../../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="../../vendors/nprogress/nprogress.css" rel="stylesheet">
-<!--  chosen -->
-    <link href="../../chosen/chosen.min.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- bootstrap-progressbar -->
+    <link href="../../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="../../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
     <link href="../../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-    <!-- bootstrap-datetimepicker -->
-    <link href="../../vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
-    <!-- Ion.RangeSlider -->
-    <link href="../../vendors/normalize-css/normalize.css" rel="stylesheet">
-    <link href="../../vendors/ion.rangeSlider/css/ion.rangeSlider.css" rel="stylesheet">
-    <link href="../../vendors/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
-    <!-- Bootstrap Colorpicker -->
-    <link href="../../vendors/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css" rel="stylesheet">
-
-    <link href="../../vendors/cropper/dist/cropper.min.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="../../build/css/custom.min.css" rel="stylesheet">
@@ -49,11 +43,11 @@
                 <!-- menu profile quick info -->
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img src="" alt="..." class="">
+                        <img src="images/semfoto.jpg" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>Bem-vindo,</span>
-                        <h2>Usuario</h2>
+                        <h2>Orion Teles</h2>
                     </div>
                 </div>
                 <!-- /menu profile quick info -->
@@ -115,7 +109,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="" alt="">Usuario
+                                <img src="images/semfoto.jpg" alt="">Orion Teles
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -138,7 +132,7 @@
                             <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                                 <li>
                                     <a>
-<!--                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>-->
+                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
                                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -150,7 +144,7 @@
                                 </li>
                                 <li>
                                     <a>
-<!--                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>-->
+                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
                                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -162,7 +156,7 @@
                                 </li>
                                 <li>
                                     <a>
-<!--                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>-->
+                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
                                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -174,7 +168,7 @@
                                 </li>
                                 <li>
                                     <a>
-<!--                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>-->
+                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
                                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
