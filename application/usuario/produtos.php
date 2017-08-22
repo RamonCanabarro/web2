@@ -83,7 +83,7 @@ $aModelo = $conexao-> recuperarTodos($sql1);
                                 <select class="col-md-6 col-sm-6 col-xs-12 chosen-select" multiple name="marca" id="marcar">
                                     <option value="#">Selecione</option>
                                     <?php foreach($aModelo as $modelo){
-                                        echo " <option value='{$modelo['id_modelo']}'>{{$modelo['nome']}}</option>";
+                                        echo " <option value='{$modelo['id_marca']}'>{{$modelo['nome']}}</option>";
                                     }?>
                                 </select>
                             </div>
@@ -117,7 +117,7 @@ $aModelo = $conexao-> recuperarTodos($sql1);
                             </div>
 
                     </div>
-                    </form>
+
                     <div class="ln_solid"></div>
                     <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
@@ -126,14 +126,14 @@ $aModelo = $conexao-> recuperarTodos($sql1);
                             <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                     </div>
+
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+    <script src="../chosen/chosen.jquery.min.js"></script>
+
 
     <?php include_once '../rodape.php' ?>
-
-    <script>
-        $(".chosen-select").chosen({no_results_text: "Oops, nothing found!"});
-    </script>
