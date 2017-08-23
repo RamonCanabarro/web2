@@ -10,6 +10,11 @@ switch($_GET['acao']){
     case 'verificar-codigo';
     $oProduto->verificarCodigo($_GET['codigo']);    
         die;
+		case 'recuperar-modelos';
+		include_once '..modelo/Modelo.php';
+		$oModelo = new Modelo();
+		$oModelo->recuperarPorMarca($_GET['id_marca']);
+		die;
 	case 'salvar':
 		if(empty($_POST['id_Produto'])){
 			$resultado = $oProduto->inserir($_POST);
