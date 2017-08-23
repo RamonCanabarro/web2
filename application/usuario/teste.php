@@ -14,3 +14,6 @@ exl: s('#div_retorno').load('pagina.php');
 4- retorno da requisição
 
 echo sql die
+function ()(
+$('#id_modelo').triger("chosen:updated");
+)
