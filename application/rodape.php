@@ -25,6 +25,8 @@
 <script src="../../vendors/gauge.js/dist/gauge.min.js"></script>
 <!-- bootstrap-progressbar -->
 <script src="../../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- Bootstrap Colorpicker -->
+<script src="../../vendors/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
 <!-- iCheck -->
 <script src="../../vendors/iCheck/icheck.min.js"></script>
 <!-- Skycons -->

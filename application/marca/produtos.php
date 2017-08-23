@@ -68,13 +68,13 @@ $aModelo = $conexao-> recuperarTodos($sql1);
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Marca <span
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="marca">Marca<span
                                             class="required">*</span>
                                 </label>
                                 <select class="col-md-6 col-sm-6 col-xs-12 chosen-select" multiple name="marca" id="marcar">
                                     <option value="#">Selecione</option>
                                     <?php foreach($aMarca as $marca){
-                                    echo " <option value='{$marca['id_marca']}'>{{$marca['nome']}}</option>";
+                                    echo " <option value='{$marca['id_marca']}'>{$marca['nome']}</option>";
                                     }?>
                                 </select>
                             </div>
@@ -83,7 +83,7 @@ $aModelo = $conexao-> recuperarTodos($sql1);
                                 <select class="col-md-6 col-sm-6 col-xs-12 chosen-select" multiple name="marca" id="marcar">
                                     <option value="#">Selecione</option>
                                     <?php foreach($aModelo as $modelo){
-                                        echo " <option value='{$modelo['id_modelo']}'>{{$modelo['nome']}}</option>";
+                                        echo "<option value='{$modelo['id_modelo']}'>{$modelo['nome']}</option>";
                                     }?>
                                 </select>
                             </div>

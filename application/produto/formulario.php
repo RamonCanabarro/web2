@@ -1,4 +1,5 @@
 <?php
+include_once '../cabecalho.php';
 
 
 
@@ -77,7 +78,7 @@ include_once '../cabecalho.php';?>
                                 <select class="col-md-6 col-sm-6 col-xs-12 chosen-select" multiple name="marca" id="marcar">
                                     <option value="#">Selecione</option>
                                     <?php foreach($aMarca as $marca){
-                                        echo " <option value='{$marca['id_marca']}'>{{$marca['nome']}}</option>";
+                                        echo " <option value='{$marca['id_marca']}'>{$marca['nome']}</option>";
                                     }?>
                                 </select>
                             </div>
@@ -86,7 +87,7 @@ include_once '../cabecalho.php';?>
                                 <select class="col-md-6 col-sm-6 col-xs-12 chosen-select" multiple name="marca" id="marcar">
                                     <option value="#">Selecione</option>
                                     <?php foreach($aModelo as $modelo){
-                                        echo " <option value='{$modelo['id_marca']}'>{{$modelo['nome']}}</option>";
+                                        echo " <option value='{$modelo['id_marca']}'>{$modelo['nome']}</option>";
                                     }?>
                                 </select>
                             </div>
@@ -137,7 +138,7 @@ include_once '../cabecalho.php';?>
     </div>
 
 
-    <?php include_once '../rodape2.php' ?>
+    <?php include_once '../rodape.php' ?>
 
     <script>
     $(function () {
