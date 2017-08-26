@@ -1,7 +1,7 @@
 <!-- footer content -->
 <footer>
     <div class="pull-right">
-        Prontuario eletronico <a href="https://colorlib.com">Facebook</a>
+        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
     </div>
     <div class="clearfix"></div>
 </footer>
@@ -10,7 +10,7 @@
 </div>
 
 <!-- jQuery -->
-<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<script src="../vendors/jquery/dist/jquery.js"></script>
 <!-- Bootstrap -->
 <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->
@@ -47,11 +47,9 @@
 <script src="../vendors/moment/min/moment.min.js"></script>
 <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 
-<!-- Custom Theme Scripts -->
-<script src="../build/js/custom.min.js"></script>
+<!--chosen-->
+<!--<script src="../vendors/jquery/dist/chosen.jquery.js"></script>-->
 
-<script src="../chosen/chosen.jquery.min.js"></script>
-<script src="../application/js/custom.js"></script>
 
 </body>
 </html>

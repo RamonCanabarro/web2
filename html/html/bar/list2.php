@@ -1,3 +1,4 @@
+
 <?php
 include_once '../../conexao.php';
 error_reporting(E_ALL);
