@@ -30,7 +30,7 @@ class Cadastro{
 		$sql = "insert into cadastro (nome) 
 						   values ('$nome')";
 		
-		$oConexao = new Conexao();
+		$oConexao = new conexao();
 		return $oConexao->executar($sql);
 	}
 	
@@ -43,7 +43,7 @@ class Cadastro{
 					nome = '$nome'
 				where id_cadastro = $id_cadastro";
 		
-		$oConexao = new Conexao();
+		$oConexao = new conexao();
 		return $oConexao->executar($sql);
 	}
 
@@ -51,7 +51,7 @@ class Cadastro{
 	
 		$sql = "delete from cadastro where id_cadastro = $id_curso";
 
-		$oConexao = new Conexao();
+		$oConexao = new conexao();
 		return $oConexao->executar($sql);
 	}
 	
@@ -59,7 +59,7 @@ class Cadastro{
 		
 		$sql = "select * from cadastro";
 		
-		$oConexao = new Conexao();
+		$oConexao = new conexao();
 		return $oConexao->recuperarTodos($sql);
 	}
 
@@ -67,7 +67,7 @@ class Cadastro{
 	
 		$sql = "select * from cadastro where id_cadastro = $id_cadastro";
 		
-		$oConexao = new Conexao();
+		$oConexao = new conexao();
 		$cursos = $oConexao->recuperarTodos($sql);
 		
 		$this->id_cadastro = $cadastro[0]['id_cadastro'];

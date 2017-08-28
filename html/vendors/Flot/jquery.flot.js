@@ -2901,7 +2901,7 @@ Licensed under the MIT license.
                         if (x == null)
                             continue;
 
-                        // for a bar graph, the cursor must be inside the bar
+                        // for a restaurante graph, the cursor must be inside the restaurante
                         if (series[i].bars.horizontal ?
                             (mx <= Math.max(b, x) && mx >= Math.min(b, x) &&
                              my >= y + barLeft && my <= y + barRight) :

@@ -25674,7 +25674,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    width = columnWidth;
 	                    height = coord[1] - lastCoord;
 	                    if (Math.abs(height) < barMinHeight) {
-	                        // Include zero to has a positive bar
+	                        // Include zero to has a positive restaurante
 	                        height = (height <= 0 ? -1 : 1) * barMinHeight;
 	                    }
 	                    lastStackCoords[stackId][idx][sign] += height;

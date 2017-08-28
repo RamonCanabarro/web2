@@ -28,7 +28,7 @@
     barSelector: '[role="bar"]',
     spinnerSelector: '[role="spinner"]',
     parent: 'body',
-    template: '<div class="bar" role="bar"><div class="peg"></div></div><div class="spinner" role="spinner"><div class="spinner-icon"></div></div>'
+    template: '<div class="restaurante" role="restaurante"><div class="peg"></div></div><div class="spinner" role="spinner"><div class="spinner-icon"></div></div>'
   };
 
   /**
@@ -135,13 +135,13 @@
   };
 
   /**
-   * Hides the progress bar.
+   * Hides the progress restaurante.
    * This is the *sort of* the same as setting the status to 100%, with the
    * difference being `done()` makes some placebo effect of some realistic motion.
    *
    *     NProgress.done();
    *
-   * If `true` is passed, it will show the progress bar even if its hidden.
+   * If `true` is passed, it will show the progress restaurante even if its hidden.
    *
    *     NProgress.done(true);
    */

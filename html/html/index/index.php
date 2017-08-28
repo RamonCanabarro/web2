@@ -1,9 +1,9 @@
 <?php
-include_once '../bar/list2.php';
+include_once '../restaurante/list2.php';
 $oCadastro = new Cadastro();
 $cadastrar = $oCadastro->recuperarTodos();
 
-include_once '../promocoes/list4.php';
+include_once '../produtos/list4.php';
 $oCadastro4 = new Cadastrar4();
 $cadastrar4 = $oCadastro4->recuperarTodos();
 
@@ -13,7 +13,7 @@ $oCadastro3 = new Cadastrar3();
 $cadastrar3 = $oCadastro3->recuperarTodos();
 
 
-include_once '../avaliação/list5.php';
+include_once '../clientes/list5.php';
 $oCadastro5 = new Cadastrar5();
 $cadastrar5 = $oCadastro5->recuperarTodos();
 
@@ -48,10 +48,10 @@ $cadastrar5 = $oCadastro5->recuperarTodos();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="../bar/bar.php">Cadastrar estabelecimento</a>
+                <a class="navbar-brand" href="../restaurante/restaurante.php">Cadastrar estabelecimento</a>
                 <a class="navbar-brand" href="../restaurante/restaurante.php">Reservas</a>
-                <a class="navbar-brand" href="../avaliação/avaliacao.php">Produtos</a>
-                <a class="navbar-brand" href="../promocoes/promocoes.php">Promoções</a>
+                <a class="navbar-brand" href="../clientes/clientes.php">Produtos</a>
+                <a class="navbar-brand" href="../produtos/produtos.php">Promoções</a>
                 <a class="navbar-brand" href="../cadastro/login.php">SAIR</a>
             </div>
 
@@ -65,7 +65,7 @@ $cadastrar5 = $oCadastro5->recuperarTodos();
     <?php foreach ($cadastrar as $cadastros) { ?>
         <tr>
             <td>
-                <a href="../bar/altera.php?id=<?php echo $cadastros['id']; ?>"><span
+                <a href="../restaurante/altera.php?id=<?php echo $cadastros['id']; ?>"><span
                             class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
             </td>
             <td><?php echo $cadastros['nome_restaurante']; ?></td>
@@ -86,10 +86,10 @@ $cadastrar5 = $oCadastro5->recuperarTodos();
     <?php foreach ($cadastrar4 as $cadastros4) { ?>
         <tr>
             <td>
-                <a href="../promocoes/list4.php?horario=<?php echo $cadastros4['horario']; ?>"><span
+                <a href="../produtos/list4.php?horario=<?php echo $cadastros4['horario']; ?>"><span
                             class="" aria-hidden="true"></span></a>
                 <a class="excluir"
-                   href="../promocoes/processamento.php?acao=excluir&horario=<?php echo $cadastros4['horario']; ?>"><span
+                   href="../produtos/processamento.php?acao=excluir&horario=<?php echo $cadastros4['horario']; ?>"><span
                             class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
             </td>
             <td><?php echo $cadastros4['horario']; ?></td>
@@ -142,10 +142,10 @@ $cadastrar5 = $oCadastro5->recuperarTodos();
     <?php foreach ($cadastrar5 as $cadastros5) { ?>
         <tr>
             <td>
-                <a href="../avaliação/list5.php?nome=<?php echo $cadastros5['nome']; ?>"><span
+                <a href="../clientes/list5.php?nome=<?php echo $cadastros5['nome']; ?>"><span
                             class="" aria-hidden="true"></span></a>
                 <a class="excluir"
-                   href="../avaliação/processamento.php?acao=excluir&nome=<?php echo $cadastros5['nome']; ?>"><span
+                   href="../clientes/processamento.php?acao=excluir&nome=<?php echo $cadastros5['nome']; ?>"><span
                             class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
             </td>
             <td><?php echo $cadastros5['nome']; ?></td>

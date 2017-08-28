@@ -196,7 +196,7 @@ define(function(require) {
             var valueWindow = this._valueWindow;
 
             // FIXME
-            // Toolbox may has dataZoom injected. And if there are stacked bar chart
+            // Toolbox may has dataZoom injected. And if there are stacked restaurante chart
             // with NaN data, NaN will be filtered and stack will be wrong.
             // So we need to force the mode to be set empty.
             // In fect, it is not a big deal that do not support filterMode-'filter'

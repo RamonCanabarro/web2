@@ -1,12 +1,8 @@
 <?php
-include_once 'list4.php';
-$oCadastro = new Cadastrar4();
-if (!empty($_GET['promocoes'])) {
-    $oCadastro->carregarPorId($_GET['promocoes']);
-}
+include_once "list2.php"
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -16,6 +12,7 @@ if (!empty($_GET['promocoes'])) {
     <style>
         body {
             background-image: url("restaurante.jpg");
+            /*background-repeat: no-repeat;*/
         }
 
         h1 {
@@ -51,27 +48,30 @@ if (!empty($_GET['promocoes'])) {
 
 </nav>
 
-<form class="col-md-12" action="processamento.php?acao=salvar" method="post" name="promocoes">
-    <div class="panel panel-primary">
-        <div class="panel panel-heading" style="background-color:#ff3300" align="center"><h4>Promoções do dia</h4></div>
-        <div class="panel-body form-horizontal">
-            <div class="form-group col-md-8">
-                <label for="horario">Data:</label>
-                <input type="date" id="horario" name="horario" class="form-control" required
-                       value="<?php echo $oCadastro->getHorario(); ?>">
-                <label for="oferta">Promocoes:</label>
-                <input type="text" id="oferta" name="oferta" class="form-control" required
-                       value="<?php echo $oCadastro->getOferta(); ?>">
-
-            </div>
+<form action="processamento.php?acao=salvar" method="post" name="cadastro" class=" col-md-12">
+    <div class="panel panel-primary" aling="center">
+        <div class="panel-heading" align="center" style="background-color:#ff3300">
+            <h4>Cadastrar Bar/Restaurante</h4>
         </div>
+        <div class="panel-body form-horizontal">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <label for="nome_restaurante">Novo nome:</label>
+                    <input type="hidden" name="id" value="<?php echo $_GET["id"] ?>">
+                    <?php
+                    $oRestaurante = new Cadastro();
+                    $oRestaurante->carregarPorId($_GET["id"]);
+                    ?>
+                    <input type=" text" id="nome_restaurante" value="<?php echo $oRestaurante->getNome_restaurante() ?>" name="nome_restaurante" placeholder="Nome do restaurante"
+                    required class="form-control"/>
+                </div>
 
-    </div>
+                <div class="panel-footer" align="center">
+                    <button type="submit" value="Enviar" class="btn btn-danger" href="">Salvar</button>
+                    <button type="reset" value="Cancelar" class="btn btn-danger">Cancelar</button>
+                </div>
 
-    <div class="panel-footer" align="center">
-        <button type="submit" value="Entrar" class="btn btn-danger">Enviar</button>
-        <button type="reset" value="Cancelar" class="btn btn-danger">Cancelar</button>
-    </div>
-</form>
+
 </body>
 </html>
+

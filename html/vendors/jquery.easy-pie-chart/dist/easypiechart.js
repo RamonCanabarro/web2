@@ -55,7 +55,7 @@ var CanvasRenderer = function(el, options) {
 
 	var radius = (options.size - options.lineWidth) / 2;
 	if (options.scaleColor && options.scaleLength) {
-		radius -= options.scaleLength + 2; // 2 is the distance between scale and bar
+		radius -= options.scaleLength + 2; // 2 is the distance between scale and restaurante
 	}
 
 	// IE polyfill for Date
@@ -182,7 +182,7 @@ var CanvasRenderer = function(el, options) {
 			color = options.barColor;
 		}
 
-		// draw bar
+		// draw restaurante
 		drawCircle(color, options.lineWidth, percent / 100);
 	}.bind(this);
 

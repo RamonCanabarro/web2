@@ -403,7 +403,7 @@
 
 	// This allows generators to be used with vector operators more easily.
 	// Example:
-	// each(ignore(foo, bar)) instead of each(ignore(foo), ignore(bar))
+	// each(ignore(foo, restaurante)) instead of each(ignore(foo), ignore(restaurante))
 
 	// This also turns generators into vector operators, which allows
 	// constructs like:

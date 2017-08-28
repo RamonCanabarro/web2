@@ -2,75 +2,98 @@
 
 include_once '../conexao.php';
 
-class Modelo{
-	
-	protected $id_marca;
-	protected $nome;
-	
-	public function getIdModelo(){
-		return $this->id_marca;
-	}
-	
-	public function setIdModelo($id_marca){
-		$this->id_marca = $id_marca;
-	}
+class Modelo
+{
 
-	public function getNome(){
-		return $this->nome;
-	}
-	
-	public function setNome($nome){
-		$this->nome = $nome;
-	}
-	
-	public function inserir($dados){
-		
-		$nome = $dados['nome'];
-		
-		$sql = "insert into marca (nome) 
+    protected $id_modelo;
+    protected $nome;
+
+    public function getIdMarca()
+    {
+        return $this->id_modelo;
+    }
+
+    public function setIdMarca($id_modelo)
+    {
+        $this->id_modelo = $id_modelo;
+    }
+
+    public function getNome()
+    {
+        return $this->nome;
+    }
+
+    public function setNome($nome)
+    {
+        $this->nome = $nome;
+    }
+
+    public function inserir($dados)
+    {
+
+        $nome = $dados['nome'];
+
+        $sql = "insert into modelo (nome) 
 						   values ('$nome')";
-		
-		$oConexao = new Conexao();
-		return $oConexao->executar($sql);
-	}
-	
-	public function alterar($dados){
-		
-		$id_marca = $dados['id_marca'];
-		$nome     = $dados['nome'];
-	
-		$sql = "update marca set
+
+        $oConexao = new Conexao();
+        return $oConexao->executar($sql);
+    }
+
+    public function alterar($dados)
+    {
+
+        $id_modelo = $dados['id_modelo'];
+        $nome = $dados['nome'];
+
+        $sql = "update modelo set
 					nome = '$nome'
-				where id_marca = $id_marca";
-		
-		$oConexao = new Conexao();
-		return $oConexao->executar($sql);
-	}
+				where id_modelo = $id_modelo";
 
-	public function excluir($id_marca){
-	
-		$sql = "delete from marca where id_marca = $id_marca";
+        $oConexao = new Conexao();
+        return $oConexao->executar($sql);
+    }
 
-		$oConexao = new Conexao();
-		return $oConexao->executar($sql);
-	}
-	
-	public function recuperarTodos(){
-		
-		$sql = "select * from marca";
-		
-		$oConexao = new Conexao();
-		return $oConexao->recuperarTodos($sql);
-	}
+    public function excluir($id_modelo)
+    {
 
-	public function carregarPorId($id_marca){
-	
-		$sql = "select * from marca where id_marca = $id_marca";
-		
-		$oConexao = new Conexao();
-		$marcas = $oConexao->recuperarTodos($sql);
-		
-		$this->id_marca = $marcas[0]['id_marca'];
-		$this->nome = $marcas[0]['nome'];
-	}
+        $sql = "delete from modelo where id_modelo = $id_modelo";
+
+        $oConexao = new Conexao();
+        return $oConexao->executar($sql);
+    }
+
+    public function recuperarTodos()
+    {
+
+        $sql = "select * from modelo";
+
+        $oConexao = new Conexao();
+        return $oConexao->recuperarTodos($sql);
+    }
+
+    public function carregarPorId($id_modelo)
+    {
+
+        $sql = "select * from modelo where id_modelo = $id_modelo";
+
+        $oConexao = new Conexao();
+        $modelos = $oConexao->recuperarTodos($sql);
+
+        $this->id_modelo = $modelos[0]['id_modelo'];
+        $this->nome = $modelos[0]['nome'];
+    }
+
+    public function RecuperarPorMarca($id_marca)
+    {
+
+        $sql = "select * from modelo where id_marca = '$id_marca'";
+
+        $oConexao = new Conexao();
+        $modelos = $oConexao->recuperarTodos($sql);
+        foreach ($modelos as $modelo) {
+            echo " <option value='{$modelo['id_marca']}'>{$modelo['nome']}</option>";
+
+        }
+    }
 }

@@ -1,0 +1,262 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema condominio
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema condominio
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `restaurante` DEFAULT CHARACTER SET utf8 ;
+-- -----------------------------------------------------
+-- Schema restaurente
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema restaurente
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `restaurante` DEFAULT CHARACTER SET utf8 ;
+USE `condominio` ;
+
+-- -----------------------------------------------------
+-- Table `condominio`.`mesa`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `restaurante`.`mesa` (
+  `id_mesa` INT NOT NULL,
+  `mesa` INT NULL,
+  PRIMARY KEY (`id_mesa`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `condominio`.`cardapio`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `restaurante`.`cardapio` (
+  `id_cardapio` INT NOT NULL,
+  `pratos` VARCHAR(255) NULL,
+  `preco` VARCHAR(45) NULL,
+  PRIMARY KEY (`id_cardapio`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `condominio`.`pedidos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `restaurante`.`pedidos` (
+  `id_pedidos` INT NOT NULL,
+  `horario` TIME NULL,
+  `quantidade` VARCHAR(250) NULL,
+  `observacoes` VARCHAR(250) NULL,
+  `preco` VARCHAR(45) NULL,
+  `pago` TINYINT NULL,
+  `mesa_id_mesa` INT NOT NULL,
+  `cardapio_id_cardapio` INT NOT NULL,
+  PRIMARY KEY (`id_pedidos`),
+  INDEX `fk_pedidos_mesa1_idx` (`mesa_id_mesa` ASC),
+  INDEX `fk_pedidos_cardapio1_idx` (`cardapio_id_cardapio` ASC),
+  CONSTRAINT `fk_pedidos_mesa1`
+    FOREIGN KEY (`mesa_id_mesa`)
+    REFERENCES `condominio`.`mesa` (`id_mesa`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_pedidos_cardapio1`
+    FOREIGN KEY (`cardapio_id_cardapio`)
+    REFERENCES `condominio`.`cardapio` (`id_cardapio`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `condominio`.`cliente`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `restaurante`.`cliente` (
+  `id_cliente` INT NOT NULL,
+  `nome` VARCHAR(45) NULL,
+  `cpf` VARCHAR(45) NULL,
+  `endereco` VARCHAR(250) NULL,
+  `telefone` VARCHAR(45) NULL,
+  `celular` VARCHAR(45) NULL,
+  `clientecol` VARCHAR(45) NULL,
+  `pedidos_id_pedidos` INT NOT NULL,
+  PRIMARY KEY (`id_cliente`),
+  INDEX `fk_cliente_pedidos1_idx` (`pedidos_id_pedidos` ASC),
+  CONSTRAINT `fk_cliente_pedidos1`
+    FOREIGN KEY (`pedidos_id_pedidos`)
+    REFERENCES `condominio`.`pedidos` (`id_pedidos`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `condominio`.`reservas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `restaurante`.`reservas` (
+  `id_reservas` INT NOT NULL,
+  `horario` DATE NULL DEFAULT NULL,
+  `Qtd_Adult` VARCHAR(250) NULL DEFAULT NULL,
+  `Qtd_Crian` VARCHAR(250) NULL DEFAULT NULL,
+  `cliente_id_cliente` INT NOT NULL,
+  INDEX `fk_reservas_cliente1_idx` (`cliente_id_cliente` ASC),
+  PRIMARY KEY (`id_reservas`),
+  CONSTRAINT `fk_reservas_cliente1`
+    FOREIGN KEY (`cliente_id_cliente`)
+    REFERENCES `condominio`.`cliente` (`id_cliente`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `condominio`.`administrador`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `restaurante`.`administrador` (
+  `id_administrador` VARCHAR(45) NOT NULL,
+  `nome` VARCHAR(250) NULL DEFAULT NULL,
+  `telefone` VARCHAR(10) NULL DEFAULT NULL,
+  `email` VARCHAR(250) NULL DEFAULT NULL,
+  `senha` VARCHAR(255) NULL,
+  PRIMARY KEY (`id_administrador`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `condominio`.`restaurante`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `restaurante`.`restaurante` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome_restaurante` VARCHAR(250) NULL,
+  `bairro` VARCHAR(250) NULL DEFAULT NULL,
+  `cidade` VARCHAR(250) NULL DEFAULT NULL,
+  `fk_administrador` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_restaurante_administrador1_idx` (`fk_administrador` ASC),
+  CONSTRAINT `fk_restaurante_administrador1`
+    FOREIGN KEY (`fk_administrador`)
+    REFERENCES `condominio`.`administrador` (`id_administrador`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `condominio`.`produtos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `restaurante`.`produtos` (
+  `id_produtos` VARCHAR(45) NOT NULL,
+  `nome` VARCHAR(250) NULL,
+  `preco` VARCHAR(250) NULL,
+  `quantidade` INT NULL,
+  `observacoes` VARCHAR(250) NULL,
+  `administrador_id_administrador` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_produtos`),
+  INDEX `fk_produtos_administrador1_idx` (`administrador_id_administrador` ASC),
+  CONSTRAINT `fk_produtos_administrador1`
+    FOREIGN KEY (`administrador_id_administrador`)
+    REFERENCES `condominio`.`administrador` (`id_administrador`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `condominio`.`cargo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `restaurante`.`cargo` (
+  `id_cargo` INT NOT NULL,
+  `cargo` VARCHAR(255) NULL,
+  `salario` VARCHAR(255) NULL,
+  PRIMARY KEY (`id_cargo`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `condominio`.`empregado`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `restaurante`.`empregado` (
+  `id_empregado` INT NOT NULL,
+  `nome` VARCHAR(45) NULL,
+  `cpf` VARCHAR(45) NULL,
+  `endereco` VARCHAR(250) NULL,
+  `telefone` VARCHAR(45) NULL,
+  `celular` VARCHAR(45) NULL,
+  `cliente_id_cliente` INT NOT NULL,
+  `cargo_id_cargo` INT NOT NULL,
+  `administrador_id_administrador` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_empregado`),
+  INDEX `fk_empregado_cliente1_idx` (`cliente_id_cliente` ASC),
+  INDEX `fk_empregado_cargo1_idx` (`cargo_id_cargo` ASC),
+  INDEX `fk_empregado_administrador1_idx` (`administrador_id_administrador` ASC),
+  CONSTRAINT `fk_empregado_cliente1`
+    FOREIGN KEY (`cliente_id_cliente`)
+    REFERENCES `condominio`.`cliente` (`id_cliente`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_empregado_cargo1`
+    FOREIGN KEY (`cargo_id_cargo`)
+    REFERENCES `condominio`.`cargo` (`id_cargo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_empregado_administrador1`
+    FOREIGN KEY (`administrador_id_administrador`)
+    REFERENCES `condominio`.`administrador` (`id_administrador`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `condominio`.`produtos_Compras`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `restaurante`.`produtos_Compras` (
+  `id_produtos_Compras` INT NOT NULL,
+  `data_pedido` DATE NULL,
+  `quantidade` VARCHAR(250) NULL,
+  `produtos_nome` VARCHAR(250) NOT NULL,
+  PRIMARY KEY (`id_produtos_Compras`),
+  INDEX `fk_produtos_Compras_produtos_idx` (`produtos_nome` ASC),
+  CONSTRAINT `fk_produtos_Compras_produtos`
+    FOREIGN KEY (`produtos_nome`)
+    REFERENCES `condominio`.`produtos` (`nome`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+USE `restaurente` ;
+
+-- -----------------------------------------------------
+-- Table `restaurente`.`restaurante`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `restaurante`.`restaurante` (
+  `nome` INT(11) NOT NULL,
+  PRIMARY KEY (`nome`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_bin;
+
+
+-- -----------------------------------------------------
+-- Table `restaurente`.`usuario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `restaurante`.`usuario` (
+  `usuario` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`usuario`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+
+
