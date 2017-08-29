@@ -15,7 +15,9 @@ switch($_GET['acao']){
 		$oModelo = new Modelo();
 		$oModelo->recuperarPorMarca($_GET['id_marca']);
 		die;
+        
 	case 'salvar':
+        move_upload_file['foto']['tmp_name'], '../upload/produtos/teste.jpg';
 		if(empty($_POST['id_Produto'])){
 			$resultado = $oProduto->inserir($_POST);
 		} else {

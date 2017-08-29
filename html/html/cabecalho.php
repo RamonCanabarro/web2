@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Gentelella Alela! | </title>
+<title>Restaurante </title>
 
 <!-- Bootstrap -->
 <link href="../../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -44,15 +44,16 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="administrador/administrador.php">Paginas<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="administrador/administrador.php">Administrador</a></li>
-                        <li><a href="reservas/reservas.php">Reservas</a></li>
-                        <li><a href="restaurante/restaurante.php">Restaurante</a></li>
+                        <li><a href="../administrador/index.php">Administrador</a></li>
+                        <li><a href="../reservas/index.php">Reservas</a></li>
+                        <li><a href="../restaurante/index.php">Restaurante</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Page 2</a></li>
-                <li><a href="#">Page 3</a></li>
+                <li><a href="../administrador/index.php">Administrador</a></li>
+                <li><a href="../reservas/index.php">Reservas</a></li>
+                <li><a href="../restaurante/index.php">Restaurante</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
