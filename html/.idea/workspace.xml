@@ -34,11 +34,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="rodape.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="rodape.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/rodape.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="8" lean-forward="false" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+            <state relative-caret-position="494">
+              <caret line="64" column="5" lean-forward="false" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -64,7 +64,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/administrador/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
@@ -85,6 +85,8 @@
       <find>Fk_Administrado</find>
       <find>chosen</find>
       <find>CHOSEN</find>
+      <find>date</find>
+      <find>npro</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -138,9 +140,9 @@
         <option value="$PROJECT_DIR$/html/restaurante/processamento.php" />
         <option value="$PROJECT_DIR$/html/restaurante/list.php" />
         <option value="$PROJECT_DIR$/html/administrador/administrador.php" />
-        <option value="$PROJECT_DIR$/html/rodape.php" />
         <option value="$PROJECT_DIR$/html/cabecalho.php" />
         <option value="$PROJECT_DIR$/html/administrador/index.php" />
+        <option value="$PROJECT_DIR$/html/rodape.php" />
       </list>
     </option>
   </component>
@@ -152,8 +154,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="217" />
-    <option name="y" value="31" />
+    <option name="x" value="356" />
+    <option name="y" value="76" />
     <option name="width" value="1378" />
     <option name="height" value="780" />
   </component>
@@ -430,15 +432,15 @@
       <workItem from="1504022938292" duration="14479000" />
       <workItem from="1504038049760" duration="1885000" />
       <workItem from="1504045709962" duration="944000" />
-      <workItem from="1504047985850" duration="875000" />
+      <workItem from="1504047985850" duration="1605000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="205343000" />
+    <option name="totallyTimeSpent" value="206073000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="217" y="31" width="1378" height="780" extended-state="0" />
+    <frame x="356" y="76" width="1378" height="780" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.110015176" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -787,14 +789,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/rodape.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="8" lean-forward="false" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/cabecalho.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="341">
@@ -815,6 +809,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="49" lean-forward="false" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/rodape.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="64" column="5" lean-forward="false" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
           <folding />
         </state>
       </provider>
