@@ -1,12 +1,12 @@
 <?php
-include_once 'list4.php';
+include_once 'list.php';
 $oCadastro = new Cadastrar4();
-if (!empty($_GET['produtos'])) {
-    $oCadastro->carregarPorId($_GET['produtos']);
+if (!empty($_GET['id_produtos'])) {
+    $oCadastro->carregarPorId($_GET['id_produtos']);
 }
 include_once '../cabecalho.php';
 ?>
-<form class="col-md-12" action="processamento.php?acao=salvar" method="post" name="produtos">
+<form class="col-md-12" action="processamento.php?acao=salvar" method="post" name="id_produtos">
     <div class="panel panel-primary">
         <div class="panel panel-heading"></div>
         <div class="panel-body form-horizontal">

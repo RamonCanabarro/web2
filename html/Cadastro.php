@@ -27,7 +27,7 @@ class Cadastro{
 		
 		$nome = $dados['nome'];
 		
-		$sql = "insert into cadastro (nome) 
+		$sql = "insert into administrador (nome) 
 						   values ('$nome')";
 		
 		$oConexao = new conexao();
@@ -39,7 +39,7 @@ class Cadastro{
 		$id_curso = $dados['id_curso'];
 		$nome     = $dados['nome'];
 	
-		$sql = "update cadastro set
+		$sql = "update administrador set
 					nome = '$nome'
 				where id_cadastro = $id_cadastro";
 		
@@ -49,7 +49,7 @@ class Cadastro{
 
 	public function excluir($id_cadastro){
 	
-		$sql = "delete from cadastro where id_cadastro = $id_curso";
+		$sql = "delete from administrador where id_cadastro = $id_curso";
 
 		$oConexao = new conexao();
 		return $oConexao->executar($sql);
@@ -57,7 +57,7 @@ class Cadastro{
 	
 	public function recuperarTodos(){
 		
-		$sql = "select * from cadastro";
+		$sql = "select * from administrador";
 		
 		$oConexao = new conexao();
 		return $oConexao->recuperarTodos($sql);
@@ -65,7 +65,7 @@ class Cadastro{
 
 	public function carregarPorId($id_curso){
 	
-		$sql = "select * from cadastro where id_cadastro = $id_cadastro";
+		$sql = "select * from administrador where id_cadastro = $id_cadastro";
 		
 		$oConexao = new conexao();
 		$cursos = $oConexao->recuperarTodos($sql);

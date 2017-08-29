@@ -1,16 +1,16 @@
 <?php
-include_once 'list3.php';
-$oCadastro = new Cadastrar3();
-if (!empty($_GET['empregado'])) {
-    $oCadastro->carregarPorId($_GET['empregado']);
+include_once 'list.php';
+$oCadastro = new Cadastrar1();
+if (!empty($_GET['id_empregado'])) {
+    $oCadastro->carregarPorId($_GET['id_empregado']);
 }
 include_once '../cabecalho.php';
 
-include_once '../cadastro/list.php';
+include_once '../administrador/list.php';
 
 $oAdministrador = (new Cadastrar())->recuperarTodos();
 ?>
-<form class=" col-md-10" action="processamento.php?acao=salvar" method="post" name="empregado">
+<form class=" col-md-10" action="processamento.php?acao=salvar" method="post" name="id_empregado">
     <div class="panel panel-primary" aling="center">
         <div class="panel-heading" align="center">
             <h4>Cadastro</h4>

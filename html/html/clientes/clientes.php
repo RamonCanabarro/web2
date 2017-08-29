@@ -1,12 +1,12 @@
 <?php
-include_once 'list5.php';
-$oCadastro = new Cadastrar5();
-if (!empty($_GET['clientes'])) {
-    $oCadastro->carregarPorId($_GET['clientes']);
+include_once 'list.php';
+$oCadastro = new Cadastrar();
+if (!empty($_GET['id_cliente'])) {
+    $oCadastro->carregarPorId($_GET['id_cliente']);
 }
 include_once '../cabecalho.php';
 ?>
-<form class=" col-md-10" action="processamento.php?acao=salvar" method="post" name="clientes">
+<form class=" col-md-10" action="processamento.php?acao=salvar" method="post" name="id_cliente">
     <div class="panel panel-primary">
         <div class="panel-heading"></div>
         <div class="panel-body form-horizontal">
@@ -47,7 +47,7 @@ include_once '../cabecalho.php';
                         </div>
                         <div class="col-md-6">
                             <label for="empregado">Empregado:</label>
-                            <input type="text" id="empregado" name="empregado" class="form-control" required
+                            <input type="text" id="empregado" name="empregado" class="form-control"
                                    value="<?php echo $oCadastro->getEmpregado(); ?>">
                         </div>
                     </div>

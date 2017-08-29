@@ -1,5 +1,5 @@
 <?php include_once 'list.php';
-$oCadastro = new Cadastro();
+$oCadastro = new Cadastrar();
 if (!empty($_GET['id_pedidos'])) {
     $oCadastro->carregarPorId($_GET['id_pedidos']);
 }
@@ -13,12 +13,12 @@ include_once '../cabecalho.php';?>
                        value="<?php echo $oCadastro->getIdPedidos(); ?>"/></div>
             <div class="col-md-6">
                 <label for="horario">Horario:</label>
-                <input type="text" id="horario" name="horario" placeholder="Nome do restaurante"
+                <input type="text" id="horario" name="horario" placeholder=""
                        required class="form-control" value="<?php echo $oCadastro->getHorario(); ?>"/>
             </div>
             <div class="col-md-6">
-                <label for="qtd">Porções:</label>
-                <input type="text" id="qtd" name="qtd" placeholder=""
+                <label for="quantidade">Porções:</label>
+                <input type="text" id="quantidade" name="quantidade" placeholder=""
                        required class="form-control" value="<?php echo $oCadastro->getQuantidade(); ?>"/>
             </div>
             <div class="col-md-6">
@@ -42,13 +42,8 @@ include_once '../cabecalho.php';?>
                        required class="form-control" value="<?php echo $oCadastro->getMesa(); ?>"/>
             </div>
             <div class="col-md-6">
-                <label for="preco">Preço:</label>
-                <input type="text" id="preco" name="preco" placeholder=""
-                       required class="form-control" value="<?php echo $oCadastro->getPreco(); ?>"/>
-            </div>
-            <div class="col-md-6">
-                <label for="cadapio">Cardapio:</label>
-                <input type="text" id="cadapio" name="cadapio" placeholder=""
+                <label for="cardapio">Cardapio:</label>
+                <input type="text" id="cardapio" name="cardapio" placeholder=""
                        required class="form-control" value="<?php echo $oCadastro->getCardapio(); ?>"/>
             </div>
             <div class="col-md-6">

@@ -3,7 +3,7 @@
 include_once '../../conexao.php';
 error_reporting(E_ALL);
 
-class Cadastro{
+class Cadastrar{
     protected $Qtd_Adult;
     protected $Qtd_Crian;
     protected $horario;
@@ -49,13 +49,12 @@ class Cadastro{
      */
 	public function inserir($dados){
         $Qtd_Adult = $dados['qtd_adult'];
-        $id_reservas = $dados['id_reservas'];
         $horario = $dados['horario'];
         $Qtd_Crian = $dados['qtd_crian'];
         $cliente = $dados['cliente'];
 
         $sql = /** @lang text */
-        "insert into reservas (id_reservas,horario, Qtd_Adult, Qtd_Crian, cliente_id_cliente) values('$id_reservas','$horario', '$Qtd_Adult', '$Qtd_Crian', '$cliente')";
+        "insert into reservas (horario, Qtd_Adult, Qtd_Crian, cliente_id_cliente) values('$horario', '$Qtd_Adult', '$Qtd_Crian', '$cliente')";
 
         $oConexao = new conexao();
         return $oConexao->executar($sql);
@@ -63,17 +62,20 @@ class Cadastro{
 
     public function carregarPorId($id_reservas){
 
-        $sql = "select * from reservas where id = $id_reservas";
+        $sql = "select * from reservas where id_reservas = $id_reservas";
+        $oConexao = new Conexao();
+        $reservas = $oConexao->recuperarTodos($sql);
 
-        $oConexao = new conexao();
-        $restaurante = $oConexao->recuperarTodos($sql);
-        $this->setId($restaurante[0]['id']);
-        $this->setNome_restaurante($restaurante[0]['nome_restaurante']);
-        return $this;
+        $this->id_rservas = $reservas[0]['id_rservas'];
+        $this->horario = $reservas[0]['horario'];
+        $this->Qtd_Adult = $reservas[0]['Qtd_Adult'];
+        $this->Qtd_Crian = $reservas[0]['Qtd_Crian'];
+        $this->cliente_id_cliente = $reservas[0]['cliente_id_cliente'];
+
     }
-    public function excluir($Qtd_Adult){
+    public function excluir($id_reservas){
 
-        $sql = "delete from reservas where $Qtd_Adult = $Qtd_Adult";
+        $sql = "delete from reservas where id_reservas = $id_reservas";
 
         $oConexao = new conexao();
         return $oConexao->executar($sql);
@@ -89,10 +91,10 @@ class Cadastro{
 
     public function alterar($dados){
 
-        $Qtd_Adult = $dados['nome_restaurante'];
+        $id_reservas = $dados['nome_restaurante'];
         $id_reservas = $dados['id'];
         $sql = "update reservas set
-					nome_restaurante = '$Qtd_Adult'
+					nome_restaurante = '$id_reservas'
 				where id = $id_reservas";
 
         $oConexao = new conexao();

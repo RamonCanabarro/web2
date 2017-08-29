@@ -1,6 +1,6 @@
 <?php
 include_once 'list.php';
-$oCadastro = new Cadastro();
+$oCadastro = new Cadastrar();
 if (!empty($_GET['id_reservas'])) {
     $oCadastro->carregarPorId($_GET['id_reservas']);
 }

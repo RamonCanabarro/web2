@@ -1,20 +1,20 @@
 <?php 
 
-include_once 'list4.php';
+include_once 'list.php';
 
 $oCadastro = new Cadastrar4();
 
 
 switch(isset($_GET['acao'])? $_GET['acao'] : 'erro'){
 	case 'salvar':
-		if(empty($_POST['cadastro4'])) {
+		if(empty($_POST['id_produtos'])) {
             $resultado = $oCadastro->inserir($_POST);
 		} else {
 		$resultado = $oCadastro->alterar($_POST);
 	}
             break;
 	case 'excluir':
-		$resultado = $oCadastro->excluir($_GET['horario']);
+		$resultado = $oCadastro->excluir($_GET['id_produtos']);
 		break;
 }
 

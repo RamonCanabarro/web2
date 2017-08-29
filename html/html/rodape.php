@@ -10,7 +10,9 @@
 </div>
 
 <!-- jQuery -->
-<script src="../../vendors/jquery/dist/jquery.js"></script>
+<script src="../../vendors/jquery/dist/jquery.js" type="text/javascript"></script>
+<!--maskedinput-->
+<script src="jquery.maskedinput.min.js" type="text/javascript"></script>
 <!-- Bootstrap -->
 <script src="../../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->
@@ -41,8 +43,6 @@
 <script src="../../vendors/flot.curvedlines/curvedLines.js"></script>
 <!-- DateJS -->
 <script src="../../vendors/DateJS/build/date.js"></script>
-<!--button-->
-<script src="../../vendors/pnotify/dist/pnotify.buttons.js"></script>
 <!-- JQVMap -->
 <script src="../../vendors/jqvmap/dist/jquery.vmap.js"></script>
 <script src="../../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
@@ -50,10 +50,16 @@
 <!-- bootstrap-daterangepicker -->
 <script src="../../vendors/moment/min/moment.min.js"></script>
 <script src="../../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-
 </body>
 </html>
 
 <script>
     $(".chosen-select").chosen({no_results_text: "Oops, nothing found!"});
+    jQuery(function($){
+$("#horario").mask("99/99/9999",{placeholder:"mm/dd/yyyy"});
+$("#telefone").mask("(99) 999-9999");
+$("#celular").mask("(99) 999-9999");
+$("#preco").mask("999,999");
+
+});
 </script>

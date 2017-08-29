@@ -1,5 +1,5 @@
 <?php
-include_once "list2.php"
+include_once "list.php"
 ?>
 
 

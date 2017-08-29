@@ -1,19 +1,19 @@
 <?php
 
-include_once 'list3.php';
+include_once 'list.php';
 
-$oCadastro = new Cadastrar3();
+$oCadastro = new Cadastrar1();
 
 switch (isset($_GET['acao']) ? $_GET['acao'] : 'erro') {
     case 'salvar':
-        if (empty($_POST['empregado'])) {
+        if (empty($_POST['id_empregado'])) {
             $resultado = $oCadastro->inserir($_POST);
         } else {
             $resultado = $oCadastro->alterar($_POST);
         }
         break;
     case 'excluir':
-        $resultado = $oCadastro->excluir($_GET['empregado']);
+        $resultado = $oCadastro->excluir($_GET['id_empregado']);
         break;
 }
 
@@ -28,5 +28,5 @@ echo ("</pre>");
 ?>
 <script>
     alert('<?php echo $mensagem; ?> ');
-//    window.location.href = '../index/index.php';
+    window.location.href = 'index.php';
 </script>

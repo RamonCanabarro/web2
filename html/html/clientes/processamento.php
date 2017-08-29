@@ -1,20 +1,20 @@
 <?php
 
-include_once 'list5.php';
+include_once 'list.php';
 
-$oCadastro = new Cadastrar5();
+$oCadastro = new Cadastrar();
 
 
 switch(isset($_GET['acao'])? $_GET['acao'] : 'erro'){
     case 'salvar':
-        if(empty($_POST['clientes'])) {
+        if(empty($_POST['id_cliente'])) {
             $resultado = $oCadastro->inserir($_POST);
         } else {
             $resultado = $oCadastro->alterar($_POST);
         }
         break;
     case 'excluir':
-        $resultado = $oCadastro->excluir($_GET['clientes']);
+        $resultado = $oCadastro->excluir($_GET['id_cliente']);
         break;
 }
 
@@ -28,5 +28,5 @@ echo ("</pre>");
 ?>
 <script>
     alert('<?php echo $mensagem; ?>');
-//    window.location.href= '../index/index.php';
+    window.location.href= 'index.php';
 </script>

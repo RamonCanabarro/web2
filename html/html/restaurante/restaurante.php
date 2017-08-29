@@ -1,6 +1,6 @@
 <?php
-include_once 'list2.php';
-$oCadastro = new Cadastro();
+include_once 'list.php';
+$oCadastro = new Cadastrar();
 if (!empty($_GET['id'])) {
     $oCadastro->carregarPorId($_GET['id']);
 }

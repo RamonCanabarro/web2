@@ -1,19 +1,19 @@
 <?php
-include_once '../restaurante/list2.php';
+include_once '../restaurante/list.php';
 $oCadastro = new Cadastro();
 $cadastrar = $oCadastro->recuperarTodos();
 
-include_once '../produtos/list4.php';
+include_once '../produtos/list.php';
 $oCadastro4 = new Cadastrar4();
 $cadastrar4 = $oCadastro4->recuperarTodos();
 
 
-include_once '../restaurante/list3.php';
+include_once '../restaurante/list.php';
 $oCadastro3 = new Cadastrar3();
 $cadastrar3 = $oCadastro3->recuperarTodos();
 
 
-include_once '../clientes/list5.php';
+include_once '../clientes/list.php';
 $oCadastro5 = new Cadastrar5();
 $cadastrar5 = $oCadastro5->recuperarTodos();
 
@@ -52,7 +52,7 @@ $cadastrar5 = $oCadastro5->recuperarTodos();
                 <a class="navbar-brand" href="../restaurante/restaurante.php">Reservas</a>
                 <a class="navbar-brand" href="../clientes/clientes.php">Produtos</a>
                 <a class="navbar-brand" href="../produtos/produtos.php">Promoções</a>
-                <a class="navbar-brand" href="../cadastro/login.php">SAIR</a>
+                <a class="navbar-brand" href="../administrador/login.php">SAIR</a>
             </div>
 
         </div><!-- /.navbar-collapse -->
@@ -86,7 +86,7 @@ $cadastrar5 = $oCadastro5->recuperarTodos();
     <?php foreach ($cadastrar4 as $cadastros4) { ?>
         <tr>
             <td>
-                <a href="../produtos/list4.php?horario=<?php echo $cadastros4['horario']; ?>"><span
+                <a href="../produtos/list.php?horario=<?php echo $cadastros4['horario']; ?>"><span
                             class="" aria-hidden="true"></span></a>
                 <a class="excluir"
                    href="../produtos/processamento.php?acao=excluir&horario=<?php echo $cadastros4['horario']; ?>"><span
@@ -142,7 +142,7 @@ $cadastrar5 = $oCadastro5->recuperarTodos();
     <?php foreach ($cadastrar5 as $cadastros5) { ?>
         <tr>
             <td>
-                <a href="../clientes/list5.php?nome=<?php echo $cadastros5['nome']; ?>"><span
+                <a href="../clientes/list.php?nome=<?php echo $cadastros5['nome']; ?>"><span
                             class="" aria-hidden="true"></span></a>
                 <a class="excluir"
                    href="../clientes/processamento.php?acao=excluir&nome=<?php echo $cadastros5['nome']; ?>"><span
