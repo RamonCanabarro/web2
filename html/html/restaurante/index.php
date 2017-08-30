@@ -1,7 +1,7 @@
 <?php
 
 include_once 'list.php';
-$oCadastro = new Cadastrar();
+$oCadastro = new Cadastrar0();
 $cadastrar = $oCadastro->recuperarTodos();
 
 include_once '../cabecalho.php';?>

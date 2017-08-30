@@ -22,12 +22,12 @@ switch(isset($_GET['acao'])? $_GET['acao'] : 'erro'){
 
 echo ("<pre>");
 print_r($_POST);
-print_r($oCadastro->inserir($_POST));
+//print_r($oCadastro->inserir($_POST));
 print_r($_GET);
 echo ("</pre>");
 
 ?>
 <script>
   alert('<?php echo $mensagem; ?>');
-// window.location.href= '../index/index.php';
+ window.location.href= 'index.php';
 </script>

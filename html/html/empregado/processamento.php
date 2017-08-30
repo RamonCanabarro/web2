@@ -21,7 +21,7 @@ $mensagem = $resultado ? 'Operação realizada com sucesso.' : 'Ocorreu um erro.
 
 echo ("<pre>");
 print_r($_POST);
-print_r($oCadastro->inserir($_POST));
+//print_r($oCadastro->inserir($_POST));
 print_r($_GET);
 echo ("</pre>");
 

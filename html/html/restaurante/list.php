@@ -3,7 +3,7 @@
 include_once '../../conexao.php';
 error_reporting(E_ALL);
 
-class Cadastrar{
+class Cadastrar0{
     protected $nome_restaurante;
     protected $administrador;
     protected $id;
@@ -39,8 +39,7 @@ class Cadastrar{
         $id = $dados['id'];
         $administrador = $dados['administrador'];
 
-        $sql = /** @lang text */
-        "insert into restaurante (nome_restaurante, administrador_id_administrador) values('$nome_restaurante', '$administrador')";
+        $sql = "insert into restaurante (nome_restaurante, administrador_id_administrador) values('$nome_restaurante', '$administrador')";
 
         $oConexao = new conexao();
         return $oConexao->executar($sql);

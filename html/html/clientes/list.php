@@ -2,7 +2,7 @@
 
 include_once '../../conexao.php';
 
-class Cadastrar
+class Cadastrar2
 {
 
     protected $nome;
@@ -91,7 +91,7 @@ class Cadastrar
 //        $id_cliente = $dados['id_cliente'];
         $telefone = $dados['telefone'];
         $celular = $dados['celular'];
-        $empregado = $dados['empregado'];
+        $empregado = $dados['fk_empregado'];
         $endereco = $dados['endereco'];
         $sql = /** @lang text */
             "insert into cliente (nome, cpf, endereco, telefone, celular, fk_empregado) values ('$nome', '$cpf','$endereco','$telefone', '$celular','$empregado')";

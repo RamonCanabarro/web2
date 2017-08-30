@@ -49,7 +49,7 @@ class Cadastrar{
      */
 	public function inserir($dados){
         $Qtd_Adult = $dados['qtd_adult'];
-        $horario = $dados['horario'];
+        $horario = $dados['data'];
         $Qtd_Crian = $dados['qtd_crian'];
         $cliente = $dados['cliente'];
 

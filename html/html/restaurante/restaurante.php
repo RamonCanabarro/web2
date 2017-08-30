@@ -1,10 +1,12 @@
 <?php
 include_once 'list.php';
-$oCadastro = new Cadastrar();
+$oCadastro = new Cadastrar0();
 if (!empty($_GET['id'])) {
     $oCadastro->carregarPorId($_GET['id']);
 }
+include_once '../administrador/list.php';
 
+$oAdministrador = (new Cadastrar())->recuperarTodos();
 include_once '../cabecalho.php';
 ?>
 
@@ -21,9 +23,12 @@ include_once '../cabecalho.php';
                            required class="form-control" value="<?php echo $oCadastro->getNome_restaurante(); ?>"/>
                 </div>
             <div class="col-md-6">
-                <label for="administrador">Nome:</label>
-                <input type="text" id="administrador" name="administrador" placeholder="Administrador"
-                       required class="form-control" value="<?php echo $oCadastro->getAdministrador(); ?>"/>
+                <label for="administrador" class="control-label col-md-2">Administrador:</label>
+                <select data-placeholder="Administrador..." name="administrador" id="administrador" class="col-md-6 chosen-select ">
+                    <?php foreach ($oAdministrador as $administrador) { ?>
+                        <option value="<?php echo $administrador["id_administrador"]; ?>"><?php echo $administrador['nome']?></option>;
+                    <?PHP } ?>
+                </select>
             </div>
 
         </div>

@@ -98,7 +98,13 @@ class Cadastrar4
         $sql = "select * from produtos where id_produtos = $id_produtos";
 
         $oConexao = new conexao();
-        $id_produtos = $oConexao->recuperarTodos($id_produtos);
+        $produtos = $oConexao->recuperarTodos($sql);
+
+        $this->nome = $produtos[0]['nome'];
+        $this->preco = $produtos[0]['preco'];
+        $this->quantidade = $produtos[0]['quantidade'];
+        $this->observacoes = $produtos[0]['observacoes'];
+        $this->administrador_id_administrador = $produtos[0]['administrador_id_administrador'];
 
     }
 

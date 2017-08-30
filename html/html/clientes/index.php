@@ -1,13 +1,13 @@
 <?php
 
 include_once 'list.php';
-$oCadastro = new Cadastrar();
+$oCadastro = new Cadastrar2();
 $cadastrar = $oCadastro->recuperarTodos();
 
 include_once '../cabecalho.php';?>
 
 <table class="table table-bordered table-striped table-hover" style="background-color:beige ">
-    <h1 style="color:silver" align="center">Promoções</h1>
+    <h1 style="color:silver" align="center">Listagem</h1>
     <tr>
         <td>Ações</td>
         <td>Nome</td>

@@ -3,6 +3,11 @@ $oCadastro = new Cadastrar();
 if (!empty($_GET['id_pedidos'])) {
     $oCadastro->carregarPorId($_GET['id_pedidos']);
 }
+include_once '../clientes/list.php';
+
+
+$oCliente = (new Cadastrar2())->recuperarTodos();
+
 include_once '../cabecalho.php';?>
 <form action="processamento.php?acao=salvar" method="post" name="id_pedidos">
     <div class="panel panel-primary">
@@ -37,19 +42,28 @@ include_once '../cabecalho.php';?>
                        required class="form-control" value="<?php echo $oCadastro->getPago(); ?>"/>
             </div>
             <div class="col-md-6">
-                <label for="mesa">Mesa:</label>
-                <input type="text" id="mesa" name="mesa" placeholder=""
-                       required class="form-control" value="<?php echo $oCadastro->getMesa(); ?>"/>
+                <label for="cardapio" class="control-label col-md-2">Cardapio:</label>
+                <select data-placeholder="Cliente..." name="cardapio" id="cardapio" class="col-md-6 chosen-select ">
+                    <?php foreach ($oCliente as $cliente) { ?>
+                        <option value="<?php echo $cliente["id_cliente"]; ?>"><?php echo $cliente['nome']?></option>;
+                    <?PHP } ?>
+                </select>
             </div>
             <div class="col-md-6">
-                <label for="cardapio">Cardapio:</label>
-                <input type="text" id="cardapio" name="cardapio" placeholder=""
-                       required class="form-control" value="<?php echo $oCadastro->getCardapio(); ?>"/>
+                <label for="mesa" class="control-label col-md-2">Mesa:</label>
+                <select data-placeholder="Cliente..." name="mesa" id="mesa" class="col-md-6 chosen-select ">
+                    <?php foreach ($oCliente as $cliente) { ?>
+                        <option value="<?php echo $cliente["id_mesa"]; ?>"><?php echo $cliente['mesa']?></option>;
+                    <?PHP } ?>
+                </select>
             </div>
             <div class="col-md-6">
-                <label for="cliente">Cliente:</label>
-                <input type="text" id="cliente" name="cliente" placeholder=""
-                       required class="form-control" value="<?php echo $oCadastro->getCliente(); ?>"/>
+                <label for="cliente" class="control-label col-md-2">Cliente:</label>
+                <select data-placeholder="Cliente..." name="cliente" id="cliente" class="col-md-6 chosen-select ">
+                    <?php foreach ($oCliente as $cliente) { ?>
+                        <option value="<?php echo $cliente["id_cliente"]; ?>"><?php echo $cliente['nome']?></option>;
+                    <?PHP } ?>
+                </select>
             </div>
 
 

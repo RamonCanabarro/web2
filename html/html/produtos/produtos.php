@@ -4,6 +4,10 @@ $oCadastro = new Cadastrar4();
 if (!empty($_GET['id_produtos'])) {
     $oCadastro->carregarPorId($_GET['id_produtos']);
 }
+
+include_once '../administrador/list.php';
+
+$oAdministrador = (new Cadastrar())->recuperarTodos();
 include_once '../cabecalho.php';
 ?>
 <form class="col-md-12" action="processamento.php?acao=salvar" method="post" name="id_produtos">
@@ -15,33 +19,35 @@ include_once '../cabecalho.php';
                        value="<?php echo $oCadastro->getIdProdutos(); ?>"/></div>
             <div class="col-md-6">
                 <label for="nome" class="control-label col-md-2">Nome:</label>
-                <input type="text" placeholder="E-mail" id="nome" name="nome" required
+                <input type="text" placeholder="" id="nome" name="nome" required
                        class="form-control text-lowercase"
                        value="<?php echo $oCadastro->getNome(); ?>"/>
             </div>
             <div class="col-md-6">
                 <label for="preco" class="control-label col-md-2">Preço:</label>
-                <input type="text" placeholder="E-mail" id="preco" name="preco" required
+                <input type="text" placeholder="" id="preco" name="preco" required
                        class="form-control text-lowercase"
                        value="<?php echo $oCadastro->getPreco(); ?>"/>
             </div>
             <div class="col-md-6">
                 <label for="qtd" class="control-label col-md-2">Quantidade:</label>
-                <input type="number" placeholder="E-mail" id="qtd" name="qtd" required
+                <input type="number" placeholder="" id="qtd" name="qtd" required
                        class="form-control text-lowercase"
                        value="<?php echo $oCadastro->getQtd(); ?>"/>
             </div>
             <div class="col-md-6">
                 <label for="observacoes" class="control-label col-md-2">Observações:</label>
-                <input type="text" placeholder="E-mail" id="observacoes" name="observacoes" required
+                <input type="text" placeholder="" id="observacoes" name="observacoes" required
                        class="form-control text-lowercase"
                        value="<?php echo $oCadastro->getObservacao(); ?>"/>
             </div>
             <div class="col-md-6">
                 <label for="administrador" class="control-label col-md-2">Administrador:</label>
-                <input type="text" placeholder="E-mail" id="administrador" name="administrador" required
-                       class="form-control text-lowercase"
-                       value="<?php echo $oCadastro->getAdministrador(); ?>"/>
+                <select data-placeholder="Empregado..." name="administrador" id="administrador" class="col-md-6 chosen-select ">
+                    <?php foreach ($oAdministrador as $administrador) { ?>
+                        <option value="<?php echo $administrador["id_administrador"]; ?>"><?php echo $administrador['nome']?></option>;
+                    <?PHP } ?>
+                </select>
             </div>
         </div>
 

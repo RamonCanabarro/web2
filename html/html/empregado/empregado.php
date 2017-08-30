@@ -58,20 +58,20 @@ $oAdministrador = (new Cadastrar())->recuperarTodos();
                        class="form-control text-lowercase"
                        value="<?php echo $oCadastro->getCargo(); ?>"/>
             </div>
-            <div class="col-md-6">
-                <label for="fk_administrador" class="control-label col-md-2">Administrador:</label>
-                <input type="text" placeholder="Cargo" id="fk_administrador" name="fk_administrador" required
-                       class="form-control text-lowercase"
-                       value="<?php echo $oCadastro->getFkAdministrador(); ?>"/>
-            </div>
 <!--            <div class="col-md-6">-->
 <!--                <label for="fk_administrador" class="control-label col-md-2">Administrador:</label>-->
-<!--                <select data-placeholder="Administrador..." name="fk_administrador" id="fk_administrador" class="col-md-6 chosen-select ">-->
-<!--                    --><?php //foreach ($oAdministrador as $administrador) { ?>
-<!--                        <option value="--><?php //echo $oCadastro->getFkAdministrador(); ?><!--">--><?php //echo $administrador['id_administrador']?><!--</option>;-->
-<!--                    --><?PHP //} ?>
-<!--                </select>-->
+<!--                <input type="text" placeholder="Cargo" id="fk_administrador" name="fk_administrador" required-->
+<!--                       class="form-control text-lowercase"-->
+<!--                       value="--><?php //echo $oCadastro->getFkAdministrador(); ?><!--"/>-->
 <!--            </div>-->
+            <div class="col-md-6">
+                <label for="fk_administrador" class="control-label col-md-2">Administrador:</label>
+                <select data-placeholder="Administrador..." name="fk_administrador" id="fk_administrador" class="col-md-6 chosen-select ">
+                    <?php foreach ($oAdministrador as $administrador) { ?>
+                        <option value="<?php echo $administrador["id_administrador"]; ?>"><?php echo $administrador['nome']?></option>;
+                    <?PHP } ?>
+                </select>
+            </div>
         </div>
         <div class="panel-footer" align="center">
             <button type="submit" value="Entrar" class="btn btn-success">Enviar</button>

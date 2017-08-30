@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Restaurante </title>
+<title>Gentelella Alela! | </title>
 
 <!-- Bootstrap -->
 <link href="../../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -44,20 +44,28 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="administrador/administrador.php">Paginas<span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="../administrador/index.php">Administrador</a></li>
                         <li><a href="../reservas/index.php">Reservas</a></li>
                         <li><a href="../restaurante/index.php">Restaurante</a></li>
+                        <li><a href="../empregado/index.php">Empregado</a></li>
+                        <li><a href="../clientes/index.php">Cliente</a></li>
+                        <li><a href="../produtos/index.php">Cliente</a></li>
+                        <li><a href="../pedidos/index.php">Cliente</a></li>
                     </ul>
                 </li>
                 <li><a href="../administrador/index.php">Administrador</a></li>
                 <li><a href="../reservas/index.php">Reservas</a></li>
                 <li><a href="../restaurante/index.php">Restaurante</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="../empregado/index.php">Empregado</a></li>
+                <li><a href="../clientes/index.php">Cliente</a></li>
+                <li><a href="../produtos/index.php">Cliente</a></li>
+                <li><a href="../pedidos/index.php">Cliente</a></li>
+
+                <ul class="nav navbar-nav navbar-right">
+<!--                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+<!--                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->
             </ul>
         </div>
     </div>

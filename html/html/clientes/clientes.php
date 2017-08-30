@@ -1,9 +1,13 @@
 <?php
 include_once 'list.php';
-$oCadastro = new Cadastrar();
+$oCadastro = new Cadastrar2();
 if (!empty($_GET['id_cliente'])) {
     $oCadastro->carregarPorId($_GET['id_cliente']);
 }
+include_once '../empregado/list.php';
+
+$oEmpregado = (new Cadastrar1())->recuperarTodos();
+
 include_once '../cabecalho.php';
 ?>
 <form class=" col-md-10" action="processamento.php?acao=salvar" method="post" name="id_cliente">
@@ -45,10 +49,14 @@ include_once '../cabecalho.php';
                             <input type="text" id="celular" name="celular" class="form-control" required
                                    value="<?php echo $oCadastro->getCelular(); ?>">
                         </div>
+
                         <div class="col-md-6">
-                            <label for="empregado">Empregado:</label>
-                            <input type="text" id="empregado" name="empregado" class="form-control"
-                                   value="<?php echo $oCadastro->getEmpregado(); ?>">
+                            <label for="fk_empregado" class="control-label col-md-2">Administrador:</label>
+                            <select data-placeholder="Empregado..." name="fk_empregado" id="fk_empregado" class="col-md-6 chosen-select ">
+                                <?php foreach ($oEmpregado as $empregado) { ?>
+                                    <option value="<?php echo $empregado["id_empregado"]; ?>"><?php echo $empregado['nome']?></option>;
+                                <?PHP } ?>
+                            </select>
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">

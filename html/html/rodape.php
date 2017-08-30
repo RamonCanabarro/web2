@@ -12,7 +12,7 @@
 <!-- jQuery -->
 <script src="../../vendors/jquery/dist/jquery.js" type="text/javascript"></script>
 <!--maskedinput-->
-<!--<script src="jquery.maskedinput.min.js" type="text/javascript"></script>-->
+<script src="../jquery.maskedinput.min.js" type="text/javascript"></script>
 <!-- Bootstrap -->
 <script src="../../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->
@@ -55,11 +55,12 @@
 
 <script>
     $(".chosen-select").chosen({no_results_text: "Oops, nothing found!"});
-//    jQuery(function($){
-//$("#horario").mask("99/99/9999",{placeholder:"mm/dd/yyyy"});
-//$("#telefone").mask("(99) 999-9999");
-//$("#celular").mask("(99) 999-9999");
-//$("#preco").mask("999,999");
+    jQuery(function ($) {
+        $("#horario").mask("99:99");
+        $("#data").mask("99/99/9999", {placeholder: "mm/dd/yyyy"});
+        $("#telefone").mask("(99) 999-9999");
+        $("#celular").mask("(99) 999-9999");
+        $("#preco").mask("99,99");
 
-//});
+    });
 </script>

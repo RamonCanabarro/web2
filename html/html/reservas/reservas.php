@@ -4,6 +4,12 @@ $oCadastro = new Cadastrar();
 if (!empty($_GET['id_reservas'])) {
     $oCadastro->carregarPorId($_GET['id_reservas']);
 }
+
+include_once '../clientes/list.php';
+
+
+$oCliente = (new Cadastrar2())->recuperarTodos();
+
 include_once '../cabecalho.php';?>
 
 
@@ -15,8 +21,8 @@ include_once '../cabecalho.php';?>
                 <input type="hidden" name="id" id="id"
                        value="<?php echo $oCadastro->getIdReservas(); ?>"/></div>
             <div class="col-md-6">
-                <label for="horario">Horario:</label>
-                <input type="date" id="horario" name="horario" placeholder="Nome do restaurante"
+                <label for="data">Data:</label>
+                <input type="text" id="data" name="data" placeholder=""
                        required class="form-control" value="<?php echo $oCadastro->getHorario(); ?>"/>
             </div>
             <div class="col-md-6">
@@ -30,11 +36,13 @@ include_once '../cabecalho.php';?>
                        required class="form-control" value="<?php echo $oCadastro->getQtdCrian(); ?>"/>
             </div>
             <div class="col-md-6">
-                <label for="cliente">Cliente:</label>
-                <input type="text" id="cliente" name="cliente" placeholder=""
-                       required class="form-control" value="<?php echo $oCadastro->getCliente(); ?>"/>
+                <label for="cliente" class="control-label col-md-2">Cliente:</label>
+                <select data-placeholder="Cliente..." name="cliente" id="cliente" class="col-md-6 chosen-select ">
+                    <?php foreach ($oCliente as $cliente) { ?>
+                        <option value="<?php echo $cliente["id_cliente"]; ?>"><?php echo $cliente['nome']?></option>;
+                    <?PHP } ?>
+                </select>
             </div>
-
 
         </div>
         <div class="panel-footer" align="center">

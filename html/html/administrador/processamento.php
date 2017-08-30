@@ -22,7 +22,7 @@ switch(isset($_GET['acao'])? $_GET['acao'] : 'erro'){
 
 echo ("<pre>");
     print_r($_POST);
-    print_r($oCadastro->alterar($_POST));
+//    print_r($oCadastro->alterar($_POST));
     print_r($_GET);
 echo ("</pre>");
 
