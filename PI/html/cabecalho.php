@@ -9,24 +9,24 @@
 <title>Gentelella Alela! | </title>
 
 <!-- Bootstrap -->
-<link href="../../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- Font Awesome -->
-<link href="../../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="../../../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 <!-- NProgress -->
-<link href="../../vendors/nprogress/nprogress.css" rel="stylesheet">
+<link href="../../../vendors/nprogress/nprogress.css" rel="stylesheet">
 <!-- iCheck -->
-<link href="../../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<link href="../../../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
 <!--button-->
-<link href="../../vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+<link href="../../../vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
 <!-- bootstrap-progressbar -->
-<link href="../../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+<link href="../../../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
 <!-- JQVMap -->
-<link href="../../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+<link href="../../../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
 <!-- bootstrap-daterangepicker -->
-<link href="../../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-<link href="../../chosen/chosen.min.css" rel="stylesheet"/>
+<link href="../../../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+<link href="../../../chosen/chosen.min.css" rel="stylesheet"/>
 <!-- Custom Theme Style -->
-<link href="../../build/css/custom.min.css" rel="stylesheet">
+<link href="../../../build/css/custom.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -51,7 +51,7 @@
                         <li><a href="../restaurante/index.php">Restaurante</a></li>
                         <li><a href="../empregado/index.php">Empregado</a></li>
                         <li><a href="../clientes/index.php">Cliente</a></li>
-                        <li><a href="../produtos/index.php">Cliente</a></li>
+                        <li><a href="../produtos/index.php">Produtos</a></li>
                         <li><a href="../pedidos/index.php">Cliente</a></li>
                     </ul>
                 </li>
@@ -60,8 +60,8 @@
                 <li><a href="../restaurante/index.php">Restaurante</a></li>
                 <li><a href="../empregado/index.php">Empregado</a></li>
                 <li><a href="../clientes/index.php">Cliente</a></li>
-                <li><a href="../produtos/index.php">Cliente</a></li>
-                <li><a href="../pedidos/index.php">Cliente</a></li>
+                <li><a href="../produtos/index.php">Produtos</a></li>
+                <li><a href="../pedidos/index.php">Pedidos</a></li>
 
                 <ul class="nav navbar-nav navbar-right">
 <!--                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
