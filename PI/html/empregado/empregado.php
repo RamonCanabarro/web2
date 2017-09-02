@@ -8,7 +8,11 @@ include_once '../cabecalho.php';
 
 include_once '../administrador/list.php';
 
+include_once '../cargo/list1.php';
+
 $oAdministrador = (new Cadastrar())->recuperarTodos();
+
+$oCargo = (new Cadastro())->recuperarTodos();
 ?>
 <form class=" col-md-10" action="processamento.php?acao=salvar" method="post" name="id_empregado">
     <div class="panel panel-primary" aling="center">
@@ -44,40 +48,36 @@ $oAdministrador = (new Cadastrar())->recuperarTodos();
                 <label for="celular" class="control-label col-md-2">Celular:</label>
                 <input type="text" placeholder="" id="celular" name="celular" required
                        class="form-control" size="10" maxlength="9""
-                       value="<?php echo $oCadastro->getCelular(); ?>"/>
+                value="<?php echo $oCadastro->getCelular(); ?>"/>
             </div>
-<!--            <div class="col-md-6">-->
-<!--                <label for="endereco" class="control-label col-md-2">Endereco:</label>-->
-<!--                <input type="text" placeholder="" id="endereco" name="endereco" required-->
-<!--                       class="form-control" size="10" maxlength="9""-->
-<!--                value="--><?php //echo $oCadastro->getEndereco(); ?><!--"/>-->
-<!--            </div>-->
             <div class="col-md-6">
                 <label for="cargo_id_cargo" class="control-label col-md-2">Cargo:</label>
-                <input type="text" placeholder="Cargo" id="cargo_id_cargo" name="cargo_id_cargo" required
-                       class="form-control text-lowercase"
-                       value="<?php echo $oCadastro->getCargo(); ?>"/>
+                <select data-placeholder="Cargo..." name="cargo_id_cargo" id="cargo_id_cargo"
+                        class="col-md-6 chosen-select ">
+                    <?php foreach ($oCargo as $cargo) { ?>
+                        <option value="<?php echo $cargo["id_cargo"]; ?>"><?php echo $cargo['cargo'] ?></option>;
+                    <?PHP } ?>
+                </select><a href="../cargo/cargo.php"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
             </div>
-<!--            <div class="col-md-6">-->
-<!--                <label for="fk_administrador" class="control-label col-md-2">Administrador:</label>-->
-<!--                <input type="text" placeholder="Cargo" id="fk_administrador" name="fk_administrador" required-->
-<!--                       class="form-control text-lowercase"-->
-<!--                       value="--><?php //echo $oCadastro->getFkAdministrador(); ?><!--"/>-->
-<!--            </div>-->
+
             <div class="col-md-6">
                 <label for="fk_administrador" class="control-label col-md-2">Administrador:</label>
-                <select data-placeholder="Administrador..." name="fk_administrador" id="fk_administrador" class="col-md-6 chosen-select ">
+                <select data-placeholder="Administrador..." name="fk_administrador" id="fk_administrador"
+                        class="col-md-6 chosen-select ">
                     <?php foreach ($oAdministrador as $administrador) { ?>
-                        <option value="<?php echo $administrador["id_administrador"]; ?>"><?php echo $administrador['nome']?></option>;
+                        <option value="<?php echo $administrador["id_administrador"]; ?>"><?php echo $administrador['nome'] ?></option>;
                     <?PHP } ?>
                 </select>
             </div>
         </div>
+
         <div class="panel-footer" align="center">
             <button type="submit" value="Entrar" class="btn btn-success">Enviar</button>
             <button type="reset" value="Cancelar" class="btn btn-success">Cancelar</button>
         </div>
-        <?php include_once '../rodape.php'; ?>
+        <?php include_once '../rodape.php';
+        ?>
     </div>
     </div>
+
 </form>

@@ -117,7 +117,7 @@ class Cadastrar
         $preco = $dados['preco'];
         $pago = $dados['pago'];
         $mesa = $dados['mesa'];
-        $cardapio = $dados['cardapio'];
+        $cardapio = $dados['mesa'];
         $cliente = $dados['cliente'];
 
         $sql = /** @lang text */
@@ -169,10 +169,10 @@ class Cadastrar
         $quantidade = $dados['quantidade'];
         $preco = $dados['preco'];
         $mesa = $dados['mesa'];
-        $cardapio = $dados['cardapio'];
+        $cardapio = $dados['mesa'];
         $cliente = $dados['cliente'];
         $sql = "update pedidos set
-					horario = '$horario', quantidade = '$quantidade', preco = '$preco', mesa_id_mesa='$mesa', cardapio='$cardapio',cliente='$cardapio' 
+					horario = '$horario', quantidade = '$quantidade', preco = '$preco', mesa_id_mesa='$mesa', mesa=m$cardapioesa,cliente=m$cardapioesa 
 				where id = $id_pedidos";
 
         $oConexao = new conexao();

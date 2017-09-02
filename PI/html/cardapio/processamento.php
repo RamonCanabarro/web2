@@ -2,18 +2,18 @@
 
 include_once 'list.php';
 
-$oCadastro = new Cadastrar1();
+$oCadastro = new Cadastrar4();
 
 switch (isset($_GET['acao']) ? $_GET['acao'] : 'erro') {
     case 'salvar':
-        if (empty($_POST['id_cargo'])) {
+        if (empty($_POST['id_cardapio'])) {
             $resultado = $oCadastro->inserir($_POST);
         } else {
             $resultado = $oCadastro->alterar($_POST);
         }
         break;
     case 'excluir':
-        $resultado = $oCadastro->excluir($_GET['id_cargo']);
+        $resultado = $oCadastro->excluir($_GET['id_cardapio']);
         break;
 }
 
@@ -28,5 +28,5 @@ $mensagem = $resultado ? 'Operação realizada com sucesso.' : 'Ocorreu um erro.
 ?>
 <script>
     alert('<?php echo $mensagem; ?> ');
-    window.location.href = '../empregado/empregado.php';
+    window.location.href = '../pedidos/pedidos.php';
 </script>

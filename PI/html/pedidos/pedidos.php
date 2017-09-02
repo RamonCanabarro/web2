@@ -4,9 +4,13 @@ if (!empty($_GET['id_pedidos'])) {
     $oCadastro->carregarPorId($_GET['id_pedidos']);
 }
 include_once '../clientes/list.php';
+include_once '../mesa/list.php';
+include_once '../cardapio/list.php';
 
 
 $oCliente = (new Cadastrar2())->recuperarTodos();
+$oMesa = (new Cadastrar5())->recuperarTodos();
+$oCardapio = (new Cadastrar4())->recuperarTodos();
 
 include_once '../cabecalho.php';?>
 <form action="processamento.php?acao=salvar" method="post" name="id_pedidos">
@@ -44,18 +48,18 @@ include_once '../cabecalho.php';?>
             <div class="col-md-6">
                 <label for="cardapio" class="control-label col-md-2">Cardapio:</label>
                 <select data-placeholder="Cliente..." name="cardapio" id="cardapio" class="col-md-6 chosen-select ">
-                    <?php foreach ($oCliente as $cliente) { ?>
-                        <option value="<?php echo $cliente["id_cliente"]; ?>"><?php echo $cliente['nome']?></option>;
+                    <?php foreach ($oCardapio as $cardapio) { ?>
+                        <option value="<?php echo $cardapio["id_cardapio"]; ?>"><?php echo $cardapio['pratos']?></option>;
                     <?PHP } ?>
-                </select>
+                </select><a href="../cardapio/cardapio.php"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
             </div>
             <div class="col-md-6">
                 <label for="mesa" class="control-label col-md-2">Mesa:</label>
                 <select data-placeholder="Cliente..." name="mesa" id="mesa" class="col-md-6 chosen-select ">
-                    <?php foreach ($oCliente as $cliente) { ?>
-                        <option value="<?php echo $cliente["id_mesa"]; ?>"><?php echo $cliente['mesa']?></option>;
+                    <?php foreach ($oMesa as $mesa) { ?>
+                        <option value="<?php echo $mesa["id_mesa"]; ?>"><?php echo $mesa['mesa']?></option>;
                     <?PHP } ?>
-                </select>
+                </select><a href="../mesa/mesa.php"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
             </div>
             <div class="col-md-6">
                 <label for="cliente" class="control-label col-md-2">Cliente:</label>
@@ -72,7 +76,10 @@ include_once '../cabecalho.php';?>
             <button type="submit" value="Enviar" class="btn btn-success" href="">Salvar</button>
             <button type="reset" value="Cancelar" class="btn btn-success">Cancelar</button>
         </div>
-        <?php include_once '../rodape.php';?>
+        <?php include_once '../rodape.php';
+        echo ("<pre>");
+        print_r($cardapio);
+        echo ("</pre>")?>
     </div>
 </form>
 
