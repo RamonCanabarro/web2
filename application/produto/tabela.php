@@ -119,6 +119,14 @@ $aModelo = $conexao->recuperarTodos($sqli);
                                     <?php foreach ($aModelo as $modelo) {
                                     ; ?>
                                 <tr>
+                                    <td>
+                                        <a href="formulario.php?id_produto=<?php echo $cadastros['id_cliente']; ?>"<span
+                                                class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                        <a class="excluir"
+                                           href="processamento.php?acao=excluir&id_cliente=<?php echo $cadastros['id_cliente']; ?>"><span
+                                                    class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                    </td>
+
                                     <td><?php echo $modelo['id_modelo']; ?></td>
                                     <td><?php echo $modelo['nome']; ?></td>
                                 </tr>
