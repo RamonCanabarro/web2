@@ -61,9 +61,29 @@ include_once '../cabecalho.php';
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
                     <div class="col-md-6">
-                            <label for="endereco">Endereço:</label>
-                            <input type="text" id="endereco" name="endereco" class="form-control" required
-                                   value="<?php echo $oCadastro->getEndereco(); ?>">
+                            <label for="cep">Cep:</label>
+                            <input type="text" id="cep" name="cep" class="form-control" required
+                                   value="<?php echo $oCadastro->getCep(); ?>">
+                        </div>
+                    <div class="col-md-6">
+                            <label for="rua">Rua:</label>
+                            <input type="text" id="rua" name="rua" class="form-control" required
+                                   value="<?php echo $oCadastro->getRua(); ?>">
+                        </div>
+                                            <div class="col-md-6">
+                            <label for="bairro">bairro:</label>
+                            <input type="text" id="bairro" name="bairro" class="form-control" required
+                                   value="<?php echo $oCadastro->getBairro(); ?>">
+                        </div>
+                                            <div class="col-md-6">
+                            <label for="cidade">Cidade:</label>
+                            <input type="text" id="cidade" name="cidade" class="form-control" required
+                                   value="<?php echo $oCadastro->getCidade(); ?>">
+                        </div>
+                                            <div class="col-md-6">
+                            <label for="uf">UF:</label>
+                            <input type="text" id="uf" name="uf" class="form-control" required
+                                   value="<?php echo $oCadastro->getUF(); ?>">
                         </div>
                     </div>
                 </div>

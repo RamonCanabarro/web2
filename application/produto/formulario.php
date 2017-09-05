@@ -84,7 +84,7 @@ include_once '../cabecalho.php';?>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modelo">Modelo</label>
-                                <select class="col-md-6 col-sm-6 col-xs-12 chosen-select" multiple name="marca" id="marcar">
+                                <select class="chosen-select col-md-6 col-sm-6 col-xs-12" multiple name="marca" id="marcar">
                                     <option value="#">Selecione</option>
                                     <?php foreach($aModelo as $modelo){
                                         echo " <option value='{$modelo['id_marca']}'>{$modelo['nome']}</option>";
@@ -150,6 +150,5 @@ include_once '../cabecalho.php';?>
            }
        });
     });
-        $(".chosen-select").chosen({rtl: true});
     });
-</script>
+    </script>

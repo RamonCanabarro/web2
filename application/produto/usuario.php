@@ -135,7 +135,7 @@ include_once '../cabecalho.php'; ?>
     </div>
 
 
-    <?php include_once '../rodape2.php' ?>
+    <?php include_once '../rodape.php' ?>
 
     <script>
         $(function () {

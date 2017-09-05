@@ -60,7 +60,7 @@ include_once '../cabecalho.php';?>
                     </div>
                     <div class="x_content">
                         <br/>
-                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                        <form id="demo-form2" data-parsley-validate enctype="multipart/form-data" class="form-horizontal form-label-left">
 
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nome<span
@@ -75,7 +75,7 @@ include_once '../cabecalho.php';?>
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Marca <span
                                         class="required">*</span>
                                 </label>
-                                <select class="col-md-6 col-sm-6 col-xs-12" multiple name="marca" id="marcar">
+                                <select class="col-md-6 col-sm-6 col-xs-12 chosen-select" multiple name="marca" id="marcar">
                                     <option value="#">Selecione</option>
                                     <?php foreach($oMarca as $marca){
                                         echo " <option value='{$marca['id_marca']}'>{$marca['nome']}</option>";
@@ -84,7 +84,7 @@ include_once '../cabecalho.php';?>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modelo">Modelo</label>
-                                <select class="col-md-6 col-sm-6 col-xs-12" multiple name="marca" id="marcar">
+                                <select class="col-md-6 col-sm-6 col-xs-12 chosen-select" multiple name="marca" id="marcar">
                                     <option value="#">Selecione</option>
                                     <?php foreach($oModelo as $modelo){
                                         echo " <option value='{$modelo['id_marca']}'>{$modelo['nome']}</option>";
@@ -111,12 +111,22 @@ include_once '../cabecalho.php';?>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Styled</label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-6">Styled</label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
                                     <div class="input-group demo2">
-                                        <input type="text" value="#e01ab5" class="form-control" />
+                                        <input type="text" value="#e01ab5" class="form-control col-md-3 " />
                                         <span class="input-group-addon"><i></i></span>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="foto">Imagem <span
+                                            class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="foto" name="foto" class=" form-upload col-md-7 col-xs-12"
+                                           required="required" type="file">
                                 </div>
                             </div>
 

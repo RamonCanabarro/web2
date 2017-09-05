@@ -11,7 +11,7 @@ class Cadastrar2
     protected $telefone;
     protected $celular;
     protected $empregado;
-    protected $endereco;
+    protected $cep;
 
     public function getNome()
     {
@@ -69,14 +69,14 @@ class Cadastrar2
     {
         $this->empregado = $empregado;
     }
-    public function getEndereco()
+    public function getCep()
     {
-        return $this->endereco;
+        return $this->cep;
     }
 
-    public function setEndereco($endereco)
+    public function setCep($cep)
     {
-        $this->endereco = $endereco;
+        $this->cep = $cep;
     }
 
 
@@ -92,9 +92,9 @@ class Cadastrar2
         $telefone = $dados['telefone'];
         $celular = $dados['celular'];
         $empregado = $dados['fk_empregado'];
-        $endereco = $dados['endereco'];
+        $cep = $dados['cep'];
         $sql = /** @lang text */
-            "insert into cliente (nome, cpf, endereco, telefone, celular, fk_empregado) values ('$nome', '$cpf','$endereco','$telefone', '$celular','$empregado')";
+            "insert into cliente (nome, cpf,  ep, telefone, celular, fk_empregado) values ('$nome', '$cpf','$cep','$telefone', '$celular','$empregado')";
 
         $oConexao = new conexao();
         return $oConexao->executar($sql);
@@ -114,13 +114,13 @@ class Cadastrar2
         $cpf = $dados['cpf'];
         $nome = $dados['nome'];
         $telefone = $dados['telefone'];
-        $endereco = $dados['endereco'];
+        $cep = $dados['cep'];
         $celular = $dados['celular'];
         $empregado = $dados['empregado'];
 
         $sql = /** @lang text */
             "update cliente set
-					nome = '$nome', cpf='$cpf', endereco='$endereco', telefone='$telefone',celular ='$celular'
+					nome = '$nome', cpf='$cpf', cep='$cep', telefone='$telefone',celular ='$celular'
 				where id_cliente = $id_cliente";
 
         $oConexao = new Conexao();
@@ -145,7 +145,7 @@ class Cadastrar2
         $this->id_cliente = $cliente[0]['id_cliente'];
         $this->nome = $cliente[0]['nome'];
         $this->cpf = $cliente[0]['cpf'];
-        $this->endereco = $cliente[0]['endereco'];
+        $this->cep = $cliente[0]['cep'];
         $this->telefone = $cliente[0]['telefone'];
         $this->celular = $cliente[0]['celular'];
         $this->fk_empregado = $cliente[0]['fk_empregado'];

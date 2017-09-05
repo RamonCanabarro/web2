@@ -7,7 +7,19 @@ include_once 'Usuario.php';
 $oUsuario = new Usuario();
 
 switch($_GET['acao']){
-	case 'salvar':
+    case 'verificar-codigo';
+        $origem = $FILES['foto']['tmp_name'];
+        $destino = '../upload/usuario/teste.jpg';
+        $oProduto->verificarCodigo($_GET['codigo']);
+        die;
+    case 'recuperar-modelo';
+        include_once '../modelo/Modelo.php';
+        $oModelo = new Modelo();
+        $oModelo->recuperarPorMarca($_GET['id_marca']);
+        die;
+
+    case 'salvar':
+        move_upload_file['foto']['tmp_name'], '../upload/teste.jpg';
 		if(empty($_POST['id_marca'])){
 			$resultado = $oUsuario->inserir($_POST);
 		} else {

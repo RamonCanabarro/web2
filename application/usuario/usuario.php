@@ -1,182 +1,182 @@
 <?php
 
+include_once '../conexao.php';
 
-include_once '../marca/Marca.php';
-include_once '../modelo/Modelo.php';
+class Usuario{
+	
+	protected $id_produto;
+	protected $nome;
+	protected $id_marca;
+	protected $id_modelo;
+	protected $codigo;
+	protected $preco;
+	protected $cor;
+
+	public function getIdproduto(){
+		return $this->id_produto;
+	}
+	
+	public function setIdproduto($id_produto){
+		$this->id_produto = $id_produto;
+	}
+
+	public function getNome(){
+		return $this->nome;
+	}
+	
+	public function setNome($nome){
+		$this->nome = $nome;
+	}
+
+    /**
+     * @return mixed
+     */
+    public function getIdMarca()
+    {
+        return $this->id_marca;
+    }
+
+    /**
+     * @param mixed $id_marca
+     */
+    public function setIdMarca($id_marca)
+    {
+        $this->id_marca = $id_marca;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdModelo()
+    {
+        return $this->id_modelo;
+    }
+
+    /**
+     * @param mixed $id_modelo
+     */
+    public function setIdModelo($id_modelo)
+    {
+        $this->id_modelo = $id_modelo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCodigo()
+    {
+        return $this->codigo;
+    }
+
+    /**
+     * @param mixed $codigo
+     */
+    public function setCodigo($codigo)
+    {
+        $this->codigo = $codigo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPreco()
+    {
+        return $this->preco;
+    }
+
+    /**
+     * @param mixed $preco
+     */
+    public function setPreco($preco)
+    {
+        $this->preco = $preco;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCor()
+    {
+        return $this->cor;
+    }
+
+    /**
+     * @param mixed $cor
+     */
+    public function setCor($cor)
+    {
+        $this->cor = $cor;
+    }
+
+	public function inserir($dados){
+		
+		$nome = $dados['nome'];
+		
+		$sql = "insert into produto (nome) 
+						   values ('$nome')";
+		
+		$oConexao = new Conexao();
+		return $oConexao->executar($sql);
+	}
+	
+	public function alterar($dados){
+		
+		$id_produto = $dados['id_produto'];
+		$nome     = $dados['nome'];
+	
+		$sql = "update produto set
+					nome = '$nome'
+				where id_produto = $id_produto";
+		
+		$oConexao = new Conexao();
+		return $oConexao->executar($sql);
+	}
+
+	public function excluir($id_produto){
+	
+		$sql = "delete from produto where id_produto = $id_produto";
+
+		$oConexao = new Conexao();
+		return $oConexao->executar($sql);
+	}
+	
+	public function recuperarTodos(){
+		
+		$sql = "select * from produto order by nome";
+		
+		$oConexao = new Conexao();
+		return $oConexao->recuperarTodos($sql);
+	}
+
+	public function carregarPorId($id_produto){
+	
+		$sql = "select * from produto where id_produto = $id_produto";
+		
+		$oConexao = new Conexao();
+		$produtos = $oConexao->recuperarTodos($sql);
+		
+		$this->id_produto = $produtos[0]['id_produto'];
+		$this->nome = $produtos[0]['nome'];
+		$this->id_marca = $produtos[0]['id_marca'];
+		$this->id_modelo = $produtos[0]['id_modelo'];
+		$this->codigo = $produtos[0]['codigo'];
+		$this->preco = $produtos[0]['preco'];
+		$this->cor = $produtos[0]['cor'];
+	}
 
 
-$oMarca = (new Marca())->recuperarTodos();
-$oModelo = (new Modelo())->recuperarTodos();
-
-
-include_once '../cabecalho.php'; ?>
-<!-- page content -->
-<div class="right_col" role="main">
-    <div class="">
-        <div class="page-title">
-            <div class="title_left">
-                <h3>!!!</h3>
-            </div>
-
-            <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
-                        <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="clearfix"></div>
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                    <div class="x_title">
-                        <h2>Form Design
-                            <small>different form elements</small>
-                        </h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Settings 1</a>
-                                    </li>
-                                    <li><a href="#">Settings 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a class="close-link"><i class="fa fa-close"></i></a>
-                            </li>
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-                        <br/>
-                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Nome<span
-                                        class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="nome" required="required"
-                                           class="form-control col-md-7 col-xs-12">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">E-mail<span
-                                        class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="email" required="required"
-                                           class="form-control col-md-7 col-xs-12">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cep">CEP<span
-                                        class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="cep" required="required"
-                                           class="form-control col-md-7 col-xs-12">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="logradouro">Logradouro
-                                    <span
-                                        class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="logradouro" name="logradouro"
-                                           class="date-picker form-control col-md-7 col-xs-12"
-                                           required="required" type="text">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="complemento'">Complemento
-                                    <span
-                                        class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="complemento" name="complemento"
-                                           class="date-picker form-control col-md-7 col-xs-12"
-                                           required="required" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="bairro">Bairro<span
-                                        class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="bairro" name="bairro"
-                                           class="date-picker form-control col-md-7 col-xs-12"
-                                           required="required" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="uf">UF<span
-                                        class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="uf" name="uf" class="date-picker form-control col-md-7 col-xs-12"
-                                           required="required" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                                       for="localidade">Localidade<span
-                                        class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="localidade" name="localidade"
-                                           class="date-picker form-control col-md-7 col-xs-12"
-                                           required="required" type="text">
-                                </div>
-                            </div>
-                    </div>
-
-                    <div class="ln_solid"></div>
-                    <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                            <button class="btn btn-primary" type="button">Cancel</button>
-                            <button class="btn btn-primary" type="reset">Reset</button>
-                            <button type="submit" class="btn btn-success">Submit</button>
-                        </div>
-                    </div>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <?php include_once '../rodape2.php' ?>
-
-    <script>
-        $(function () {
-            $('#cep').change(function () {
-                var cep = $('#cep').val();
-
-                $.ajax({
-                    url: 'https://viacep.com.br/ws/' + cep + '/json/',
-                    success: function (retorno) {
-                        $('#bairro').val(retorno.bairro);
-                        $('#uf').val(retorno.uf);
-                        $('#localidade').val(retorno.localidade);
-                        $('#logradouro').val(retorno.logradouro);
-                        $('#complemento').val(retorno.complemento);
-                    }
-                });
-            });
-        })
-        $("button").click(function () {
-            $("#div").load("demo_test.txt");
-        });
-    </script>
+    public function verificarCodigo($codigo)
+    {
+        $sql = "select count(*) as qtd
+        from produto
+        where codigo = '$codigo'";
+        $oConexao = new Conexao();
+        $retorno = $oConexao->recuperarTodos($sql);
+        
+        if($retorno[0]['qtd']){
+            echo 'Já existe produto com o código informado';
+        }else{
+            echo 'O código esta disponivel';
+        }
+    }
+}
