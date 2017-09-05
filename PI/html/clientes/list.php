@@ -12,6 +12,10 @@ class Cadastrar2
     protected $celular;
     protected $empregado;
     protected $cep;
+    protected $rua;
+    protected $cidade;
+    protected $uf;
+    protected $bairro;
 
     public function getNome()
     {
@@ -77,6 +81,15 @@ class Cadastrar2
     public function setCep($cep)
     {
         $this->cep = $cep;
+    }
+    public function getRua()
+    {
+        return $this->rua;
+    }
+
+    public function setCep($rua)
+    {
+        $this->rua = $rua;
     }
 
 
