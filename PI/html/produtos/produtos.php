@@ -18,6 +18,11 @@ include_once '../cabecalho.php';
                 <input type="hidden" name="id_produtos" id="id_produtos"
                        value="<?php echo $oCadastro->getIdProdutos(); ?>"/></div>
             <div class="col-md-6">
+                <label for="codigo">Código:</label>
+                <input type="number" id="codigo" name="codigo" placeholder=""
+                       required class="form-control" value="<?php echo $oCadastro->getCodigo(); ?>"/>
+            </div>
+            <div class="col-md-6">
                 <label for="nome" class="control-label col-md-2">Nome:</label>
                 <input type="text" placeholder="" id="nome" name="nome" required
                        class="form-control text-lowercase"

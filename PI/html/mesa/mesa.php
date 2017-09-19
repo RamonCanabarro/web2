@@ -19,8 +19,8 @@ include_once '../cabecalho.php';
                        value="<?php echo $oCadastro->getIdMesa(); ?>"/></div>
 
             <div class="col-md-6">
-                <label for="mesa">Nome</label>
-                <input type="number" placeholder="Nome" id="mesa" name="mesa" required
+                <label for="mesa">Mesa</label>
+                <input type="number" placeholder="Nº" id="mesa" name="mesa" required
                        class="form-control text-uppercase"
                        value="<?php echo $oCadastro->getMesa(); ?>"/>
             </div>

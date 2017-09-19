@@ -11,6 +11,7 @@ class Cadastrar4
     protected $qtd;
     protected $observacoes;
     protected $administrador;
+    protected $codigo;
 
     public function getIdProdutos()
     {
@@ -20,6 +21,16 @@ class Cadastrar4
     public function setIdProdutos($id_produtos)
     {
         $this->id_produtos = $id_produtos;
+    }
+
+    public function getCodigo()
+    {
+        return $this->codigo;
+    }
+
+    public function setCodigo($codigo)
+    {
+        $this->codigo = $codigo;
     }
 
     public function getNome()
@@ -84,9 +95,10 @@ class Cadastrar4
         $qtd = $dados['qtd'];
         $observacoes = $dados['observacoes'];
         $administrador = $dados['administrador'];
+        $codigo = $dados['codigo'];
 
         $sql = /** @lang text */
-            "insert into produtos (nome, preco, quantidade, observacoes, administrador_id_administrador)values ('$nome', '$preco','$qtd', '$observacoes','$administrador')";
+            "insert into produtos (nome, preco, quantidade, observacoes, administrador_id_administrador, codigo)values ('$nome', '$preco','$qtd', '$observacoes','$administrador', '$codigo')";
 
         $oConexao = new conexao();
         return $oConexao->executar($sql);
@@ -105,6 +117,7 @@ class Cadastrar4
         $this->quantidade = $produtos[0]['quantidade'];
         $this->observacoes = $produtos[0]['observacoes'];
         $this->administrador_id_administrador = $produtos[0]['administrador_id_administrador'];
+        $this->codigo = $produtos[0]['codigo'];
 
     }
 

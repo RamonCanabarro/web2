@@ -138,8 +138,57 @@ include_once '../cabecalho.php';?>
     </div>
 
 
-    <?php include_once '../rodape.php' ?>
+    $oImagem = new Imagem();
+    if (!empty($_GET['foto'])) {
+    $oImagem->carregarPorId($_GET['foto']);
+    }
 
+    ?>
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>!!!</h3>
+                </div>
+
+                <div class="title_right">
+                    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Form Design
+                                <small>different form elements</small>
+                            </h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+
+
+                                    1-quando selecionar a marca chamar o ajax
+                                    2- requisiçao url
+                                        exl:s.ajax({
+                                    url:'pagina.php'(){
+                                    }});
+                                    exl: s('#div_retorno').load('pagina.php');
+                                    3- processamento da requisiçao
+                                    4- retorno da requisição
+
+                                    echo sql die
+                                    function ()(
+                                    $('#id_modelo').triger("chosen:updated");
+                                    )
+
+    <?php include_once '../rodape.php' ?>
     <script>
     $(function () {
     $('#codigo').change(function (){
@@ -151,4 +200,9 @@ include_once '../cabecalho.php';?>
        });
     });
     });
+    $('$id_marca).change(function){
+    $('#id_modelo').loead('processamento?acao=recuperar-modelos&id_marca=' + $('#id_marca').val());
+    });
+
+
     </script>

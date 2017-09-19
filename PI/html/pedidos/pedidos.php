@@ -76,10 +76,7 @@ include_once '../cabecalho.php';?>
             <button type="submit" value="Enviar" class="btn btn-success" href="">Salvar</button>
             <button type="reset" value="Cancelar" class="btn btn-success">Cancelar</button>
         </div>
-        <?php include_once '../rodape.php';
-        echo ("<pre>");
-        print_r($cardapio);
-        echo ("</pre>")?>
+        <?php include_once '../rodape.php';?>
     </div>
 </form>
 

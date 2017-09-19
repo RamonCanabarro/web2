@@ -25,7 +25,6 @@ $oTipo_categoria = $aTipo_categoria->recuperarTodos();
 
 <!-- page content -->
 <div class="right_col" role="main">
-    <div class="">
         <div class="page-title">
             <div class="title_left">
                 <h3>!!!</h3>
@@ -48,7 +47,7 @@ $oTipo_categoria = $aTipo_categoria->recuperarTodos();
                 <div class="x_panel">
                     <div class="x_content">
                         <br/>
-                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" name="id" method="get" action="Tipo_categoria.php">
                             <div class="x_title">
                                 <h2>Marcas
                                     <small>Marcas</small>
@@ -220,10 +219,10 @@ $oTipo_categoria = $aTipo_categoria->recuperarTodos();
                                 <div class="clearfix"></div>
                             </div>
 							 <table class="table table-striped" id="">
-                                          <select data-placeholder="Cargo..." name="cargo_id_cargo" id="cargo_id_cargo"
+                                          <select data-placeholder="Cargo..." name="id_categoria" id="id_categoria"
                         class="col-md-6 chosen-select ">
                     <?php foreach ($oCategoria as $categoria) { ?>
-                        <option value="<?php echo $categoria["id_marca"]; ?>"><?php echo $categoria['nome'] ?></option>;
+                        <option value="<?php echo $categoria["id_categoria"]; ?>"><?php echo $categoria['nome'] ?></option>;
                     <?PHP } ?>
                 </select> 
                                 <thead>
@@ -268,14 +267,21 @@ $oTipo_categoria = $aTipo_categoria->recuperarTodos();
                                 <div class="clearfix"></div>
                             </div>
 							 <table class="table table-striped" id="">
-                                          <select data-placeholder="Cargo..." name="cargo_id_cargo" id="cargo_id_cargo"
+                                          <select data-placeholder="Cargo..." name="id_tipo" id="id_tipo"
                         class="col-md-6 chosen-select ">
                     <?php foreach ($oTipo_categoria as $tipo_categoria) { ?>
-                        <option value="<?php echo $tipo_categoria["id_tipo_categoria"]; ?>"><?php echo $tipo_categoria['categoria'] ?></option>;
+                        <option value="<?php echo $tipo_categoria["id_tipo"]; ?>"><?php echo $tipo_categoria['tipo'] ?></option>;
                     <?PHP } ?>
-                </select> 
-                                <thead>
+                </select>
+                <select data-placeholder="Cargo..." name="id_categoria" id="id_categoria"
+                                         class="col-md-6 chosen-select ">
+                                     <?php foreach ($oTipo_categoria as $tipo_categoria) { ?>
+                                         <option value="<?php echo $tipo_categoria["id_categoria"]; ?>"><?php echo $tipo_categoria['categoria'] ?></option>;
+                                     <?PHP } ?>
+                                 </select>
+                                 <thead>
                                 <tr>
+                                    <th>Id</th>
                                     <th>Tipo</th>
                                     <th>Categoria</th>
                                 </tr>
@@ -294,60 +300,26 @@ $oTipo_categoria = $aTipo_categoria->recuperarTodos();
                                 </tr>
                                 </tbody>
                              </table>
-
-  <div class="x_title">
-                                <h2>Tipo
-                                    <small>Tipo</small>
-                                </h2>
-                                <ul class="nav navbar-right panel_toolbox">
-                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                           aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Settings 1</a>
-                                            </li>
-                                            <li><a href="#">Settings 2</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                    </li>
-                                </ul>
-                                <div class="clearfix"></div>
-                            </div>
-							 <table class="table table-striped" id="">
-                                          <select data-placeholder="Cargo..." name="id_tipo" id="id_tipo"
-                        class="col-md-6 chosen-select ">
-                   <?php foreach ($oTipo_categoria as $tipo_categoria) { ?>
-                        <option value="<?php echo $tipo_categoria["id_tipo_categoria"]; ?>"><?php echo $tipo_categoria['tipo'] ?></option>;
-                </select> 
-                <select data-placeholder="Cargo..." name="id_categoria" id="id_tipo" class="col-md-6 chosen-select ">
-                   <?php foreach ($oTipo_categoria as $tipo_categoria) { ?>
-                        <option value="<?php echo $tipo_categoria["id_tipo_categoria"]; ?>"><?php echo $tipo_categoria['categoria'] ?></option>;
-                </select>
-                               
-                                </tr>
-</tbody></table>
-                       </form>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </div></div>
         <?php include_once '../rodape.php'; ?>
 
-<script>
-$(function() {
-    $("#tipo").bind("change", function() {
-        $.ajax({
-            type: "GET", 
-            url: "tipo_categoria",
-            data: "tid="+$("#tipo").val(),
-            success: function(html) {
-                $("#categoria").html(html);
-            }
-        });
-    });
-});
-    </script>
+        <script>
+         $(document).ready(function () {
+             $('#id_tipo').change(function () {
+                 var id_tipo = $(this).val();
+                 $.ajax({
+                     url:"Tipo_categoria.php",
+                     method:"POST",
+                     data:{tipo:tipo},
+                     success:function (data){
+                         $('#id_categoria').html(data);
+                     }
+                 });
+             });
+         });
+        </script>
+

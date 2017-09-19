@@ -28,5 +28,5 @@ $mensagem = $resultado ? 'Operação realizada com sucesso.' : 'Ocorreu um erro.
 ?>
 <script>
     alert('<?php echo $mensagem; ?> ');
-    window.location.href = '../empregado/empregado.php';
+    window.location.href = '../empregado/index.php';
 </script>

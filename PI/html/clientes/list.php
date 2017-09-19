@@ -87,7 +87,7 @@ class Cadastrar2
         return $this->rua;
     }
 
-    public function setCep($rua)
+    public function setRua($rua)
     {
         $this->rua = $rua;
     }

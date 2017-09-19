@@ -26,4 +26,13 @@ class Categoria{
 		$this->id_categoria = $tipo[0]['id_categoria'];
 		$this->nome = $tipo[0]['nome'];
 	}
+	public function recuperarPorCategoria($id_categoria){
+	    $sql = "select id_categoria from tipo_categoria where id_tipo = $id_categoria";
+	    $oConexao = new Conexao();
+	    $categoria = $oConexao->recuperarTodos($sql);
+	    $this->id_Categoria = $categoria[0]['id_categoria'];
+	    $this->nome = $categoria[0]['nome'];
+
+
+    }
 }
