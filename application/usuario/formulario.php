@@ -1,165 +1,165 @@
 <?php
-include_once '../cabecalho.php';
+include_once '../conexao.php';
+$conexao = new Conexao();
 
+include_once 'Perfil.php';
+$perfil = new Perfil();
+$oPerfil = $perfil->recuperarTodos();
 
+include_once 'uf.php';
+$uf = new Uf();
+$oUf = $uf->recuperarTodos();
 
+include_once 'Municipio.php';
+$municipio = new Municipio();
+$oMunicipio = $municipio->recuperarTodos();
 
-include_once '../marca/Marca.php';
-include_once '../modelo/Modelo.php';
+include_once 'Usuario.php';
+$usuario = new Usuario();
+$oUsuario = $usuario->recuperarTodos();
+if (!empty($_GET['id_usuario'])) {
+    $usuario->carregarPorId($_GET['id_usuario']);
+}
+?>
 
+<?php include_once '../cabecalho.php'; ?>
 
-$oMarca = (new Marca())->recuperarTodos();
-$oModelo = (new Modelo())->recuperarTodos();
-
-
-include_once '../cabecalho.php';?>
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>!!!</h3>
-            </div>
-
-            <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
-                        <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="clearfix"></div>
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                    <div class="x_title">
-                        <h2>Form Design
-                            <small>different form elements</small>
-                        </h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Settings 1</a>
-                                    </li>
-                                    <li><a href="#">Settings 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a class="close-link"><i class="fa fa-close"></i></a>
-                            </li>
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-                        <br/>
-                        <form id="demo-form2" data-parsley-validate enctype="multipart/form-data" class="form-horizontal form-label-left">
-
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nome<span
-                                        class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="first-name" required="required"
-                                           class="form-control col-md-7 col-xs-12">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Marca <span
-                                        class="required">*</span>
-                                </label>
-                                <select class="col-md-6 col-sm-6 col-xs-12 chosen-select" multiple name="marca" id="marcar">
-                                    <option value="#">Selecione</option>
-                                    <?php foreach($oMarca as $marca){
-                                        echo " <option value='{$marca['id_marca']}'>{$marca['nome']}</option>";
-                                    }?>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="modelo">Modelo</label>
-                                <select class="col-md-6 col-sm-6 col-xs-12 chosen-select" multiple name="marca" id="marcar">
-                                    <option value="#">Selecione</option>
-                                    <?php foreach($oModelo as $modelo){
-                                        echo " <option value='{$modelo['id_marca']}'>{$modelo['nome']}</option>";
-                                    }?>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="codigo">Código <span
-                                        class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="codigo" name="codigo" class="date-picker form-control col-md-7 col-xs-12"
-                                           required="required" type="text">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="preco">Preço <span
-                                        class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="preco" name="preco" class="date-picker form-control col-md-7 col-xs-12"
-                                           required="required" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-6">Styled</label>
-                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <div class="input-group demo2">
-                                        <input type="text" value="#e01ab5" class="form-control col-md-3 " />
-                                        <span class="input-group-addon"><i></i></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="foto">Imagem <span
-                                            class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="foto" name="foto" class=" form-upload col-md-7 col-xs-12"
-                                           required="required" type="file">
-                                </div>
-                            </div>
-
-                    </div>
-
-                    <div class="ln_solid"></div>
-                    <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                            <button class="btn btn-primary" type="button">Cancel</button>
-                            <button class="btn btn-primary" type="reset">Reset</button>
-                            <button type="submit" class="btn btn-success">Submit</button>
-                        </div>
-                    </div>
-
-                    </form>
-                </div>
             </div>
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Usuário</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br/>
+                    <form action="processamento.php?acao=salvar" method="post" data-parsley-validate
+                          enctype="multipart/form-data" class="form-horizontal form-label-left">
+                        <input type="hidden" name="id_usuario" id="id_usuario"
+                               value="<?php echo $usuario->getIdUsuario(); ?>"/>
 
-    <?php include_once '../rodape.php' ?>
+                        <div class="form-group">
+                            <label for="nome" class="col-sm-2 control-label">Nome: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="nome" id="nome"
+                                       value="<?php echo $usuario->getNome(); ?>"/>
+                            </div>
+                        </div>
 
-    <script>
-    $(function () {
-    $('#codigo').change(function (){
-       $.ajax({
-           url:'processamento.php?acao=verificar-codigo&codigo=' + $('#codigo').val(),
-           success:function (retorno){
-               alert(retorno);
-           }
-       });
-    });
-        $(".chosen-select").chosen({rtl: true});
+                        <div class="form-group">
+                            <label for="telefone" class="col-sm-2 control-label">Telefone: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="telefone" id="telefone"
+                                       value="<?php echo $usuario->getTelefone(); ?>"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="masculino" class="col-sm-2 control-label">Sexo: </label>
+                            <div class="col-md-10">
+                                <input type="radio" name="sexo" id="masculino" value="M"/> Masculino &nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="sexo" id="feminino" value="F"/> Feminino
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="col-sm-2 control-label">Email: </label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" name="email" id="email"
+                                       value="<?php echo $usuario->getEmail(); ?>"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="senha" class="col-sm-2 control-label">Senha: </label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" name="senha" id="senha"
+                                       value="<?php echo $usuario->getSenha(); ?>"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="id_perfil" class="col-sm-2 control-label">Perfil: </label>
+                            <div class="col-sm-10">
+                                <select name="id_perfil" id="id_perfil" class="form-control chosen">
+                                    <?php foreach ($oPerfil as $perfis) { ?>
+                                        <option
+                                            value="<?php echo $perfis['id_perfil']; ?>"><?php echo $perfis['nome'] ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_uf" class="col-sm-2 control-label">Uf: </label>
+                            <div class="col-sm-10">
+                                <select name="uf" id="uf" class="form-control chosen">
+                                    <?php foreach ($oUf as $ufs) { ?>
+                                        <option name="uf1"
+                                                value="<?php echo $ufs['id_uf'] ?>"><?php echo $ufs['nome'] ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_municipio" class="col-sm-2 control-label">Municipio: </label>
+                            <div class="col-sm-10">
+                                <select name="id_municipio" id="id_municipio" class="form-control">
+                                    <?php foreach ($oMunicipio as $municipios) { ?>
+                                        <option name="uf2"
+                                                value="<?php echo $municipios['id_municipio'] ?>"><?php echo $municipios['nome'] ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="foto">Imagem <span
+                                class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="hidden" name="MAX_FILE_SIZE" value="10485760">
+                            <input id="foto" name="foto[]" multiple="multiple" class=" form-upload col-md-7 col-xs-12"
+                                   required="required" type="file">
+                        </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-success">Salvar</button>
+                        <a href="index.php" class="btn btn-danger">Voltar</a>
+                    </div>
+                </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php include_once '../rodape.php'; ?>
+
+<script>
+    $('#uf').change(function () {
+        $.ajax({
+            dataType: "json",
+            url: 'processamento.php?acao=recupera_municipios&id_uf='+$('#id_uf').val(),
+            data: '',
+            success: (function (data) {
+                console.log(data),
+                $('#id_municipio').load(data)
+
+            })
+        });
+
     });
 </script>

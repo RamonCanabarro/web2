@@ -1,43 +1,44 @@
 <?php 
 
-session_start();
-
 include_once 'Usuario.php';
 
-$oUsuario = new Usuario();
+$usuario = new Usuario();
 
 switch($_GET['acao']){
-    case 'verificar-codigo';
-        $origem = $FILES['foto']['tmp_name'];
-        $destino = '../upload/usuario/teste.jpg';
-        $oProduto->verificarCodigo($_GET['codigo']);
-        die;
-    case 'recuperar-modelo';
-        include_once '../modelo/Modelo.php';
-        $oModelo = new Modelo();
-        $oModelo->recuperarPorMarca($_GET['id_marca']);
-        die;
+	case 'salvar':
+		$arquivo = isset($_FILES['foto']) ? $_FILES['foto'] : FALSE;;
 
-    case 'salvar':
-        move_upload_file['foto']['tmp_name'], '../upload/teste.jpg';
-		if(empty($_POST['id_marca'])){
-			$resultado = $oUsuario->inserir($_POST);
-		} else {
-			$resultado = $oUsuario->alterar($_POST);
+		for ($k = 0; $k < count($arquivo['name']); $k++) {
+			$resultado = $destino = "upload/" . $arquivo['name'][$k];
+
+			if (move_uploaded_file($arquivo['tmp_name'][$k], $destino)) ;
 		}
+
+		if(empty($_POST['id_usuario'])){
+			$resultado = $usuario->inserir($_POST);
+		} else {
+			$resultado = $usuario->alterar($_POST);
+		}
+
 		break;
 	case 'excluir':
-		$resultado = $oUsuario->excluir($_GET['id_marca']);
+		$resultado = $usuario->excluir($_GET['id_usuario']);
+		break;
+	case 'recupera_municipios';
+		if(isset($_GET['id_uf'])){
+			$usuario->recupera_municipios($_POST);
+		}
 		break;
 }
 
-$mensagem = $resultado ? 'Operação realizada com sucesso.' : 'Ocorreu um erro.'; 
-
-$_SESSION['mensagem'] = $mensagem;
-$_SESSION['resultado'] = $resultado;
-
+if($resultado){
+	$mensagem = 'Sucesso';
+} else {
+	$mensagem = 'Ocorreu um erro!';
+}
 ?>
+
 <script>
-	window.location.href= 'index.php';
-</script>	
-    
+	alert('<?php echo $mensagem; ?>');
+	window.location.href = 'index.php';
+</script>
