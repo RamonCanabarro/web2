@@ -65,4 +65,4 @@
 
 <script>
     $(".chosen-select").chosen({rtl: true});
-</script>
+   </script>

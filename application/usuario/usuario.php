@@ -2,181 +2,254 @@
 
 include_once '../conexao.php';
 
-class Usuario{
-	
-	protected $id_produto;
-	protected $nome;
-	protected $id_marca;
-	protected $id_modelo;
-	protected $codigo;
-	protected $preco;
-	protected $cor;
+class Usuario
+{
 
-	public function getIdproduto(){
-		return $this->id_produto;
-	}
-	
-	public function setIdproduto($id_produto){
-		$this->id_produto = $id_produto;
-	}
-
-	public function getNome(){
-		return $this->nome;
-	}
-	
-	public function setNome($nome){
-		$this->nome = $nome;
-	}
+    protected $id_usuario;
+    protected $nome;
+    protected $telefone;
+    protected $sexo;
+    protected $email;
+    protected $senha;
+    protected $id_perfil;
+    protected $id_uf;
+    protected $id_municipio;
 
     /**
      * @return mixed
      */
-    public function getIdMarca()
+    public function getIdUsuario()
     {
-        return $this->id_marca;
+        return $this->id_usuario;
     }
 
     /**
-     * @param mixed $id_marca
+     * @param mixed $id_usuario
      */
-    public function setIdMarca($id_marca)
+    public function setIdUsuario($id_usuario)
     {
-        $this->id_marca = $id_marca;
+        $this->id_usuario = $id_usuario;
     }
 
     /**
      * @return mixed
      */
-    public function getIdModelo()
+    public function getNome()
     {
-        return $this->id_modelo;
+        return $this->nome;
     }
 
     /**
-     * @param mixed $id_modelo
+     * @param mixed $nome
      */
-    public function setIdModelo($id_modelo)
+    public function setNome($nome)
     {
-        $this->id_modelo = $id_modelo;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCodigo()
-    {
-        return $this->codigo;
-    }
-
-    /**
-     * @param mixed $codigo
-     */
-    public function setCodigo($codigo)
-    {
-        $this->codigo = $codigo;
+        $this->nome = $nome;
     }
 
     /**
      * @return mixed
      */
-    public function getPreco()
+    public function getTelefone()
     {
-        return $this->preco;
+        return $this->telefone;
     }
 
     /**
-     * @param mixed $preco
+     * @param mixed $telefone
      */
-    public function setPreco($preco)
+    public function setTelefone($telefone)
     {
-        $this->preco = $preco;
+        $this->telefone = $telefone;
     }
 
     /**
      * @return mixed
      */
-    public function getCor()
+    public function getSexo()
     {
-        return $this->cor;
+        return $this->sexo;
     }
 
     /**
-     * @param mixed $cor
+     * @param mixed $sexo
      */
-    public function setCor($cor)
+    public function setSexo($sexo)
     {
-        $this->cor = $cor;
+        $this->sexo = $sexo;
     }
 
-	public function inserir($dados){
-		
-		$nome = $dados['nome'];
-		
-		$sql = "insert into produto (nome) 
-						   values ('$nome')";
-		
-		$oConexao = new Conexao();
-		return $oConexao->executar($sql);
-	}
-	
-	public function alterar($dados){
-		
-		$id_produto = $dados['id_produto'];
-		$nome     = $dados['nome'];
-	
-		$sql = "update produto set
-					nome = '$nome'
-				where id_produto = $id_produto";
-		
-		$oConexao = new Conexao();
-		return $oConexao->executar($sql);
-	}
-
-	public function excluir($id_produto){
-	
-		$sql = "delete from produto where id_produto = $id_produto";
-
-		$oConexao = new Conexao();
-		return $oConexao->executar($sql);
-	}
-	
-	public function recuperarTodos(){
-		
-		$sql = "select * from produto order by nome";
-		
-		$oConexao = new Conexao();
-		return $oConexao->recuperarTodos($sql);
-	}
-
-	public function carregarPorId($id_produto){
-	
-		$sql = "select * from produto where id_produto = $id_produto";
-		
-		$oConexao = new Conexao();
-		$produtos = $oConexao->recuperarTodos($sql);
-		
-		$this->id_produto = $produtos[0]['id_produto'];
-		$this->nome = $produtos[0]['nome'];
-		$this->id_marca = $produtos[0]['id_marca'];
-		$this->id_modelo = $produtos[0]['id_modelo'];
-		$this->codigo = $produtos[0]['codigo'];
-		$this->preco = $produtos[0]['preco'];
-		$this->cor = $produtos[0]['cor'];
-	}
-
-
-    public function verificarCodigo($codigo)
+    /**
+     * @return mixed
+     */
+    public function getEmail()
     {
-        $sql = "select count(*) as qtd
-        from produto
-        where codigo = '$codigo'";
-        $oConexao = new Conexao();
-        $retorno = $oConexao->recuperarTodos($sql);
-        
-        if($retorno[0]['qtd']){
-            echo 'Já existe produto com o código informado';
-        }else{
-            echo 'O código esta disponivel';
-        }
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSenha()
+    {
+        return $this->senha;
+    }
+
+    /**
+     * @param mixed $senha
+     */
+    public function setSenha($senha)
+    {
+        $this->senha = $senha;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdPerfil()
+    {
+        return $this->id_perfil;
+    }
+
+    /**
+     * @param mixed $id_perfil
+     */
+    public function setIdPerfil($id_perfil)
+    {
+        $this->id_perfil = $id_perfil;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdUf()
+    {
+        return $this->id_uf;
+    }
+
+    /**
+     * @param mixed $id_uf
+     */
+    public function setIdUf($id_uf)
+    {
+        $this->id_uf = $id_uf;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdMunicipio()
+    {
+        return $this->id_municipio;
+    }
+
+    /**
+     * @param mixed $id_municipio
+     */
+    public function setIdMunicipio($id_municipio)
+    {
+        $this->id_municipio = $id_municipio;
+    }
+
+
+    public function inserir($dados)
+    {
+        $id_usuario = $dados['id_usuario'];
+        $nome = $dados['nome'];
+        $telefone = $dados['telefone'];
+        $sexo = $dados['sexo'];
+        $email = $dados['email'];
+        $senha = $dados['senha'];
+        $id_perfil = $dados['id_perfil'];
+        $id_uf = $dados['id_uf'];
+        $id_municipio = $dados['id_municipio'];
+
+        $sql = /** @lang text */
+            "insert into usuario (nome, telefone,sexo, email, senha, id_perfil, id_uf,id_municipio) values ('$nome','$telefone','$sexo','$email','$senha','$id_perfil','$id_uf','$id_municipio')";
+
+        $oConexao = new conexao();
+        return $oConexao->executar($sql);
+       }
+
+    public function alterar($dados)
+    {
+        $id_usuario = $dados['id_usuario'];
+        $nome = $dados['nome'];
+        $telefone = $dados['telefone'];
+        $sexo = $dados['sexo'];
+        $email = $dados['email'];
+        $senha = $dados['senha'];
+        $id_perfil = $dados['id_perfil'];
+        $id_uf = $dados['id_uf'];
+        $id_municipio = $dados['id_municipio'];
+
+
+        $sql = "update usuario set
+					nome = '$nome',
+					telefone = '$telefone',
+					sexo = '$sexo',
+					email = '$email',
+					senha = '$senha',
+					id_perfil = '$id_perfil',
+					id_uf = '$id_uf',
+					id_municipio = '$id_municipio'
+				where id_usuario = $id_usuario ";
+
+        $conexao = new Conexao();
+        return $conexao->executar($sql);
+    }
+
+    public function excluir($id_usuario)
+    {
+        $sql = "delete from usuario where id_usuario = $id_usuario";
+
+        $conexao = new Conexao();
+        return $conexao->executar($sql);
+    }
+
+    public function recuperarTodos()
+    {
+        $conexao = new Conexao();
+
+        $sql="select usuario.id_usuario,usuario.nome, uf.nome as uf, municipio.nome as municipio from usuario
+left join uf
+	on usuario.id_uf = uf.id_uf
+left join municipio
+	on usuario.id_municipio = municipio.id_municipio";
+
+//        $sql = "select * from usuario";
+        return $conexao->recuperarTodos($sql);
+    }
+    public function recupera_municipios($id_uf){
+        $conexao = new Conexao();
+       $sql= "SELECT nome FROM municipio where id_uf= $id_uf";
+        return $conexao->recuperarTodos($sql);
+    }
+
+
+    public function carregarPorId($id_usuario)
+    {
+        $conexao = new Conexao();
+
+        $sql = "select * from usuario where id_usuario = $id_usuario";
+        $dados = $conexao->recuperarTodos($sql);
+
+        $this->id_usuario = $dados[0]['id_usuario'];
+        $this->nome = $dados[0]['nome'];
+        $this->telefone = $dados[0]['telefone'];
+        $this->sexo = $dados[0]['sexo'];
+        $this->email = $dados[0]['email'];
+        $this->senha = $dados[0]['senha'];
+        $this->id_perfil = $dados[0]['id_perfil'];
+        $this->id_uf = $dados[0]['id_uf'];
+        $this->id_municipio = $dados[0]['id_municipio'];
     }
 }
