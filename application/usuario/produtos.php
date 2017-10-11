@@ -1,11 +1,18 @@
-<?php include_once '../cabecalho_produtos.php';?>
+<?php 
+include_once 'Produto.php';
+include_once '../conexao.php';
+    
+$oProduto = new Produto();
+$aProdutos = $oProduto->recuperarTodos($_GET);
+
+include_once '../cabecalho_produtos.php';?>
 
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Produtos</h3>
+               
               </div>
 
               <div class="title_right">
@@ -32,159 +39,23 @@
                       </div>
 
                       <div class="clearfix"></div>
-
-                      <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
+                    <?php foreach($aProdutos as $produto){?>
+                    <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
                         <div class="well profile_view">
                           <div class="col-sm-12">
-                            <h4 class="brief"><i>Digital Strategist</i></h4>
+                            <h4 class="brief"><i><?php echo $produto['nome']?></i></h4>
                             <div class="left col-xs-7">
-                              <h2>Nicole Pearson</h2>
-                              <p><strong>About: </strong> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                            <h3>Modelo</h3>
+                            <p>Marca</p>
+                              <p><strong></strong><?php echo $produto['modelo']?> </p>
                               <ul class="list-unstyled">
-                                <li><i class="fa fa-building"></i> Address: </li>
-                                <li><i class="fa fa-phone"></i> Phone #: </li>
+                                <li><i class="fa fa-building"></i><?php echo $produto['preco']?></li>
+                                <li><a href="produtos.php?id_tipo=<?php echo $tipo['id_tipo']?>"></a> Phone #: </li>
                               </ul>
                             </div>
-                            <div class="right col-xs-5 text-center">
-                              <img src="images/img.jpg" alt="" class="img-circle img-responsive">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
-                        <div class="well profile_view">
-                          <div class="col-sm-12">
-                            <h4 class="brief"><i>Digital Strategist</i></h4>
-                            <div class="left col-xs-7">
-                              <h2>Nicole Pearson</h2>
-                              <p><strong>About: </strong> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                              <ul class="list-unstyled">
-                                <li><i class="fa fa-building"></i> Address: </li>
-                                <li><i class="fa fa-phone"></i> Phone #: </li>
-                              </ul>
-                            </div>
-                            <div class="right col-xs-5 text-center">
-                              <img src="images/img.jpg" alt="" class="img-circle img-responsive">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
-                        <div class="well profile_view">
-                          <div class="col-sm-12">
-                            <h4 class="brief"><i>Digital Strategist</i></h4>
-                            <div class="left col-xs-7">
-                              <h2>Nicole Pearson</h2>
-                              <p><strong>About: </strong> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                              <ul class="list-unstyled">
-                                <li><i class="fa fa-building"></i> Address: </li>
-                                <li><i class="fa fa-phone"></i> Phone #: </li>
-                              </ul>
-                            </div>
-                            <div class="right col-xs-5 text-center">
-                              <img src="images/img.jpg" alt="" class="img-circle img-responsive">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
-                        <div class="well profile_view">
-                          <div class="col-sm-12">
-                            <h4 class="brief"><i>Digital Strategist</i></h4>
-                            <div class="left col-xs-7">
-                              <h2>Nicole Pearson</h2>
-                              <p><strong>About: </strong> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                              <ul class="list-unstyled">
-                                <li><i class="fa fa-building"></i> Address: </li>
-                                <li><i class="fa fa-phone"></i> Phone #: </li>
-                              </ul>
-                            </div>
-                            <div class="right col-xs-5 text-center">
-                              <img src="images/img.jpg" alt="" class="img-circle img-responsive">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
-                        <div class="well profile_view">
-                          <div class="col-sm-12">
-                            <h4 class="brief"><i>Digital Strategist</i></h4>
-                            <div class="left col-xs-7">
-                              <h2>Nicole Pearson</h2>
-                              <p><strong>About: </strong> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                              <ul class="list-unstyled">
-                                <li><i class="fa fa-building"></i> Address: </li>
-                                <li><i class="fa fa-phone"></i> Phone #: </li>
-                              </ul>
-                            </div>
-                            <div class="right col-xs-5 text-center">
-                              <img src="images/img.jpg" alt="" class="img-circle img-responsive">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
-                        <div class="well profile_view">
-                          <div class="col-sm-12">
-                            <h4 class="brief"><i>Digital Strategist</i></h4>
-                            <div class="left col-xs-7">
-                              <h2>Nicole Pearson</h2>
-                              <p><strong>About: </strong> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                              <ul class="list-unstyled">
-                                <li><i class="fa fa-building"></i> Address: </li>
-                                <li><i class="fa fa-phone"></i> Phone #: </li>
-                              </ul>
-                            </div>
-                            <div class="right col-xs-5 text-center">
-                              <img src="images/img.jpg" alt="" class="img-circle img-responsive">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
-                        <div class="well profile_view">
-                          <div class="col-sm-12">
-                            <h4 class="brief"><i>Digital Strategist</i></h4>
-                            <div class="left col-xs-7">
-                              <h2>Nicole Pearson</h2>
-                              <p><strong>About: </strong> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                              <ul class="list-unstyled">
-                                <li><i class="fa fa-building"></i> Address: </li>
-                                <li><i class="fa fa-phone"></i> Phone #: </li>
-                              </ul>
-                            </div>
-                            <div class="right col-xs-5 text-center">
-                              <img src="images/img.jpg" alt="" class="img-circle img-responsive">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
-                        <div class="well profile_view">
-                          <div class="col-sm-12">
-                            <h4 class="brief"><i>Digital Strategist</i></h4>
-                            <div class="left col-xs-7">
-                              <h2>Nicole Pearson</h2>
-                              <p><strong>About: </strong> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                              <ul class="list-unstyled">
-                                <li><i class="fa fa-building"></i> Address: </li>
-                                <li><i class="fa fa-phone"></i> Phone #: </li>
-                              </ul>
-                            </div>
-                            <div class="right col-xs-5 text-center">
-                              <img src="images/img.jpg" alt="" class="img-circle img-responsive">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
+                        <?php }?>
+                     
+                           
 
                     </div>
                   </div>

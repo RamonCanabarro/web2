@@ -140,9 +140,21 @@ class produto{
 		return $oConexao->executar($sql);
 	}
 	
-	public function recuperarTodos(){
+	public function recuperarTodos($filtro =[]){
 		
-		$sql = "select * from produto order by nome";
+        $where = [];
+        if(!empty($filtro['id_tipo'])){
+            $where[] = 'mo.id_tipo = '. $filtro['id_tipo'];
+        }
+         if(!empty($filtro['id_marca'])){
+            $where[] = 'p.id_marca = '. $filtro['id_marca'];
+        }
+         if(!empty($filtro['id_modelo'])){
+            $where[] = 'p.id_modelo = '. $filtro['id_modelo'];
+        }
+        $where = count($where) ? 'where'. implode('and', $where) : '';
+
+       $sql = "select p.*, mo.id_tipo from produto p inner join modelo mo on mo.id_modelo = p.id_modelo where $where order by p.nome";
 		
 		$oConexao = new Conexao();
 		return $oConexao->recuperarTodos($sql);

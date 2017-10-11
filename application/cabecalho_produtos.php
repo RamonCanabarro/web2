@@ -3,9 +3,13 @@
 include_once '../conexao.php';
 $conexao = new Conexao();
 
-include_once 'Produto.php';
-$produto = new Produto();
-$oProduto = $produto->recuperarTodos();
+include_once 'Categoria.php';
+$categoria = new Categoria();
+$oCategoria = $categoria->recuperarTodos();
+
+include_once 'Tipo.php';
+$tipo = new Tipo();
+$oTipo = $tipo->recuperarTodos();
 ?>
 <html lang="en">
 <head>
@@ -61,7 +65,7 @@ $oProduto = $produto->recuperarTodos();
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="usuario/produtos.php" class="site_title"><i class="fa fa-shopping-cart"></i> <span>Produtos</span></a>
+                    <a href="usuario/categorias.php" class="site_title"><i class="fa fa-shopping-cart"></i> <span>Categorias</span></a>
                 </div>
 
                 <div class="clearfix"></div>
@@ -107,8 +111,8 @@ $oProduto = $produto->recuperarTodos();
                             <?php $aTipo = $oTipo->recuperarPorCategoria($categorias['id_categoria']);?>
                         </li>
                         <ul class="dropdown-menu">
-                            <?php foreach($aTipo as $tipo){?>
-                                <li><a > <?php echo $tipo['nome']?></a></li>
+                            <?php foreach($oTipo as $tipo){?>
+                                <li><a href="categorias.php?id_tipo=<?php echo $tipo['id_tipo']?>"></a></li>
                             <?php }?>
                         </ul>
                         <?php }?>
