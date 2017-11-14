@@ -74,7 +74,7 @@ class Cadastrar
         $telefone = $dados['telefone'];
         $email = $dados['email'];
         $sql = /** @lang text */
-            "insert into administrador (nome, telefone,email, senha)values ( '$nome','$telefone', '$email', '$senha')";
+            "insert into administrador (adm, telefone,email, senha)values ( '$nome','$telefone', '$email', '$senha')";
 
         $oConexao = new conexao();
         return $oConexao->executar($sql);
@@ -97,7 +97,7 @@ class Cadastrar
 
         $sql = /** @lang text */
             "update administrador set
-					nome = '$nome', telefone='$telefone', email='$email', senha ='$senha'
+					adm = '$nome', telefone='$telefone', email='$email', senha ='$senha'
 				where id_administrador = $id_administrador";
 
         $oConexao = new Conexao();
@@ -120,7 +120,7 @@ class Cadastrar
         $administrador = $oConexao->recuperarTodos($sql);
 
         $this->id_administrador = $administrador[0]['id_administrador'];
-        $this->nome = $administrador[0]['nome'];
+        $this->nome = $administrador[0]['adm'];
         $this->senha = $administrador[0]['senha'];
         $this->telefone = $administrador[0]['telefone'];
         $this->email = $administrador[0]['email'];

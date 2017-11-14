@@ -120,7 +120,7 @@ class Cadastrar1
 
     public function carregarPorId($id_empregado)
     {
-        $sql =  /** @lang text */
+        $sql = /** @lang text */
             "select * from empregado where $id_empregado = $id_empregado;";
 
         $oConexao = new Conexao();
@@ -138,12 +138,15 @@ class Cadastrar1
     public function recuperarTodos()
     {
 
-        $sql = "select * from empregado";
+        $sql = "select * from empregado 
+inner join cargo on cargo.id_cargo = empregado.cargo_id_cargo order by cargo.cargo;";
 
         $oConexao = new conexao();
         return $oConexao->recuperarTodos($sql);
     }
-    public function alterar($dados){
+
+    public function alterar($dados)
+    {
 
         $id_empregado = $dados['id_cliente'];
         $cpf = $dados['cpf'];
@@ -161,6 +164,7 @@ class Cadastrar1
         $oConexao = new Conexao();
         return $oConexao->executar($sql);
     }
+
     public function excluir($id_empregado)
     {
 

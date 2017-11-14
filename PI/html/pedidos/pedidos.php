@@ -3,16 +3,14 @@ $oCadastro = new Cadastrar();
 if (!empty($_GET['id_pedidos'])) {
     $oCadastro->carregarPorId($_GET['id_pedidos']);
 }
-include_once '../clientes/list.php';
 include_once '../mesa/list.php';
 include_once '../cardapio/list.php';
+include_once '../produtos/list.php';
 
-
-$oCliente = (new Cadastrar2())->recuperarTodos();
 $oMesa = (new Cadastrar5())->recuperarTodos();
-$oCardapio = (new Cadastrar4())->recuperarTodos();
+$oProdutos = (new Produtos())->recuperarTodos();
 
-include_once '../cabecalho.php';?>
+include_once '../cabecalho.php'; ?>
 <form action="processamento.php?acao=salvar" method="post" name="id_pedidos">
     <div class="panel panel-primary">
         <div class="panel-heading" align="center"></div>
@@ -20,63 +18,44 @@ include_once '../cabecalho.php';?>
             <div class="col-md-12">
                 <input type="hidden" name="id_pedidos" id="id_pedidos"
                        value="<?php echo $oCadastro->getIdPedidos(); ?>"/></div>
-            <div class="col-md-6">
-                <label for="horario">Horario:</label>
-                <input type="text" id="horario" name="horario" placeholder=""
-                       required class="form-control" value="<?php echo $oCadastro->getHorario(); ?>"/>
+            <table class="table table-bordered table-striped table-hover" style="background-color:beige ">
+                <h1 style="color:silver" align="center">Listagem</h1>
+            <?php foreach ($oProdutos as $produto) { ?>
+            <div class="col-md-6 col-sm-6 col-xs-12 profile_details">
+                <div class="well profile_view">
+                    <div class="col-sm-12">
+                        <h4 class="brief"><i><a href="detalhe.php?id_produto=<?php echo $produto['nome'];?>"</i></h4>
+                        <div class="left col-xs-7">
+                            <h2>Prato</h2>
+                            <ul class="list-unstyled">
+                                <li><i class=""></i><?php echo $produto['nome'];?></li>
+                                <li><i class="glyphicon glyphicon-usd"></i><?php echo $produto['preco'];?></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6">
-                <label for="quantidade">Porções:</label>
-                <input type="text" id="quantidade" name="quantidade" placeholder=""
-                       required class="form-control" value="<?php echo $oCadastro->getQuantidade(); ?>"/>
-            </div>
-            <div class="col-md-6">
-                <label for="observacoes">Observações:</label>
-                <input type="text" id="observacoes" name="observacoes" placeholder=""
-                       required class="form-control" value="<?php echo $oCadastro->getObservacoes(); ?>"/>
-            </div>
-            <div class="col-md-6">
-                <label for="preco">Preço:</label>
-                <input type="text" id="preco" name="preco" placeholder=""
-                       required class="form-control" value="<?php echo $oCadastro->getPreco(); ?>"/>
-            </div>
-            <div class="col-md-6">
-                <label for="pago">Pago:</label>
-                <input type="text" id="pago" name="pago" placeholder=""
-                       required class="form-control" value="<?php echo $oCadastro->getPago(); ?>"/>
-            </div>
-            <div class="col-md-6">
-                <label for="cardapio" class="control-label col-md-2">Cardapio:</label>
-                <select data-placeholder="Cliente..." name="cardapio" id="cardapio" class="col-md-6 chosen-select ">
-                    <?php foreach ($oCardapio as $cardapio) { ?>
-                        <option value="<?php echo $cardapio["id_cardapio"]; ?>"><?php echo $cardapio['pratos']?></option>;
-                    <?PHP } ?>
-                </select><a href="../cardapio/cardapio.php"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-            </div>
-            <div class="col-md-6">
-                <label for="mesa" class="control-label col-md-2">Mesa:</label>
-                <select data-placeholder="Cliente..." name="mesa" id="mesa" class="col-md-6 chosen-select ">
-                    <?php foreach ($oMesa as $mesa) { ?>
-                        <option value="<?php echo $mesa["id_mesa"]; ?>"><?php echo $mesa['mesa']?></option>;
-                    <?PHP } ?>
-                </select><a href="../mesa/mesa.php"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-            </div>
-            <div class="col-md-6">
-                <label for="cliente" class="control-label col-md-2">Cliente:</label>
-                <select data-placeholder="Cliente..." name="cliente" id="cliente" class="col-md-6 chosen-select ">
-                    <?php foreach ($oCliente as $cliente) { ?>
-                        <option value="<?php echo $cliente["id_cliente"]; ?>"><?php echo $cliente['nome']?></option>;
-                    <?PHP } ?>
-                </select>
-            </div>
-
-
+            <?php } ?>
+            <?php include_once '../rodape.php'; ?>
         </div>
-        <div class="panel-footer" align="center">
-            <button type="submit" value="Enviar" class="btn btn-success" href="">Salvar</button>
-            <button type="reset" value="Cancelar" class="btn btn-success">Cancelar</button>
-        </div>
-        <?php include_once '../rodape.php';?>
-    </div>
 </form>
+<!--value="--><?php //echo $produto['preco']; ?><!--"-->
+<script>
+    $(function () {
+        const preco = document.getElementById('preco');
+        const quant = document.getElementById('quant');
+        const result = document.getElementById('result');
 
+        preco.oninput = (event) =
+        >
+        {
+            result.value = event.target.value * quant.value
+        }
+
+        quant.oninput = (event) =
+        >
+        {
+            result.value = event.target.value * preco.value
+        }
+    });
+</script>

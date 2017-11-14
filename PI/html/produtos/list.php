@@ -2,15 +2,15 @@
 
 include_once '../../conexao.php';
 
-class Cadastrar4
+class Produtos
 {
 
     protected $id_produtos;
-    protected $nome;
     protected $preco;
     protected $qtd;
     protected $observacoes;
     protected $administrador;
+    protected $nome;
     protected $codigo;
 
     public function getIdProdutos()
@@ -92,10 +92,10 @@ class Cadastrar4
         $id_produtos = $dados['id_produtos'];
         $nome = $dados['nome'];
         $preco = $dados['preco'];
+        $codigo = $dados['codigo'];
         $qtd = $dados['qtd'];
         $observacoes = $dados['observacoes'];
         $administrador = $dados['administrador'];
-        $codigo = $dados['codigo'];
 
         $sql = /** @lang text */
             "insert into produtos (nome, preco, quantidade, observacoes, administrador_id_administrador, codigo)values ('$nome', '$preco','$qtd', '$observacoes','$administrador', '$codigo')";
@@ -125,7 +125,7 @@ class Cadastrar4
     public function recuperarTodos()
     {
 
-        $sql = "select * from produtos";
+        $sql = "select * from produtos inner join administrador on administrador.id_administrador = produtos.administrador_id_administrador";
 
         $oConexao = new conexao();
         return $oConexao->recuperarTodos($sql);

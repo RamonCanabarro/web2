@@ -1,7 +1,7 @@
 <?php
 
 include_once 'list.php';
-$oCadastro = new Cadastrar4();
+$oCadastro = new Produtos();
 $cadastrar = $oCadastro->recuperarTodos();
 
 include_once '../cabecalho.php';?>
@@ -30,7 +30,7 @@ include_once '../cabecalho.php';?>
             <td><?php echo $cadastros['quantidade']; ?></td>
             <td><?php echo $cadastros['preco']; ?></td>
             <td><?php echo $cadastros['observacoes']; ?></td>
-            <td><?php echo $cadastros['administrador_id_administrador']; ?></td>
+            <td><?php echo $cadastros['adm']; ?></td>
 
         </tr>
     <?php } ?>
@@ -40,4 +40,4 @@ include_once '../cabecalho.php';?>
     </div>
 </table>
 
-<?php //include_once '../rodape.php';?>
+<?php include_once '../rodape.php';?>

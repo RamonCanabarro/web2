@@ -25,7 +25,7 @@ include_once '../cabecalho.php';?>
             </td>
             <td><?php echo $cadastros['nome']; ?></td>
             <td><?php echo $cadastros['telefone']; ?></td>
-            <td><?php echo $cadastros['cargo_id_cargo']; ?></td>
+            <td><?php echo $cadastros['cargo']; ?></td>
 
 
         </tr>

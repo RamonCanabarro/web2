@@ -2,7 +2,7 @@
 
 include_once 'list1.php';
 
-$oCadastro = new Cadastrar3();
+$oCadastro = new Cargo();
 
 switch (isset($_GET['acao']) ? $_GET['acao'] : 'erro') {
     case 'salvar':

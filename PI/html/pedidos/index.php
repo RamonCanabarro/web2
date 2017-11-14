@@ -28,7 +28,7 @@ include_once '../cabecalho.php';?>
             <td><?php echo $cadastros['horario']; ?></td>
             <td><?php echo $cadastros['quantidade']; ?></td>
             <td><?php echo $cadastros['preco']; ?></td>
-            <td><?php echo $cadastros['cliente_id_cliente']; ?></td>
+            <td><?php echo $cadastros['total']; ?></td>
 
         </tr>
     <?php } ?>

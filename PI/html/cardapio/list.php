@@ -2,7 +2,7 @@
 
 include_once '../../conexao.php';
 
-class Cadastrar4
+class Cadastrar6
 {
 
     protected $id_cardapio;

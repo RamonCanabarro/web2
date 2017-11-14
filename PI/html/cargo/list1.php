@@ -2,7 +2,7 @@
 
 include_once '../../conexao.php';
 
-class Cadastro
+class Cargo
 {
 
     protected $id_cargo;

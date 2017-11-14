@@ -16,7 +16,6 @@
 <!-- Bootstrap -->
 <script src="../../../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- viacep -->
-<script src="../../..//jquery-3.2.1.min.js"></script>
 <!-- FastClick -->
 <script src="../../../vendors/fastclick/lib/fastclick.js"></script>
 <!-- NProgress -->
@@ -62,7 +61,7 @@
         $("#data").mask("99/99/9999", {placeholder: "mm/dd/yyyy"});
         $("#telefone").mask("(99) 999-9999");
         $("#celular").mask("(99) 999-9999");
-        $("#preco").mask("99,99");
+        $("#preco").mask("99.99");
         $("#cpf").mask("999.999.999-99");
 
     });

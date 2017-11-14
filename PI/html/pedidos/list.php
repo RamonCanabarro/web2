@@ -4,15 +4,10 @@ error_reporting(E_ALL);
 
 class Cadastrar
 {
-    protected $quantidade;
-    protected $preco;
-    protected $horario;
     protected $id_pedidos;
-    protected $pago;
-    protected $observacoes;
-    protected $mesa;
-    protected $cardapio;
-    protected $cliente;
+    protected $preco;
+    protected $nome;
+    protected $codigo;
 
     public function getIdPedidos()
     {
@@ -24,26 +19,6 @@ class Cadastrar
         $this->id_pedidos = $id_pedidos;
     }
 
-    public function getQuantidade()
-    {
-        return $this->quantidade;
-    }
-
-    public function setQuantidade($quantidade)
-    {
-        $this->quantidade = $quantidade;
-    }
-
-    public function getHorario()
-    {
-        return $this->horario;
-    }
-
-    public function setHorario($horario)
-    {
-        $this->horario = $horario;
-    }
-
     public function getPreco()
     {
         return $this->preco;
@@ -53,75 +28,36 @@ class Cadastrar
     {
         $this->preco = $preco;
     }
-
-    public function getPago()
+    public function getCodigo()
     {
-        return $this->pago;
+        return $this->codigo;
     }
 
-    public function setPago($pago)
+    public function setCodigo($codigo)
     {
-        $this->pago = $pago;
+        $this->codigo = $codigo;
+    }
+    public function getNome()
+    {
+        return $this->nome;
     }
 
-    public function getObservacoes()
+    public function setNome($nome)
     {
-        return $this->observacoes;
+        $this->nome = $nome;
     }
-
-    public function setObservacoes($observacoes)
-    {
-        $this->observacoes = $observacoes;
-    }
-
-    public function getMesa()
-    {
-        return $this->mesa;
-    }
-
-    public function setMesa($mesa)
-    {
-        $this->mesa = $mesa;
-    }
-
-    public function getCardapio()
-    {
-        return $this->cardapio;
-    }
-
-    public function setCardapio($cardapio)
-    {
-        $this->cardapio = $cardapio;
-    }
-
-    public function getCliente()
-    {
-        return $this->cliente;
-    }
-
-    public function setCliente($cliente)
-    {
-        $this->cliente = $cliente;
-    }
-
-
     /**
      * @param $dados
      * @return mixed
      */
     public function inserir($dados)
     {
-        $quantidade = $dados['quantidade'];
-        $observacoes = $dados['observacoes'];
-        $horario = $dados['horario'];
+        $nome = $dados['nome'];
         $preco = $dados['preco'];
-        $pago = $dados['pago'];
-        $mesa = $dados['mesa'];
-        $cardapio = $dados['mesa'];
-        $cliente = $dados['cliente'];
+        $codigo = $dados['codigo'];
 
         $sql = /** @lang text */
-            "insert into pedidos (horario, quantidade, observacoes, preco, pago, mesa_id_mesa,cardapio_id_cardapio,cliente_id_cliente) values('$horario', '$quantidade', '$observacoes','$preco', '$pago','$mesa','$cardapio','$cliente')";
+            "insert into pedidos (codigo, nome, preco, ) values('$codigo','$nome', '$preco',)";
 
         $oConexao = new conexao();
         return $oConexao->executar($sql);
@@ -134,15 +70,10 @@ class Cadastrar
 
         $oConexao = new conexao();
         $pedidos = $oConexao->recuperarTodos($sql);
-        $this->horario = $pedidos[0]['horario'];
-        $this->quantidade = $pedidos[0]['quantidade'];
-        $this->preco = $pedidos[0]['preco'];
-        $this->cliente_id_cliente = $pedidos[0]['cliente_id_cliente'];
-        $this->pago = $pedidos[0]['pago'];
-        $this->observacoes = $pedidos[0]['observacoes'];
-        $this->mesa_id_mesa = $pedidos[0]['mesa_id_mesa'];
-        $this->cardapio_id_cardapio = $pedidos[0]['cardapio_id_cardapio'];
-    }
+        $this->nome = $pedidos['nome'];
+        $this->preco = $pedidos['preco'];
+        $this->codigo = $pedidos['codigo'];
+       }
 
     public function excluir($id_pedidos)
     {
@@ -165,15 +96,11 @@ class Cadastrar
     public function alterar($dados)
     {
         $id_pedidos = $dados['id_pedidos'];
-        $horario = $dados['horario'];
-        $quantidade = $dados['quantidade'];
+        $nome = $dados['nome'];
         $preco = $dados['preco'];
-        $mesa = $dados['mesa'];
-        $cardapio = $dados['mesa'];
-        $cliente = $dados['cliente'];
+        $codigo = $dados['codigo'];
         $sql = "update pedidos set
-					horario = '$horario', quantidade = '$quantidade', preco = '$preco', mesa_id_mesa='$mesa', mesa=m$cardapioesa,cliente=m$cardapioesa 
-				where id = $id_pedidos";
+					nome = '$nome', codigo = '$codigo', preco = '$preco' where id = $id_pedidos";
 
         $oConexao = new conexao();
         return $oConexao->executar($sql);

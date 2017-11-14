@@ -22,7 +22,7 @@ include_once '../cabecalho.php';?>
                    href="processamento.php?acao=excluir&id_administrador=<?php echo $cadastros['id_administrador']; ?>"><span
                         class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
             </td>
-            <td><?php echo $cadastros['nome']; ?></td>
+            <td><?php echo $cadastros['adm']; ?></td>
             <td><?php echo $cadastros['telefone']; ?></td>
 
 

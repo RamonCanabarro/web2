@@ -2,7 +2,7 @@
 
 include_once 'list.php';
 
-$oCadastro = new Cadastrar4();
+$oCadastro = new Produtos();
 
 
 switch(isset($_GET['acao'])? $_GET['acao'] : 'erro'){
