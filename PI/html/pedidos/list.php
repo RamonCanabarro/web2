@@ -52,9 +52,9 @@ class Cadastrar
      */
     public function inserir($dados)
     {
+        $codigo = $dados['codigo'];
         $nome = $dados['nome'];
         $preco = $dados['preco'];
-        $codigo = $dados['codigo'];
 
         $sql = /** @lang text */
             "insert into pedidos (codigo, nome, preco, ) values('$codigo','$nome', '$preco',)";

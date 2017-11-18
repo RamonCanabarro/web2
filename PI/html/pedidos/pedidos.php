@@ -20,23 +20,25 @@ include_once '../cabecalho.php'; ?>
                        value="<?php echo $oCadastro->getIdPedidos(); ?>"/></div>
             <table class="table table-bordered table-striped table-hover" style="background-color:beige ">
                 <h1 style="color:silver" align="center">Listagem</h1>
-            <?php foreach ($oProdutos as $produto) { ?>
-            <div class="col-md-6 col-sm-6 col-xs-12 profile_details">
-                <div class="well profile_view">
-                    <div class="col-sm-12">
-                        <h4 class="brief"><i><a href="detalhe.php?id_produto=<?php echo $produto['nome'];?>"</i></h4>
-                        <div class="left col-xs-7">
-                            <h2>Prato</h2>
-                            <ul class="list-unstyled">
-                                <li><i class=""></i><?php echo $produto['nome'];?></li>
-                                <li><i class="glyphicon glyphicon-usd"></i><?php echo $produto['preco'];?></li>
-                            </ul>
+                <?php foreach ($oProdutos as $produto) { ?>
+                <div class="col-md-6 col-sm-6 col-xs-12 profile_details">
+                    <div class="well profile_view">
+                        <div class="col-sm-12">
+                            <h4 class="brief"><i><a href="detalhe.php?id_produto=<?php echo $produto['nome']; ?>"</i>
+                            </h4>
+                            <div class="left col-xs-7">
+                                <h2>Prato</h2>
+                                <ul class="list-unstyled">
+                                    <li><i class=""></i><?php echo $produto['nome']; ?></li>
+                                    <li><i class="glyphicon glyphicon-usd"></i><?php echo $produto['preco']; ?></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <?php } ?>
-            <?php include_once '../rodape.php'; ?>
+
+                <?php } ?>
+                <?php include_once '../rodape.php'; ?>
         </div>
 </form>
 <!--value="--><?php //echo $produto['preco']; ?><!--"-->

@@ -23,7 +23,7 @@ $produto = count($aProdutos) ? $aProdutos[0] : [];
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3><?php echo $oProduto->getNome()?></h3>
+                            <h3><?php echo $oProduto->getNome() ?></h3>
                         </div>
                     </div>
 
@@ -39,11 +39,10 @@ $produto = count($aProdutos) ? $aProdutos[0] : [];
                                         </div>
 
                                         <div class="clearfix"></div>
-                                        <p type="hidden" value="<?php echo $oCadastro->getIdPeditos(); ?>"></p>
-                                        <p value="<?php echo $oCadastro->getCodigo(); ?>">Código:<?php echo $produto['codigo']?></p>
-                                        <p value="<?php echo $oCadastro->getNome(); ?>">Prato:<?php echo $produto['nome']?></p>
-                                        <p id="preco" value="<?php echo $oCadastro->getPreco(); ?>">Preço: <?php echo number_format($produto['preco'],2, ',','.');?></p>
-                          </div>
+                                        <p>Código:<?php echo $produto['codigo'] ?></p>
+                                        <p>Prato:<?php echo $oCadastro->getPreco( $produto['nome'])?></p>
+                                        <p>Preço: <?php echo number_format($produto['preco'], 2, ',', '.'); ?></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -52,24 +51,29 @@ $produto = count($aProdutos) ? $aProdutos[0] : [];
             </div>
 
             <div class="panel-footer" align="center">
-                <button type="submit" value="Entrar" class="btn btn-success">Enviar</button>
-                <button type="reset" value="Cancelar" class="btn btn-success">Cancelar</button>
+                <input type="submit" VALUE="ENVIAR" class="btn-success">
             </div>
         </div>
 </form>
-        <!-- /page content -->
+<!-- /page content -->
 <script>
     $(function () {
         const preco = document.getElementById('preco')
         const quant = document.getElementById('quant')
         const result = document.getElementById('result')
 
-        preco.oninput = (event) => {
+        preco.oninput = (event) =
+        >
+        {
             result.value = event.target.value * quant.value
-        };
+        }
+        ;
 
-        quant.oninput = (event) => {
+        quant.oninput = (event) =
+        >
+        {
             result.value = event.target.value * preco.value
-        };
+        }
+        ;
     });
 </script>
