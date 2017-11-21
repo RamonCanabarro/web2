@@ -21,9 +21,9 @@ include_once '../cabecalho.php';
 
                 <div class="col-md-6">
                     <label for="nome">Nome</label>
-                    <input type="text" placeholder="Nome" id="nome" name="nome" required
+                    <input type="text" placeholder="Nome" id="adm" name="adm" required
                            class="form-control text-uppercase"
-                           value="<?php echo $oCadastro->getNome(); ?>"/>
+                           value="<?php echo $oCadastro->getAdm(); ?>"/>
                 </div>
                 <div class="col-md-6">
                     <label for="senha">Senha:</label>

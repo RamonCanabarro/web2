@@ -1,7 +1,7 @@
 <?php
 
 include_once 'list.php';
-$oCadastro = new Cadastrar();
+$oCadastro = new Reservas();
 $cadastrar = $oCadastro->recuperarTodos();
 
 include_once '../cabecalho.php';?>
@@ -10,7 +10,7 @@ include_once '../cabecalho.php';?>
     <h1 style="color:silver" align="center">Listagem</h1>
     <tr>
         <td>Ações</td>
-        <td>Horario</td>
+        <td>Data</td>
         <td>Pessoas</td>
         <td>Crianças</td>
     </tr>

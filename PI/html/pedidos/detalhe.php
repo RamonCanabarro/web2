@@ -1,6 +1,6 @@
 <?php
 include_once 'list.php';
-$oCadastro = new Cadastrar();
+$oCadastro = new Pedidos();
 if (!empty($_GET['id_pedidos'])) {
     $oCadastro->carregarPorId($_GET['id_pedidos']);
 }
@@ -23,7 +23,6 @@ $produto = count($aProdutos) ? $aProdutos[0] : [];
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3><?php echo $oProduto->getNome() ?></h3>
                         </div>
                     </div>
 
@@ -40,8 +39,8 @@ $produto = count($aProdutos) ? $aProdutos[0] : [];
 
                                         <div class="clearfix"></div>
                                         <p>Código:<?php echo $produto['codigo'] ?></p>
-                                        <p>Prato:<?php echo $oCadastro->getPreco( $produto['nome'])?></p>
-                                        <p>Preço: <?php echo number_format($produto['preco'], 2, ',', '.'); ?></p>
+                                        <p>Prato:<?php echo $produto['nome']?></p>
+                                        <p>Preço:<?php echo number_format($produto['preco'], 2, ',', '.'); ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -51,7 +50,11 @@ $produto = count($aProdutos) ? $aProdutos[0] : [];
             </div>
 
             <div class="panel-footer" align="center">
+                <input type="hidden" name="codigo" value="<?php echo $produto['codigo']?>">
+                <input type="hidden" name="nome" value="<?php echo $produto['nome']?>">
+                <input type="hidden" name="preco" value="<?php echo $produto['preco']?>">
                 <input type="submit" VALUE="ENVIAR" class="btn-success">
+<!--                <a type="button" href="list.php?inserir=--><?php //echo $produto['codigo']?><!--+--><?php //echo $produto['nome']?><!--+--><?php //echo $produto['preco']?><!--" class="btn-success">ENVIAR</a>-->
             </div>
         </div>
 </form>

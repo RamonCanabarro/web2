@@ -65,11 +65,40 @@ $oCargo = (new Cargo())->recuperarTodos();
 
             </div>
             <div class="col-md-6">
-                <label for="fk_administrador" class="control-label col-md-2">Administrador:</label>
+                <label for="cep" class="control-label col-md-2">Cep:</label>
+                <input type="text" id="cep" name="cep" required
+                       class="form-control" size="10" maxlength="9""
+                value="<?php echo $oCadastro->getCep(); ?>"/>
+            </div>            <div class="col-md-6">
+                <label for="rua" class="control-label col-md-2">Rua:</label>
+                <input type="text" placeholder="" id="rua" name="rua" required
+                       class="form-control" size="10" maxlength="9""
+                value="<?php echo $oCadastro->getRua(); ?>"/>
+            </div>
+            <div class="col-md-6">
+                <label for="bairro" class="control-label col-md-2">Bairro:</label>
+                <input type="text" placeholder="" id="bairro" name="bairro" required
+                       class="form-control" size="10" maxlength="9""
+                value="<?php echo $oCadastro->getBairro(); ?>"/>
+            </div>
+            <div class="col-md-6">
+                <label for="cidade" class="control-label col-md-2">Cidade:</label>
+                <input type="text" placeholder="" id="cidade" name="cidade" required
+                       class="form-control" size="10" maxlength="9""
+                value="<?php echo $oCadastro->getcidade(); ?>"/>
+            </div>
+            <div class="col-md-6">
+                <label for="estado" class="control-label col-md-2">Estado:</label>
+                <input type="text" placeholder="" id="uf" name="uf" required
+                       class="form-control" size="10" maxlength="9""
+                value="<?php echo $oCadastro->getCidade(); ?>"/>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-3"><label for="fk_administrador" class="control-label col-md-2">Administrador:</label></div>
                 <select data-placeholder="Administrador..." name="fk_administrador" id="fk_administrador"
                         class="col-md-6 chosen-select ">
                     <?php foreach ($oAdministrador as $administrador) { ?>
-                        <option value="<?php echo $administrador["id_administrador"]; ?>"><?php echo $administrador['nome'] ?></option>;
+                        <option value="<?php echo $administrador["id_administrador"]; ?>"><?php echo $administrador['adm'] ?></option>;
                     <?PHP } ?>
                 </select>
             </div>
@@ -77,7 +106,7 @@ $oCargo = (new Cargo())->recuperarTodos();
 
         <div class="panel-footer" align="center">
             <button type="submit" value="Entrar" class="btn btn-success">Enviar</button>
-            <button type="reset" value="Cancelar" class="btn btn-success">Cancelar</button>
+            <a href="index.php" value="Cancelar" class="btn btn-success">Cancelar</a>
         </div>
         <?php include_once '../rodape.php'; ?>
     </div>
@@ -130,7 +159,7 @@ $oCargo = (new Cargo())->recuperarTodos();
                         </div>
                         <div class="modal-footer">
                             <button type="submit" value="Entrar" class="btn btn-success">Enviar</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                         </div>
                 </div>
             </div>

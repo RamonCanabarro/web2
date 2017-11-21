@@ -1,5 +1,5 @@
 <?php
-class conexao {
+class Conexao {
 
     protected $conexao;
 

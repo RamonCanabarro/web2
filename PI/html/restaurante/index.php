@@ -18,12 +18,11 @@ include_once '../cabecalho.php';?>
             <td>
                 <a href="restaurante.php?id=<?php echo $cadastros['id']; ?>"<span
                         class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                <a class="excluir"
-                   href="processamento.php?acao=excluir&id=<?php echo $cadastros['id']; ?>"><span
-                        class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                <a href="processamento.php?acao=excluir&id=<?php echo $cadastros['id']; ?>"><span
+                            class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
             </td>
             <td><?php echo $cadastros['nome_restaurante']; ?></td>
-            <td><?php echo $cadastros['administrador_id_administrador']; ?></td>
+            <td><?php echo $cadastros['adm']; ?></td>
 
         </tr>
     <?php } ?>

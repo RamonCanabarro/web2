@@ -16,6 +16,11 @@ switch(isset($_GET['acao'])? $_GET['acao'] : 'erro'){
 	case 'excluir':
 		$resultado = $oCadastro->excluir($_GET['id_administrador']);
 		break;
+    case 'deslogar':
+        unset($_SESSION['adm']);
+        $_SESSION['mensagem'] = "Usuário deslogado";
+        header('location:login.php');
+
 }
 
   $mensagem = $resultado ? 'Operação realizada com sucesso.' : 'Ocorreu um erro.';
@@ -28,5 +33,5 @@ echo ("</pre>");
 ?>
 <script>
     alert('<?php echo $mensagem; ?>');
-    window.location.href= 'index.php';
+    window.location.href= 'login.php';
 </script>

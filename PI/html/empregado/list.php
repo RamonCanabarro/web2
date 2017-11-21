@@ -13,7 +13,11 @@ class Cadastrar1
     protected $email;
     protected $cargo_id_cargo;
     protected $fk_administrador;
-    protected $endereco;
+    protected $cep;
+    protected $rua;
+    protected $bairro;
+    protected $cidade;
+    protected $estado;
 
     public function getIdEmpregado()
     {
@@ -84,18 +88,51 @@ class Cadastrar1
     {
         $this->fk_administrador = $fk_administrador;
     }
+    public function getCep()
+    {
+        return $this->cep;
+    }
 
-//    public function getEndereco()
-//    {
-//        return $this->endereco;
-//    }
-//
-//    public function setEndereco($endereco)
-//    {
-//        $this->endereco = $endereco;
-//    }
+    public function setCep($cep)
+    {
+        $this->cep = $cep;
+    }
+    public function getRua()
+    {
+        return $this->rua;
+    }
 
+    public function setRua($rua)
+    {
+        $this->rua = $rua;
+    }
+    public function getBairro()
+    {
+        return $this->bairro;
+    }
 
+    public function setBairro($bairro)
+    {
+        $this->bairro = $bairro;
+    }
+    public function getCidade()
+    {
+        return $this->cidade;
+    }
+
+    public function setCidade($cidade)
+    {
+        $this->cidade = $cidade;
+    }
+    public function getEstado()
+    {
+        return $this->uf;
+    }
+
+    public function setEstado($estado)
+    {
+        $this->uf = $estado;
+    }
     /**
      * @param $dados
      * @return mixed
@@ -109,8 +146,13 @@ class Cadastrar1
         $celular = $dados['celular'];
         $cargo_id_cargo = $dados['cargo_id_cargo'];
         $fk_administrador = $dados['fk_administrador'];
+        $cep = $dados['cep'];
+        $rua = $dados['rua'];
+        $bairro = $dados['bairro'];
+        $cidade = $dados['cidade'];
+        $estado = $dados['uf'];
         $sql = /** @lang text */
-            "insert into empregado (nome, cpf, telefone, celular,cargo_id_cargo, fk_administrador)values ('$nome', '$cpf', '$telefone', '$celular', '$cargo_id_cargo','$fk_administrador');";
+            "insert into empregado (nome, cpf, telefone, celular,cargo_id_cargo, fk_administrador, cep,rua,bairro,cidade,estado)values ('$nome', '$cpf', '$telefone', '$celular', '$cargo_id_cargo','$fk_administrador','$cep','$rua','$bairro','$cidade','$estado');";
 
         $oConexao = new conexao();
         return $oConexao->executar($sql);

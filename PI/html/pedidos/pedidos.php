@@ -1,18 +1,12 @@
 <?php include_once 'list.php';
-$oCadastro = new Cadastrar();
+$oCadastro = new Pedidos();
 if (!empty($_GET['id_pedidos'])) {
     $oCadastro->carregarPorId($_GET['id_pedidos']);
 }
-include_once '../mesa/list.php';
-include_once '../cardapio/list.php';
 include_once '../produtos/list.php';
-
-$oMesa = (new Cadastrar5())->recuperarTodos();
 $oProdutos = (new Produtos())->recuperarTodos();
-
 include_once '../cabecalho.php'; ?>
 <form action="processamento.php?acao=salvar" method="post" name="id_pedidos">
-    <div class="panel panel-primary">
         <div class="panel-heading" align="center"></div>
         <div class="panel-body form-horizontal">
             <div class="col-md-12">
@@ -29,6 +23,7 @@ include_once '../cabecalho.php'; ?>
                             <div class="left col-xs-7">
                                 <h2>Prato</h2>
                                 <ul class="list-unstyled">
+                                    <li><i class=""></i><?php echo $produto['imagem']; ?></li>
                                     <li><i class=""></i><?php echo $produto['nome']; ?></li>
                                     <li><i class="glyphicon glyphicon-usd"></i><?php echo $produto['preco']; ?></li>
                                 </ul>
@@ -36,9 +31,9 @@ include_once '../cabecalho.php'; ?>
                         </div>
                     </div>
                 </div>
-
-                <?php } ?>
-                <?php include_once '../rodape.php'; ?>
+            </table>
+            <?php } ?>
+            <?php include_once '../rodape.php'; ?>
         </div>
 </form>
 <!--value="--><?php //echo $produto['preco']; ?><!--"-->

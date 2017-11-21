@@ -2,7 +2,7 @@
 
 include_once 'list.php';
 
-$oCadastro = new Cadastrar();
+$oCadastro = new Pedidos();
 
 var_dump($_POST);
 switch(isset($_GET['acao'])? $_GET['acao'] : 'erro'){
@@ -19,14 +19,14 @@ switch(isset($_GET['acao'])? $_GET['acao'] : 'erro'){
 }
 
   $mensagem = $resultado ? 'Operação realizada com sucesso.' : 'Ocorreu um erro.';
-echo ("<pre>");
-print_r($_POST);
-print_r($oCadastro->inserir($_POST));
-print_r($_GET);
-echo ("</pre>");
+//echo ("<pre>");
+//print_r($_POST);
+//print_r($oCadastro->inserir($_POST));
+//print_r($_GET);
+//echo ("</pre>");
 
 ?>
  <script>
 	alert('<?php echo $mensagem; ?>');
-//	window.location.href= 'index.php';
+	window.location.href= 'index.php';
 </script>

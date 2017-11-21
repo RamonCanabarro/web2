@@ -4,7 +4,7 @@ include_once 'list.php';
 
 $oCadastro = new Cadastrar0();
 
-var_dump($_POST);
+//var_dump($_POST);
 switch(isset($_GET['acao'])? $_GET['acao'] : 'erro'){
 	case 'salvar':
         if(empty($_POST['id'])){

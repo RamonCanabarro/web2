@@ -2,7 +2,10 @@
 include_once '../../conexao.php';
 error_reporting(E_ALL);
 
-class Cadastrar
+
+
+
+class Pedidos
 {
     protected $id_pedidos;
     protected $preco;
@@ -57,7 +60,7 @@ class Cadastrar
         $preco = $dados['preco'];
 
         $sql = /** @lang text */
-            "insert into pedidos (codigo, nome, preco, ) values('$codigo','$nome', '$preco',)";
+            "insert into pedidos (codigo, nome, preco) values('$codigo','$nome', '$preco')";
 
         $oConexao = new conexao();
         return $oConexao->executar($sql);

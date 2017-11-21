@@ -87,7 +87,7 @@ class Produtos
      * @param $dados
      * @return mixed
      */
-    public function inserir($dados)
+    public function inserir($dados, $img)
     {
         $id_produtos = $dados['id_produtos'];
         $nome = $dados['nome'];
@@ -95,10 +95,11 @@ class Produtos
         $codigo = $dados['codigo'];
         $qtd = $dados['qtd'];
         $observacoes = $dados['observacoes'];
+        $imagem = $img;
         $administrador = $dados['administrador'];
 
         $sql = /** @lang text */
-            "insert into produtos (nome, preco, quantidade, observacoes, administrador_id_administrador, codigo)values ('$nome', '$preco','$qtd', '$observacoes','$administrador', '$codigo')";
+            "insert into produtos (nome, preco, quantidade, observacoes, administrador_id_administrador, codigo, imagem)values ('$nome', '$preco','$qtd', '$observacoes','$administrador', '$codigo','$imagem')";
 
         $oConexao = new conexao();
         return $oConexao->executar($sql);
@@ -120,7 +121,27 @@ class Produtos
         $this->codigo = $produtos[0]['codigo'];
 
     }
+    public function fazerUpload($id_produto)
+    {
+        foreach ($_FILES["foto"]["error"] as $chave => $error) {
+            if (!$_FILES['foto']['error'][$chave]){
 
+                $nomeArquivo = date('Ymd') . '_' . $id_produto . '_' . $_FILES['foto']['name'][$chave];
+
+                $origem = $_FILES['foto']['tmp_name'][$chave];
+                $destino = '../upload/produtos/' . $nomeArquivo;
+
+                move_uploaded_file($origem, $destino);
+
+                $sql = "insert into foto (id_produto, caminho)
+                               values('$id_produto', '$nomeArquivo')";
+
+                $oConexao = new Conexao();
+                $oConexao->executar($sql);
+
+            }
+        }
+    }
 
     public function recuperarTodos()
     {
@@ -129,6 +150,21 @@ class Produtos
 
         $oConexao = new conexao();
         return $oConexao->recuperarTodos($sql);
+    }
+    public function verificarCodigo($codigo)
+    {
+        $sql = "select count(*) as qtd
+                from produtos
+                where codigo = '$codigo'";
+
+        $oConexao = new Conexao ();
+        $retorno = $oConexao->recuperarTodos($sql);
+
+        if($retorno[0]['qtd']){
+            echo 'Já existe produto com o código informado';
+        } else {
+            echo 'O código está disponível';
+        }
     }
 
     public function excluir($id_produtos)

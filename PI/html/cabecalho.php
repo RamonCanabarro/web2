@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php include_once "../administrador/verificarAcesso.php"?><!DOCTYPE html>
 <html lang="en">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- Meta, title, CSS, favicons, etc. -->
@@ -10,6 +10,8 @@
 
 <!-- Bootstrap -->
 <link href="../../../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<!--SweetAler-->
+<link rel="stylesheet" href="../../html/sweetalert2.min.css">
 <!-- Font Awesome -->
 <link href="../../../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 <!-- NProgress -->
@@ -27,6 +29,11 @@
 <link href="../../../chosen/chosen.min.css" rel="stylesheet"/>
 <!-- Custom Theme Style -->
 <link href="../../../build/css/custom.min.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -42,26 +49,18 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li class="active"><a href="../administrador/index.php">Home</a></li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Paginas<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="../administrador/index.php">Administrador</a></li>
                         <li><a href="../reservas/index.php">Reservas</a></li>
                         <li><a href="../restaurante/index.php">Restaurante</a></li>
                         <li><a href="../empregado/index.php">Empregado</a></li>
-                        <li><a href="../clientes/index.php">Cliente</a></li>
                         <li><a href="../produtos/index.php">Produtos</a></li>
-                        <li><a href="../pedidos/index.php">Cliente</a></li>
+                        <li><a href="../pedidos/index.php">Pedidos</a></li>
                     </ul>
                 </li>
-                <li><a href="../administrador/index.php">Administrador</a></li>
-                <li><a href="../reservas/index.php">Reservas</a></li>
-                <li><a href="../restaurante/index.php">Restaurante</a></li>
-                <li><a href="../empregado/index.php">Empregado</a></li>
-                <li><a href="../clientes/index.php">Cliente</a></li>
-                <li><a href="../produtos/index.php">Produtos</a></li>
-                <li><a href="../pedidos/index.php">Pedidos</a></li>
+                <li><a href="../administrador/processamento.php?acao=deslogar"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
 
                 <ul class="nav navbar-nav navbar-right">
                     <!--                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
@@ -72,3 +71,10 @@
 </nav>
 </body>
 </html>
+<?php if(!empty($_SESSION['mensagem'])){ ?>
+    <div class="alert alert-danger">
+        <?php echo $_SESSION['mensagem'];
+        unset($_SESSION['mensagem']);
+        ?>
+    </div>
+<?php }?>

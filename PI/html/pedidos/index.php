@@ -1,7 +1,7 @@
 <?php
 
 include_once 'list.php';
-$oCadastro = new Cadastrar();
+$oCadastro = new Pedidos();
 $cadastrar = $oCadastro->recuperarTodos();
 
 include_once '../cabecalho.php';?>
@@ -10,10 +10,9 @@ include_once '../cabecalho.php';?>
     <h1 style="color:silver" align="center">Listagem</h1>
     <tr>
         <td>Ações</td>
-        <td>Horario</td>
-        <td>Quantidade</td>
+        <td>Senha</td>
+        <td>Nome</td>
         <td>Preço</td>
-        <td>Cliente</td>
 
     </tr>
     <?php foreach ($cadastrar as $cadastros) { ?>
@@ -25,10 +24,9 @@ include_once '../cabecalho.php';?>
                    href="processamento.php?acao=excluir&id_pedidos=<?php echo $cadastros['id_pedidos']; ?>"><span
                         class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
             </td>
-            <td><?php echo $cadastros['horario']; ?></td>
-            <td><?php echo $cadastros['quantidade']; ?></td>
+            <td><?php echo $cadastros['id_pedidos']; ?></td>
+            <td><?php echo $cadastros['nome']; ?></td>
             <td><?php echo $cadastros['preco']; ?></td>
-            <td><?php echo $cadastros['total']; ?></td>
 
         </tr>
     <?php } ?>

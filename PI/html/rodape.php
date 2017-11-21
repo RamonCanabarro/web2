@@ -51,6 +51,7 @@
 <!-- bootstrap-daterangepicker -->
 <script src="../../../vendors/moment/min/moment.min.js"></script>
 <script src="../../../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="../../html/sweetalert2.min.js"></script>
 </body>
 </html>
 
@@ -63,6 +64,8 @@
         $("#celular").mask("(99) 999-9999");
         $("#preco").mask("99.99");
         $("#cpf").mask("999.999.999-99");
+        $("#salario").mask("99.999.99");
+        $("#cep").mask("99.999-999");
 
     });
     

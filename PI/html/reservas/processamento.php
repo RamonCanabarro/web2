@@ -2,13 +2,13 @@
 
 include_once 'list.php';
 
-$oCadastro = new Cadastrar();
+$oCadastro = new Reservas();
 
 var_dump($_POST);
 switch(isset($_GET['acao'])? $_GET['acao'] : 'erro'){
 	case 'salvar':
         if(empty($_POST['id_reservas'])){
-			$resultado = $oCadastro->inserir($_POST);
+        $resultado = $oCadastro->inserir($_POST);
 		} else {
 		$resultado = $oCadastro->alterar($_POST);
         }
@@ -19,11 +19,11 @@ switch(isset($_GET['acao'])? $_GET['acao'] : 'erro'){
 }
 
   $mensagem = $resultado ? 'Operação realizada com sucesso.' : 'Ocorreu um erro.';
-echo ("<pre>");
-print_r($_POST);
+//echo ("<pre>");
+//print_r($_POST);
 //print_r($oCadastro->inserir($_POST));
-print_r($_GET);
-echo ("</pre>");
+//print_r($_GET);
+//echo ("</pre>");
 
 ?>
  <script>

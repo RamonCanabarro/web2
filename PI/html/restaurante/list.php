@@ -78,7 +78,9 @@ class Cadastrar0{
 
     public function recuperarTodos(){
 
-        $sql = "select * from restaurante";
+        $sql = "select adm, nome_restaurante from restaurante 
+inner join administrador = nome
+where  administrador_id_administrador = id_administrador";
 
         $oConexao = new conexao();
         return $oConexao->recuperarTodos($sql);
